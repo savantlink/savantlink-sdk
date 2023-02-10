@@ -1,23 +1,41 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
+
+# build
+/dist
 
 # testing
 /coverage
 
-# production
-/build
+# pack
+package*
+!package.json
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.pem
 
-npm-debug.log*
+# yarn/npm
 yarn-debug.log*
 yarn-error.log*
+.yarn
+.yarnrc
+.npm
+.cache
+.config
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+
+# eslint
+.eslintcache
+
+# storybook build
+/storybook-static/
+
+# VS Code files for those working on multiple tools
+.vscode/*
+*.code-workspace
