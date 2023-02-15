@@ -1,0 +1,18 @@
+$media-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin media-breakpoint-up($breakpoint: lg) {
+  @if not map-has-key($media-breakpoints, $breakpoint) {
+    @error "Invalid breakpoint specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($media-breakpoints)}";
+  }
+
+  @media (min-width: map-get($media-breakpoints, $breakpoint)) {
+    @content;
+  }
+}

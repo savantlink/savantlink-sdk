@@ -1,0 +1,209 @@
+@import "scss/typography";
+
+// mixins
+@mixin button-flat($maincolor) {
+  --button-bg: tranparent;
+  --button-bg-hover: var(#{"--color-" + $maincolor + "-lightest"});
+  --button-bg-active: var(#{"--color-" + $maincolor + "-lighter-2"});
+  --button-border-color: transparent;
+  --button-color: var(#{"--color-" + $maincolor});
+  --button-color-active: var(--color-gray-light);
+}
+
+.button {
+  --button-underline-color: var(--button-color);
+  --button-font-weight: normal;
+  --btn-font-weight: normal;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-min-height);
+  padding: var(--button-padding);
+  font-family: var(--font-family);
+  font-size: inherit;
+  font-weight: var(--btn-font-weight);
+  color: var(--button-color);
+  text-decoration-color: var(--button-underline-color);
+  vertical-align: top;
+  cursor: pointer;
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border-color);
+  border-radius: 5px;
+  transition: all .2s;
+
+  &:hover {
+    color: var(--button-color);
+    background-color: var(--button-bg-hover);
+  }
+
+  &:active {
+    color: var(--button-color-active);
+    background-color: var(--button-bg-active);
+  }
+}
+
+// sizes
+.sm {
+  --button-padding: .25rem .5rem;
+  --button-min-height: 2rem;
+}
+
+.md {
+  --button-padding: .5rem 1rem;
+  --button-min-height: 2.5rem;
+}
+
+.lg {
+  --button-padding: 1rem 2rem;
+  --button-min-height: 3.5rem;
+}
+
+.wide {
+  --button-padding: .5rem 2rem;
+  --button-min-height: 2.5rem;
+}
+
+// skins
+.solid {
+  --button-bg: var(--color-primary);
+  --button-bg-hover: var(--color-primary-darker);
+  --button-bg-active: var(--color-primary-darker-2);
+  --button-border-color: transparent;
+  --button-color: var(--color-gray-light);
+  --button-color-active: var(--color-gray-light);
+
+  &[disabled],
+  &:disabled,
+  &.isDisabled {
+    --button-bg: var(--color-gray-silver);
+    --button-bg-hover: var(--color-gray-silver);
+    --button-bg-active: var(--color-gray-silver);
+    --button-border-color: transparent;
+    --button-color: var(--color-gray-light);
+    --button-color-active: var(--color-gray-light);
+
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.outline {
+  --button-bg: tranparent;
+  --button-bg-hover: var(--color-primary-lightest);
+  --button-bg-active: var(--color-primary-lighter-2);
+  --button-border-color: var(--color-primary);
+  --button-color: var(--color-primary);
+  --button-color-active: var(--color-gray-light);
+
+  &[disabled],
+  &:disabled,
+  &.isDisabled {
+    --button-bg: var(--color-gray-light);
+    --button-bg-hover: var(--color-gray-light);
+    --button-bg-active: var(--color-gray-light);
+    --button-border-color: var(--color-gray-silver);
+    --button-color: var(--color-gray-silver);
+    --button-color-active: var(--color-gray-silver);
+
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.underline {
+  --button-bg: transparent;
+  --button-border-color: transparent;
+  --button-color: var(--color-primary);
+  --button-color-active: var(--color-gray-light);
+
+  text-decoration: underline;
+
+  &[disabled],
+  &:disabled,
+  &.isDisabled {
+    --button-color: var(--color-gray-silver);
+    --button-color-active: var(--color-gray-silver);
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &:active {
+    --button-underline-color: var(--color-primary-darker-2);
+
+    color: var(--color-primary-darker-2);
+  }
+
+  &:hover {
+    --button-underline-color: var(--color-primary-darker);
+
+    color: var(--color-primary-darker);
+  }
+
+  &:focus {
+    color: var(--color-primary-darker);
+  }
+}
+
+.flat {
+  @include button-flat(primary);
+
+  &[disabled],
+  &:disabled,
+  &.isDisabled {
+    --button-bg: transparent;
+    --button-bg-hover: var(--color-gray-light);
+    --button-bg-active: var(--color-gray-light);
+    --button-border-color: transparent;
+    --button-color: var(--color-gray-silver);
+    --button-color-active: var(--color-gray-silver);
+
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+// extra
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.nonWrapped {
+  white-space: nowrap;
+}
+
+.btnIcon svg {
+  vertical-align: middle;
+}
+
+.preIcon {
+  padding-right: .5rem;
+}
+
+.postIcon {
+  padding-left: .5rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-left: .5rem;
+  border: 4px solid var(--color-white-off);
+  border-top: 4px solid var(--color-secondary);
+  border-radius: 50%;
+  transition: all .2s ease;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
