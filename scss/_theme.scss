@@ -134,8 +134,7 @@
   --color-black-rgb: 0 0 0;
   --color-black: rgb(0 0 0);
 
-  /* colors: status */
-  // success
+  /* colors: success */
   --color-success-rgb: 0 140 96;
   --color-success-lightest: rgb(204 232 223);
   --color-success-lighter-3: rgb(128 197 175);
@@ -146,7 +145,7 @@
   --color-success-darker-2: rgb(0 70 48);
   --color-success-darkest: rgb(0 47 32);
 
-  // danger
+  /* colors: danger */
   --color-danger-lightest: rgb(255 246 247);
   --color-danger-lighter-3: rgb(237 154 162);
   --color-danger-lighter-2: rgb(232 120 131);
@@ -157,7 +156,7 @@
   --color-danger-darker-2: rgb(110 27 35);
   --color-danger-darkest: rgb(73 18 23);
 
-  // warning
+  /* colors: warning */
   --color-warning-darker-rgb: 219 168 0;
   --color-warning-darker: rgb(219 168 0);
 
