@@ -2,7 +2,7 @@
 
 // mixins
 @mixin button-flat($maincolor) {
-  --button-bg: tranparent;
+  --button-bg: transparent;
   --button-bg-hover: var(#{"--color-" + $maincolor + "-lightest"});
   --button-bg-active: var(#{"--color-" + $maincolor + "-lighter-2"});
   --button-border-color: transparent;
