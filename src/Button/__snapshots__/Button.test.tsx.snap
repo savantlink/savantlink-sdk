@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders the correct Button Skin 1`] = `
+<body>
+  <div>
+    <button
+      class="button md solid"
+    >
+      Default
+    </button>
+  </div>
+  <div>
+    <button
+      class="button md flat"
+    >
+      Flat
+    </button>
+  </div>
+  <div>
+    <button
+      class="button md solid"
+    >
+      Solid
+    </button>
+  </div>
+  <div>
+    <button
+      class="button md outline"
+    >
+      Outline
+    </button>
+  </div>
+  <div>
+    <button
+      class="button md underline"
+    >
+      Underline
+    </button>
+  </div>
+</body>
+`;
