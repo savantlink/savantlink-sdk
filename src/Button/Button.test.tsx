@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
+
 import Button from './Button'
+
 import SearchIcon from '@/icons/system/search.svg'
 
 describe('Button', () => {

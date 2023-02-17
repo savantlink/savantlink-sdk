@@ -1,9 +1,10 @@
 import { createElement, forwardRef } from 'react';
-import styles from './Button.module.scss';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+
 import clsx from 'clsx';
 
-// types
-import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import styles from './Button.module.scss';
+
 
 export type ButtonTag = 'a' | 'button';
 export type ButtonSizes = 'sm' | 'md' | 'lg' | 'wide';
