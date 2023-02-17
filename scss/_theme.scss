@@ -48,26 +48,26 @@
   --font-weight-bold: bold;
 
   /* font-sizes: static */
-  --label: .75rem;  // 12px
-  --span: .875rem;  // 14px
-  --p: 1rem;        // 16px
-  --h6: 1.125rem;   // 18px
-  --h5: 1.25rem;    // 20px
-  --h4: 1.5rem;     // 24px
-  --h3: 2rem;       // 32px
-  --h2: 2.5rem;     // 40px
-  --h1: 3rem;       // 48px
+  --label: .75rem; // 12px
+  --span: .875rem; // 14px
+  --p: 1rem; // 16px
+  --h6: 1.125rem; // 18px
+  --h5: 1.25rem; // 20px
+  --h4: 1.5rem; // 24px
+  --h3: 2rem; // 32px
+  --h2: 2.5rem; // 40px
+  --h1: 3rem; // 48px
 
   /* font-sizes: responsive */
-  --label-resp: .625rem;  // 10px
-  --span-resp: .75rem;    // 12px
-  --p-resp: .875rem;      // 14px
-  --h6-resp: 1rem;        // 16px
-  --h5-resp: 1.125rem;    // 18px
-  --h4-resp: 1.375rem;    // 22px
-  --h3-resp: 1.75rem;     // 28px
-  --h2-resp: 2rem;        // 32px
-  --h1-resp: 2.5rem;      // 40px
+  --label-resp: .625rem; // 10px
+  --span-resp: .75rem; // 12px
+  --p-resp: .875rem; // 14px
+  --h6-resp: 1rem; // 16px
+  --h5-resp: 1.125rem; // 18px
+  --h4-resp: 1.375rem; // 22px
+  --h3-resp: 1.75rem; // 28px
+  --h2-resp: 2rem; // 32px
+  --h1-resp: 2.5rem; // 40px
 
   @include media-breakpoint-up(md) {
     --label-resp: var(--label);
@@ -82,7 +82,6 @@
   }
 
   /* colors: primary */
-  --color-primary-rgb: 255 89 0;
   --color-primary-lightest: rgb(255 240 232);
   --color-primary-lighter-3: rgb(255 189 153);
   --color-primary-lighter-2: rgb(255 156 102);
@@ -92,7 +91,7 @@
   --color-primary-darker-2: rgb(153 54 0);
   --color-primary-darkest: rgb(92 39 10);
 
-  /* colors: secondary */
+  /* colors: tertiary */
   --color-secondary-lightest-rgb: 225 219 255;
   --color-secondary-lightest: rgb(225 219 255);
   --color-secondary-lighter-3: rgb(181 168 255);
@@ -162,9 +161,8 @@
   --color-warning-darker-rgb: 219 168 0;
   --color-warning-darker: rgb(219 168 0);
 
-  // info
-  --color-info-rgb: 0 123 255;
-  --color-info: rgb(0 123 255);
+  /* colors: info */
+  --color-info: rgb(64 138 223);
 
   // shadows
   --shadow-hover: 0 2px 14px 0 rgb(var(--color-black-rgb) / 16%);
