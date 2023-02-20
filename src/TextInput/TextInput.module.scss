@@ -1,0 +1,70 @@
+@import 'scss/breakpoints';
+
+.wrapper {
+  padding-bottom: 0.75rem;
+  font-size: var(--p);
+  text-align: left;
+  transition: all 0.2s;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 1rem;
+  }
+}
+
+.label {
+  display: block;
+  padding-bottom: 0.25rem;
+  font-weight: var(--font-weight-normal);
+}
+
+.input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 0.75rem;
+  margin: 0;
+  font-family: var(--font-family-main);
+  font-size: var(--p);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-gray-darkest);
+  border: 1px solid;
+  border-color: var(--color-gray-alto);
+  border-radius: 5px;
+  outline: none;
+  transition: inherit;
+
+  &.inputError {
+    border-color: var(--color-danger);
+  }
+
+  &.inputSuccess {
+    border-color: var(--color-success);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-white-off);
+  }
+
+  &:not(.inputError, .inputSuccess, [disabled]) {
+    &:hover {
+      border-color: var(--color-secondary-lighter-2);
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: var(--color-secondary);
+    }
+  }
+}
+
+.hint {
+  padding-top: 0.25rem;
+  font-size: var(--span);
+  color: var(--color-gray-boulder);
+}
+
+.error {
+  padding-top: 0.25rem;
+  font-size: var(--span);
+  color: var(--color-danger);
+}

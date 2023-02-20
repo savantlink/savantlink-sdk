@@ -1,35 +1,34 @@
-import { createElement, forwardRef } from 'react';
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { createElement, forwardRef } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 
-import styles from './Button.module.scss';
+import styles from './Button.module.scss'
 
-
-export type ButtonTag = 'a' | 'button';
-export type ButtonSizes = 'sm' | 'md' | 'lg' | 'wide';
-export type ButtonSkins = 'solid' | 'outline' | 'flat' | 'underline';
+export type ButtonTag = 'a' | 'button'
+export type ButtonSizes = 'sm' | 'md' | 'lg' | 'wide'
+export type ButtonSkins = 'solid' | 'outline' | 'flat' | 'underline'
 
 type ButtonProps = {
-  skin?: ButtonSkins;
-  size?: ButtonSizes;
-  icon?: ReactNode;
-  trailingIcon?: ReactNode;
-  isBlock?: boolean;
-  disabled?: boolean;
-  textNoWrap?: boolean;
-  isLoading?: boolean;
+  skin?: ButtonSkins
+  size?: ButtonSizes
+  icon?: ReactNode
+  trailingIcon?: ReactNode
+  isBlock?: boolean
+  disabled?: boolean
+  textNoWrap?: boolean
+  isLoading?: boolean
 } & (
   | (ButtonHTMLAttributes<HTMLButtonElement> & { tag?: 'button' })
   | (AnchorHTMLAttributes<HTMLAnchorElement> & { tag?: 'a' })
-);
+)
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { tag, size, skin, icon, trailingIcon, disabled, isBlock, textNoWrap, isLoading, className, children, ...props },
     ref
   ) => {
-    const isDisabled = disabled || isLoading;
+    const isDisabled = disabled || isLoading
     const computedClasses = clsx(
       styles.button,
       styles[size || 'md'],
@@ -40,7 +39,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         [styles.nonWrapped]: textNoWrap,
       },
       className
-    );
+    )
 
     const renderButtonContent = (
       <>
@@ -49,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {trailingIcon && <span className={clsx(styles.btnIcon, styles.postIcon)}>{trailingIcon}</span>}
         {isLoading && <span className={styles.spinner} />}
       </>
-    );
+    )
 
     return createElement(
       tag || 'button',
@@ -60,11 +59,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ...props,
       },
       renderButtonContent
-    );
+    )
   }
-);
+)
 
-Button.displayName = 'Button';
+Button.displayName = 'Button'
 
-export default Button;
-export type { ButtonProps };
+export default Button
+export type { ButtonProps }
