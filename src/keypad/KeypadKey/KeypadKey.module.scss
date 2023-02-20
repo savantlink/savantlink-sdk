@@ -1,9 +1,9 @@
 .keypadKey {
-  width: 5rem; /* Default Width */
-  height: 5rem; /* Default Height */
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
-  margin: .5rem;
-  padding: .5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -13,4 +13,9 @@
   box-shadow: var(--shadow-medium);
   background-color: var(--color-light);
   cursor: pointer;
+  transition: all 0.8s;
+
+  &:hover {
+    background-color: var(--color-gray-concrete);
+  }
 }
