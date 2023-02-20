@@ -13,4 +13,9 @@
   box-shadow: var(--shadow-medium);
   background-color: var(--color-light);
   cursor: pointer;
+  transition: all 0.8s;
+
+  &:hover {
+    background-color: var(--color-gray-concrete);
+  }
 }
