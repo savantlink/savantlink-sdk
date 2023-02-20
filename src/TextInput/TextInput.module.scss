@@ -1,10 +1,10 @@
-@import 'scss/breakpoints';
+@import "scss/breakpoints";
 
 .wrapper {
-  padding-bottom: 0.75rem;
+  padding-bottom: .75rem;
   font-size: var(--p);
   text-align: left;
-  transition: all 0.2s;
+  transition: all .2s;
 
   @include media-breakpoint-up(md) {
     padding-bottom: 1rem;
@@ -13,14 +13,14 @@
 
 .label {
   display: block;
-  padding-bottom: 0.25rem;
+  padding-bottom: .25rem;
   font-weight: var(--font-weight-normal);
 }
 
 .input {
   width: 100%;
   height: 3rem;
-  padding: 0 0.75rem;
+  padding: 0 .75rem;
   margin: 0;
   font-family: var(--font-family-main);
   font-size: var(--p);
@@ -58,13 +58,13 @@
 }
 
 .hint {
-  padding-top: 0.25rem;
+  padding-top: .25rem;
   font-size: var(--span);
   color: var(--color-gray-boulder);
 }
 
 .error {
-  padding-top: 0.25rem;
+  padding-top: .25rem;
   font-size: var(--span);
   color: var(--color-danger);
 }

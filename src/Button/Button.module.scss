@@ -1,12 +1,12 @@
-@import 'scss/typography';
+@import "scss/typography";
 
 // mixins
 @mixin button-flat($maincolor) {
   --button-bg: transparent;
-  --button-bg-hover: var(#{'--color-' + $maincolor + '-lightest'});
-  --button-bg-active: var(#{'--color-' + $maincolor + '-lighter-2'});
+  --button-bg-hover: var(#{"--color-" + $maincolor + "-lightest"});
+  --button-bg-active: var(#{"--color-" + $maincolor + "-lighter-2"});
   --button-border-color: transparent;
-  --button-color: var(#{'--color-' + $maincolor});
+  --button-color: var(#{"--color-" + $maincolor});
   --button-color-active: var(--color-gray-light);
 }
 
@@ -30,7 +30,7 @@
   background-color: var(--button-bg);
   border: 1px solid var(--button-border-color);
   border-radius: 5px;
-  transition: all 0.2s;
+  transition: all .2s;
 
   &:hover {
     color: var(--button-color);
@@ -45,12 +45,12 @@
 
 // sizes
 .sm {
-  --button-padding: 0.25rem 0.5rem;
+  --button-padding: .25rem .5rem;
   --button-min-height: 2rem;
 }
 
 .md {
-  --button-padding: 0.5rem 1rem;
+  --button-padding: .5rem 1rem;
   --button-min-height: 2.5rem;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .wide {
-  --button-padding: 0.5rem 2rem;
+  --button-padding: .5rem 2rem;
   --button-min-height: 2.5rem;
 }
 
@@ -179,22 +179,22 @@
 }
 
 .preIcon {
-  padding-right: 0.5rem;
+  padding-right: .5rem;
 }
 
 .postIcon {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
 }
 
 .spinner {
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  margin-left: 0.5rem;
+  margin-left: .5rem;
   border: 4px solid var(--color-white-off);
   border-top: 4px solid var(--color-secondary);
   border-radius: 50%;
-  transition: all 0.2s ease;
+  transition: all .2s ease;
   animation: spin 1s linear infinite;
 }
 
