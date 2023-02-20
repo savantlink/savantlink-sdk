@@ -9,35 +9,39 @@ type TSkin = 'solid' | 'outline' | 'translucent'
 type TSize = 'small' | 'medium'
 
 type BadgeProps = {
-  label: string
+  count: number
+  maxCount?: number
   skin?: TSkin
   color?: TColor
   size?: TSize
-  isRounded?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
 const Badge = ({
-  label,
+  count,
+  maxCount = 999,
   skin = 'solid',
   color = 'primary',
   size = 'medium',
-  isRounded,
   className,
+  children,
   ...props
 }: BadgeProps) => {
-  const computedClasses = clsx(
-    styles.badge,
-    styles[skin],
-    styles[color],
-    styles[size],
-    { [styles.rounded]: isRounded },
-    className
-  )
+  const computedClasses = clsx(styles.badge, styles[skin], styles[color], styles[size], className)
+
+  const getCount = () => {
+    if (count > maxCount) return `${maxCount}+`
+    return count
+  }
 
   return (
-    <span className={computedClasses} {...props}>
-      {label}
-    </span>
+    <div className={styles.wrapper}>
+      {children}
+      {getCount() > 0 ? (
+        <span className={clsx(computedClasses, { [styles.float]: children })} {...props}>
+          {getCount()}
+        </span>
+      ) : null}
+    </div>
   )
 }
 

@@ -1,56 +1,36 @@
-@import 'scss/typography';
+@import "scss/typography";
 
-.wrapper {
-  position: relative;
-  width: max-content;
-  height: max-content;
-}
-
-.badge {
+.tag {
   // default vars
   --badge-color: var(--color-light);
   --badge-bg-color: var(--color-primary);
   --badge-bg-color-rgb: var(--color-primary-rgb);
   --badge-border-color: var(--color-primary);
-  --badge-height: 1.25rem;
-  --badge-font-size: 1rem;
+  --badge-border-radius: 3px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   font-weight: var(--font-weight-normal);
   color: var(--badge-color);
   text-align: center;
   white-space: nowrap;
   background-color: var(--badge-bg-color);
   border: 1.5px solid var(--badge-border-color);
-  border-radius: 10px;
-  height: var(--badge-height);
-  font-size: var(--badge-font-size);
-  width: max-content;
-  line-height: 100%;
+  border-radius: var(--badge-border-radius);
 
   @include typography(regular);
 }
 
-.float {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  z-index: 10000000;
-}
-
 //  sizes
 .small {
-  --badge-height: 0.875rem;
-  --badge-font-size: var(--label);
-  padding: 0.15rem;
+  padding: .188rem .5rem;
+  font-size: .875rem;
+  line-height: 1rem;
 }
 
 .medium {
-  --badge-height: 1.25rem;
-  --badge-font-size: var(--span);
-  padding: 0.25rem;
+  padding: .25rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
 }
 
 // colors

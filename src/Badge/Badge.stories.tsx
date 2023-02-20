@@ -20,21 +20,21 @@ const GalleryTemplate: ComponentStory<typeof Badge> = (args) => {
         flexWrap: 'wrap',
       }}
     >
-      <Badge {...args} label="Primary badge" color="primary" />
-      <Badge {...args} label="Secondary badge" color="secondary" />
-      <Badge {...args} label="Error badge" color="danger" />
-      <Badge {...args} label="Success badge" color="success" />
-      <Badge {...args} label="Warning badge" color="warning" />
-      <Badge {...args} label="Info badge" color="info" />
-      <Badge {...args} label="Gray badge" color="gray" />
-      <Badge {...args} label="Dark badge" color="dark" />
+      <Badge {...args} count={20} color="primary" />
+      <Badge {...args} count={20} color="secondary" />
+      <Badge {...args} count={20} color="danger" />
+      <Badge {...args} count={20} color="success" />
+      <Badge {...args} count={20} color="warning" />
+      <Badge {...args} count={20} color="info" />
+      <Badge {...args} count={20} color="gray" />
+      <Badge {...args} count={20} color="dark" />
     </div>
   )
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Badge',
+  count: 20,
   skin: 'solid',
   color: 'primary',
 }
@@ -43,7 +43,7 @@ export const SolidBadges = GalleryTemplate.bind({})
 SolidBadges.args = {
   skin: 'solid',
 }
-SolidBadges.parameters = { controls: { exclude: ['label', 'color', 'skin'] } }
+SolidBadges.parameters = { controls: { exclude: ['count', 'color', 'skin'] } }
 
 export const TranslucentBadges = GalleryTemplate.bind({})
 TranslucentBadges.args = {
@@ -61,6 +61,10 @@ OutlineBadges.parameters = {
   ...SolidBadges.parameters,
 }
 
-export const RoundedBadge = () => {
-  return <Badge isRounded label="10" skin="solid" color="primary" size="small" />
+export const BadgeWithParent = () => {
+  return (
+    <Badge count={9} color="primary">
+      <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '10px', background: 'var(--color-gray-mercury)' }} />
+    </Badge>
+  )
 }
