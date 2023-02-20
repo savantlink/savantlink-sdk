@@ -27,5 +27,7 @@ const KeypadKey = ({ keypadKey, onKeyPressed }: KeypadKeyProps) => (
   </div>
 )
 
+KeypadKey.displayName = 'KeypadKey'
+
 export default KeypadKey
 export type { KeypadKeyProps }

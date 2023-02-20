@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from './Keypad.module.scss'
-import { KeypadKey, KeypadKeys } from '../KeypadKey'
+import KeypadKey, { KeypadKeys } from '../KeypadKey'
 
 type KeypadProps = {
   onKeyPressed: (keyPressed: KeypadKeys) => void
@@ -49,6 +49,8 @@ const Keypad = ({ onKeyPressed }: KeypadProps) => {
     </div>
   )
 }
+
+Keypad.displayName = 'Keypad'
 
 export default Keypad
 export type { KeypadProps }

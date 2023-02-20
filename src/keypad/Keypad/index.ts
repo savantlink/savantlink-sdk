@@ -1,2 +1,2 @@
-export { default as Keypad } from './Keypad'
+export { default } from './Keypad'
 export type { KeypadProps } from './Keypad'

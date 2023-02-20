@@ -1,0 +1,93 @@
+@import "scss/typography";
+
+.h1 {
+  @include typography(heading1);
+}
+
+.h2 {
+  @include typography(heading2);
+}
+
+.h3 {
+  @include typography(heading3);
+}
+
+.h4 {
+  @include typography(heading4);
+}
+
+.h5 {
+  @include typography(heading5);
+}
+
+.h6 {
+  @include typography(heading6);
+}
+
+.large {
+  @include typography(large);
+}
+
+.regular {
+  @include typography(regular);
+}
+
+.small {
+  @include typography(small);
+}
+
+.label {
+  @include typography(label);
+}
+
+.h1Resp {
+  @include typography(heading1Resp);
+}
+
+.h2Resp {
+  @include typography(heading2Resp);
+}
+
+.h3Resp {
+  @include typography(heading3Resp);
+}
+
+.h4Resp {
+  @include typography(heading4Resp);
+}
+
+.h5Resp {
+  @include typography(heading5Resp);
+}
+
+.h6Resp {
+  @include typography(heading6Resp);
+}
+
+.largeResp {
+  @include typography(largeResp);
+}
+
+.regularResp {
+  @include typography(regularResp);
+}
+
+.smallResp {
+  @include typography(smallResp);
+}
+
+.labelResp {
+  @include typography(labelResp);
+}
+
+.fwdefault {
+  font-weight: var(--font-weight-light);
+}
+
+.fwbold {
+  font-weight: var(--font-weight-normal);
+}
+
+.fwbolder {
+  font-weight: var(--font-weight-medium);
+}
