@@ -1,4 +1,4 @@
-@import 'scss/typography';
+@import "scss/typography";
 
 .wrapper {
   position: relative;
@@ -18,17 +18,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: max-content;
+  height: var(--badge-height);
+  font-size: var(--badge-font-size);
   font-weight: var(--font-weight-normal);
+  line-height: 100%;
   color: var(--badge-color);
   text-align: center;
   white-space: nowrap;
   background-color: var(--badge-bg-color);
   border: 1.5px solid var(--badge-border-color);
   border-radius: 10px;
-  height: var(--badge-height);
-  font-size: var(--badge-font-size);
-  width: max-content;
-  line-height: 100%;
 
   @include typography(regular);
 }
@@ -42,15 +42,17 @@
 
 //  sizes
 .small {
-  --badge-height: 0.875rem;
+  --badge-height: .875rem;
   --badge-font-size: var(--label);
-  padding: 0.15rem;
+
+  padding: .15rem;
 }
 
 .medium {
   --badge-height: 1.25rem;
   --badge-font-size: var(--span);
-  padding: 0.25rem;
+
+  padding: .25rem;
 }
 
 // colors
