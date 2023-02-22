@@ -1,10 +1,12 @@
+import React from 'react'
+
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import TextInput from './TextInput'
+import Input from './Input'
 
 export default {
-  title: 'Atoms/TextInput',
-  component: TextInput,
+  title: 'Atoms/Input',
+  component: Input,
   parameters: {
     docs: {
       description: {
@@ -44,10 +46,10 @@ export default {
       type: 'string',
     },
   },
-} as ComponentMeta<typeof TextInput>
+} as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof TextInput> = (args) => {
-  return <TextInput {...args} />
+const Template: ComponentStory<typeof Input> = (args) => {
+  return <Input {...args} />
 }
 
 export const Default = Template.bind({})

@@ -1,0 +1,57 @@
+@import "scss/breakpoints";
+
+.wrapper {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  margin: auto 4px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-darkest);
+  border-radius: 5px;
+}
+
+.ellipsis {
+  background-color: transparent;
+}
+
+.button {
+  width: 2.25rem;
+  cursor: pointer;
+  background-color: var(--color-gray-concrete);
+
+  &:hover {
+    color: var(--color-light);
+    background-color: var(--color-primary);
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 2.5rem;
+  }
+}
+
+.active {
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.navigation {
+  padding: 0 .75rem;
+  cursor: pointer;
+  background-color: var(--color-gray-concrete);
+
+  &:hover {
+    color: var(--color-light);
+    background-color: var(--color-primary);
+  }
+}
+
+.hide {
+  display: none;
+}
