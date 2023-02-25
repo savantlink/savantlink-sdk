@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 import styles from './Pagination.module.scss'
-import { ELLIPSIS, usePagination } from '../hooks/use-pagination'
+import { ELLIPSIS, usePagination } from '../use-pagination'
 
 type PaginationProps = {
   onPageChange: (currentPage: number) => void

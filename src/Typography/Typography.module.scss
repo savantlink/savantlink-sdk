@@ -84,10 +84,22 @@
   font-weight: var(--font-weight-light);
 }
 
-.fwbold {
+.fwthin {
+  font-weight: var(--font-weight-thin);
+}
+
+.fwregular {
   font-weight: var(--font-weight-normal);
 }
 
-.fwbolder {
+.fwmedium {
   font-weight: var(--font-weight-medium);
+}
+
+.fwbold {
+  font-weight: var(--font-weight-bold);
+}
+
+.fwbolder {
+  font-weight: var(--font-weight-black);
 }

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { range } from '../../services/number'
+import { range } from '../services/number'
 
 const ELLIPSIS = '...'
 
