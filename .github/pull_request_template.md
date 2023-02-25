@@ -15,11 +15,9 @@ Description of the code changes happening
 - [ ] Documentation 
 
 ## What Services are affected by this change?
-- [ ] Prophet
-- [ ] Platform
-- [ ] Website
-- [ ] Accounting
-- [ ] Other
+- [ ] Webapp-sdk
+- [ ] Fe-POS
+- [ ] Be-POS
 
 ## JIRA Ticket/s
 <!--
