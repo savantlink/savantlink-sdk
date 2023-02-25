@@ -1,51 +1,21 @@
 /* UX design system custom properties */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import "./breakpoints";
-
-@font-face {
-  font-family: Telefon;
-  font-weight: 300;
-  src:
-    url(./fonts/telefon-light.woff2) format("woff2"),
-    url(./fonts/telefon-light.woff) format("woff"),
-    url(./fonts/telefon-light.ttf) format("truetype"); /* Safari, Android, iOS */
-
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Telefon;
-  font-weight: normal;
-  src:
-    url(./fonts/telefon-normal.woff2) format("woff2"),
-    url(./fonts/telefon-normal.woff) format("woff"),
-    url(./fonts/telefon-normal.ttf) format("truetype"); /* Safari, Android, iOS */
-
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Telefon;
-  font-weight: 500;
-  src:
-    url(./fonts/telefon-medium.woff2) format("woff2"),
-    url(./fonts/telefon-medium.woff) format("woff"),
-    url(./fonts/telefon-medium.ttf) format("truetype"); /* Safari, Android, iOS */
-
-  font-display: swap;
-}
 
 :root {
   /* setting root spacing */
   font-size: 16px;
 
   /* font family */
-  --font-family-main: Telefon;
+  --font-family-main: Roboto;
 
   /* font-weights */
+  --font-weight-thin: 100;
   --font-weight-light: 300;
   --font-weight-normal: normal;
   --font-weight-medium: 500;
   --font-weight-bold: bold;
+  --font-weight-black: 900;
 
   /* font-sizes: static */
   --label: .75rem; // 12px

@@ -36,11 +36,9 @@ const Badge = ({
   return (
     <div className={styles.wrapper}>
       {children}
-      {getCount() > 0 ? (
-        <span className={clsx(computedClasses, { [styles.float]: children })} {...props}>
-          {getCount()}
-        </span>
-      ) : null}
+      <span className={clsx(computedClasses, { [styles.float]: children })} {...props}>
+        {getCount()}
+      </span>
     </div>
   )
 }

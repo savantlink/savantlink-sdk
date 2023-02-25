@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from './Keypad.module.scss'
+import styles from './NumberKeypad.module.scss'
 import KeypadKey, { KeypadKeys } from '../KeypadKey'
 
-type KeypadProps = {
+type NumberKeypadProps = {
   onKeyPressed: (keyPressed: KeypadKeys) => void
 }
 
-const Keypad = ({ onKeyPressed }: KeypadProps) => {
+const NumberKeypad = ({ onKeyPressed }: NumberKeypadProps) => {
   const rows: string[][] = [
     [...Object.keys(KeypadKeys).slice(0, 3)],
     [...Object.keys(KeypadKeys).slice(3, 6)],
@@ -50,7 +50,7 @@ const Keypad = ({ onKeyPressed }: KeypadProps) => {
   )
 }
 
-Keypad.displayName = 'Keypad'
+NumberKeypad.displayName = 'NumberKeypad'
 
-export default Keypad
-export type { KeypadProps }
+export default NumberKeypad
+export type { NumberKeypadProps }

@@ -1,16 +1,16 @@
-import { InputHTMLAttributes, ReactNode } from 'react'
+import { InputHTMLAttributes } from 'react'
 
 import clsx from 'clsx'
 
-import styles from './TextInput.module.scss'
+import styles from './Input.module.scss'
 
-type TextInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   inputId: string
   isSuccess?: boolean
   isError?: boolean
-  error?: ReactNode
-  hint?: ReactNode
-  label?: ReactNode
+  error?: string
+  hint?: string
+  label?: string
   tooltip?: string
   errorId?: string
   labelId?: string
@@ -18,10 +18,9 @@ type TextInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & 
   errorClassName?: string
   labelClassName?: string
   hintClassName?: string
-  // type?: 'text' | 'search' | 'email' | 'password'
 }
 
-const TextInput = ({
+const Input = ({
   inputId,
   isSuccess,
   isError,
@@ -37,13 +36,14 @@ const TextInput = ({
   labelClassName,
   hintClassName,
   ...props
-}: TextInputProps) => {
+}: InputProps) => {
   return (
     <div title={tooltip} className={clsx(className, styles.wrapper)}>
       {label && (
         <label id={labelId} htmlFor={inputId} className={clsx(labelClassName, styles.label)}>
           {label}
         </label>
+        
       )}
       <input
         id={inputId}
@@ -55,20 +55,20 @@ const TextInput = ({
         {...props}
       />
       {error && (
-        <label id={errorId} className={clsx(errorClassName, styles.error)}>
+        <span id={errorId} className={clsx(errorClassName, styles.error)}>
           {error}
-        </label>
+        </span>
       )}
       {!error && hint && (
-        <label id={hintId} className={clsx(hintClassName, styles.hint)}>
+        <span id={hintId} className={clsx(hintClassName, styles.hint)}>
           {hint}
-        </label>
+        </span>
       )}
     </div>
   )
 }
 
-TextInput.displayName = 'TextInput'
+Input.displayName = 'Input'
 
-export default TextInput
-export type { TextInputProps }
+export default Input
+export type { InputProps }
