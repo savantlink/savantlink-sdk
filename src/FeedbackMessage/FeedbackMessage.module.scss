@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: max-content;
+  padding: 2rem 0;
+  color: var(--color-gray-darkest);
+  text-align: center;
+}
+
+.subtitle {
+  width: 100%;
+  max-width: 25rem;
+  line-height: 175%;
+}

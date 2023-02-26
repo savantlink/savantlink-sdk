@@ -1,6 +1,6 @@
 {
   "name": "@savantql/webapp-sdk",
-  "version": "0.0.10",
+  "version": "0.0.15",
   "description": "A package that contains reusables components and services of the SavantQL design system and architecture",
   "homepage": "https://github.com/savantql/webapp-sdk.git",
   "files": [
@@ -48,8 +48,8 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
-    "@svgr/rollup": "^6.5.1",
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/rollup": "^6.3.1",
+    "@svgr/webpack": "5.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",

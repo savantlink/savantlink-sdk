@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import KeypadKey, { KeypadKeys } from './KeypadKey'
 import styles from './NumberKeypad.module.scss'
-import KeypadKey, { KeypadKeys } from '../KeypadKey'
 
 type NumberKeypadProps = {
   onKeyPressed: (keyPressed: KeypadKeys) => void
@@ -14,24 +14,12 @@ const NumberKeypad = ({ onKeyPressed }: NumberKeypadProps) => {
     [...Object.keys(KeypadKeys).slice(9, 12)],
   ]
 
-  // const handleKeypadKeyPress = (keyPadKey: KeypadKeys): void => {
-  //   switch (keyPadKey) {
-  //     case KeypadKeys.CLEAR:
-  //       return setKeypadEntries('')
-  //     case KeypadKeys.BKSP:
-  //       return setKeypadEntries(keypadEntries.slice(0, -1))
-  //     default:
-  //       setKeypadEntries((keypadEntries + keyPadKey).toString())
-  //       break
-  //   }
-  // }
-
   return (
     <div className={styles.keypad}>
       {rows.map(
         (
           row: any,
-          idx: number // TODO: resolve type
+          idx: number
         ) => (
           <div className={styles.keypadRow} key={idx}>
             {row.map((keyPadNumber: keyof typeof KeypadKeys) => {

@@ -1,0 +1,38 @@
+@import "scss/breakpoints";
+
+.wrapper {
+  --bg-color: var(--color-primary);
+
+  display: block;
+  padding: .5rem;
+  font-size: var(--span);
+  color: var(--color-light);
+  text-align: center;
+  background-color: var(--bg-color);
+
+  @include media-breakpoint-up(md) {
+    font-size: var(--p);
+  }
+}
+
+.success {
+  --bg-color: var(--color-success);
+}
+
+.secondary {
+  --bg-color: var(--color-secondary-darker-2);
+}
+
+.danger {
+  --bg-color: var(--color-danger);
+}
+
+.dark {
+  --bg-color: var(--color-black);
+}
+
+.warning {
+  --bg-color: var(--color-warning-darker);
+
+  font-weight: var(--font-weight-medium);
+}
