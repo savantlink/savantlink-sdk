@@ -87,6 +87,7 @@
 
   /* colors: light */
   --color-light: rgb(255 255 255);
+  --color-light-rgb: 255 255 255;
   --color-light-off: rgb(250 250 250);
 
   /* colors: gray */
@@ -105,15 +106,21 @@
   --color-gray-darkest: rgb(51 51 51);
 
   /* colors: dark */
-  --color-black: rgb(0 0 0);
+  --color-dark: rgb(0 0 0);
+  --color-dark-rgb: 0 0 0;
+  --color-dark-feint: rgb(0 0 0 / 15%);
+  --color-dark-light: rgb(38 43 51);
+  --color-dark-lightest: rgb(55 61 70);
 
   /* colors: success */
+  --color-success: rgb(0 140 96);
   --color-success-rgb: 0 140 96;
   --color-success-lightest: rgb(204 232 223);
   --color-success-lighter-3: rgb(128 197 175);
   --color-success-lighter-2: rgb(85 178 149);
+  --color-success-lighter-1: rgb(112 233 12);
+  --color-success-lighter-1-rgb: 112, 233, 12;
   --color-success-lighter: rgb(42 159 123);
-  --color-success: rgb(0 140 96);
   --color-success-darker: rgb(0 93 64);
   --color-success-darker-2: rgb(0 70 48);
   --color-success-darkest: rgb(0 47 32);
@@ -135,11 +142,12 @@
 
   /* colors: info */
   --color-info: rgb(64 138 223);
+  --color-info-rgb: 64 138 223;
 
   // shadows
-  --shadow-hover: 0 2px 14px 0 rgb(var(--color-black-rgb) / 16%);
-  --shadow-2: 0 3px 20px 0 rgb(var(--color-black-rgb) / 12%);
-  --shadow-5: 0 4px 4px 0 rgb(var(--color-black-rgb) / 11%);
+  --shadow-hover: 0 2px 14px 0 rgb(var(--color-dark-rgb) / 16%);
+  --shadow-2: 0 3px 20px 0 rgb(var(--color-dark-rgb) / 12%);
+  --shadow-5: 0 4px 4px 0 rgb(var(--color-dark-rgb) / 11%);
   --shadow-smallest: 0 0 1px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 10%);
   --shadow-small: 0 0 1px rgb(0 0 0 / 5%), 0 4px 8px rgb(0 0 0 / 5%);
   --shadow-medium: 0 0 1px rgb(0 0 0 / 8%), 0 8px 16px rgb(0 0 0 / 5%);

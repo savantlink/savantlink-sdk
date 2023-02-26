@@ -4,24 +4,24 @@ import clsx from 'clsx'
 
 import styles from './Badge.module.scss'
 
-type TColor = 'primary' | 'gray' | 'success' | 'danger' | 'info' | 'warning' | 'secondary' | 'dark'
+type TColor = 'primary' | 'gray' | 'success' | 'successLight' | 'danger' | 'info' | 'warning' | 'secondary' | 'dark'
 type TSkin = 'solid' | 'outline' | 'translucent'
-type TSize = 'small' | 'medium'
+type TSize = 'dot' | 'small' | 'medium'
 
 type BadgeProps = {
-  count: number
+  size: TSize
+  count?: number
   maxCount?: number
   skin?: TSkin
   color?: TColor
-  size?: TSize
 } & HTMLAttributes<HTMLSpanElement>
 
 const Badge = ({
+  size = 'medium',
   count,
   maxCount = 999,
   skin = 'solid',
   color = 'primary',
-  size = 'medium',
   className,
   children,
   ...props
@@ -29,12 +29,15 @@ const Badge = ({
   const computedClasses = clsx(styles.badge, styles[skin], styles[color], styles[size], className)
 
   const getCount = () => {
-    if (count > maxCount) return `${maxCount}+`
-    return count
+    if (count) {
+      if (count > maxCount) return `${maxCount}+`
+      return count
+    }
+    return null
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.badgeWrapper}>
       {children}
       <span className={clsx(computedClasses, { [styles.float]: children })} {...props}>
         {getCount()}

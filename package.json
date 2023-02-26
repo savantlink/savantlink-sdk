@@ -1,6 +1,6 @@
 {
   "name": "@savantql/webapp-sdk",
-  "version": "0.0.15",
+  "version": "0.0.20",
   "description": "A package that contains reusables components and services of the SavantQL design system and architecture",
   "homepage": "https://github.com/savantql/webapp-sdk.git",
   "files": [

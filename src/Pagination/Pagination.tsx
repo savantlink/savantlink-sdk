@@ -39,7 +39,7 @@ const Pagination = ({
 
   return (
     <nav role="navigation" aria-label="pagination" className={className} {...props}>
-      <ul className={styles.wrapper}>
+      <ul className={styles.pagination}>
         {/* Left navigation */}
         <li
           className={clsx(styles.item, styles.navigation, {

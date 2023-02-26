@@ -11,7 +11,7 @@ type TColor = 'primary' | 'gray' | 'success' | 'danger' | 'info' | 'warning' | '
 type BannerProps = AnchorHTMLAttributes<HTMLAnchorElement> & { color: TColor }
 
 const Banner = ({ className, color, ...props }: BannerProps) => {
-  const computedClasses = clsx(styles.wrapper, styles[color], className)
+  const computedClasses = clsx(styles.banner, styles[color], className)
   return (
     <article>
       <Typography tag={props.href ? 'a' : 'p'} weight="default" className={computedClasses} {...props} />

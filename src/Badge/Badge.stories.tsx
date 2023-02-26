@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Badge from './Badge'
@@ -37,6 +39,11 @@ Default.args = {
   count: 20,
   skin: 'solid',
   color: 'primary',
+  size: 'medium',
+}
+
+export const Dot = () => {
+  return <Badge size="dot" color="successLight" />
 }
 
 export const SolidBadges = GalleryTemplate.bind({})
@@ -63,8 +70,10 @@ OutlineBadges.parameters = {
 
 export const BadgeWithParent = () => {
   return (
-    <Badge count={9} color="primary">
-      <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '10px', background: 'var(--color-gray-mercury)' }} />
+    <Badge size="medium" count={9} color="primary">
+      <div
+        style={{ width: '3.5rem', height: '3.5rem', borderRadius: '10px', background: 'var(--color-gray-mercury)' }}
+      />
     </Badge>
   )
 }

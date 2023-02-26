@@ -15,7 +15,7 @@ const NumberKeypad = ({ onKeyPressed }: NumberKeypadProps) => {
   ]
 
   return (
-    <div className={styles.keypad}>
+    <div className={styles.numberKeypad}>
       {rows.map(
         (
           row: any,

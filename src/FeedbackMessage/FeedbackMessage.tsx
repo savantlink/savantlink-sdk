@@ -28,7 +28,7 @@ const FeedbackMessage = ({
   ...props
 }: FeedbackMessageProps) => {
   return (
-    <section className={styles.wrapper} {...props}>
+    <section className={styles.feedbackMessage} {...props}>
       {icon && <span>{icon}</span>}
       {title && (
         <Typography responsive variant="h4" tag="h2" weight="bolder">

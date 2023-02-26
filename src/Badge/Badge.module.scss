@@ -1,14 +1,12 @@
 @import "scss/typography";
 
-.wrapper {
+.badgeWrapper {
   position: relative;
   width: max-content;
   height: max-content;
 }
 
 .badge {
-  // default vars
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-primary);
   --badge-bg-color-rgb: var(--color-primary-rgb);
   --badge-border-color: var(--color-primary);
@@ -23,7 +21,7 @@
   font-size: var(--badge-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 100%;
-  color: var(--badge-color);
+  color: var(--color-light);
   text-align: center;
   white-space: nowrap;
   background-color: var(--badge-bg-color);
@@ -40,7 +38,13 @@
   z-index: 10000000;
 }
 
-//  sizes
+// sizes
+.dot {
+  --badge-height: .5rem;
+
+  width: .5rem;
+}
+
 .small {
   --badge-height: .875rem;
   --badge-font-size: var(--label);
@@ -57,56 +61,54 @@
 
 // colors
 .primary {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-primary);
   --badge-bg-color-rgb: var(--color-primary-rgb);
   --badge-border-color: var(--color-primary);
 }
 
 .secondary {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-secondary);
   --badge-bg-color-rgb: var(--color-secondary-rgb);
   --badge-border-color: var(--color-secondary);
 }
 
 .danger {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-danger);
   --badge-bg-color-rgb: var(--color-danger-rgb);
   --badge-border-color: var(--color-danger);
 }
 
 .success {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-success);
   --badge-bg-color-rgb: var(--color-success-rgb);
   --badge-border-color: var(--color-success);
 }
 
+.successLight {
+  --badge-bg-color: var(--color-success-lighter-1);
+  --badge-bg-color-rgb: var(--color-success-lighter-1-rgb);
+  --badge-border-color: var(--color-success-lighter-1);
+}
+
 .info {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-info);
   --badge-bg-color-rgb: var(--color-info-rgb);
   --badge-border-color: var(--color-info);
 }
 
 .warning {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-accent);
   --badge-bg-color-rgb: var(--color-accent-rgb);
   --badge-border-color: var(--color-accent);
 }
 
 .dark {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-gray-darkest);
   --badge-bg-color-rgb: var(--color-gray-darkest-rgb);
   --badge-border-color: var(--color-gray-darkest);
 }
 
 .gray {
-  --badge-color: var(--color-light);
   --badge-bg-color: var(--color-gray);
   --badge-bg-color-rgb: var(--color-gray-rgb);
   --badge-border-color: var(--color-gray);
@@ -114,13 +116,11 @@
 
 // outline
 .outline {
-  color: var(--badge-bg-color);
   background-color: transparent;
 }
 
 // translucent
 .translucent {
-  color: var(--badge-bg-color);
   background-color: rgba(var(--badge-bg-color-rgb) / 20%);
   background-clip: padding-box;
   border: 1.5px solid rgba(var(--badge-bg-color-rgb) / 20%);

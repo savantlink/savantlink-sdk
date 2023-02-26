@@ -38,7 +38,7 @@ const Input = ({
   ...props
 }: InputProps) => {
   return (
-    <div title={tooltip} className={clsx(className, styles.wrapper)}>
+    <div title={tooltip} className={clsx(className, styles.inputWrapper)}>
       {label && (
         <label id={labelId} htmlFor={inputId} className={clsx(labelClassName, styles.label)}>
           {label}
