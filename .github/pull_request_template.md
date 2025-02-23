@@ -15,7 +15,7 @@ Description of the code changes happening
 - [ ] Documentation 
 
 ## What Services are affected by this change?
-- [ ] Webapp-sdk
+- [ ] savantlink-sdk
 - [ ] Fe-POS
 - [ ] Be-POS
 

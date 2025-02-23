@@ -1,8 +1,8 @@
 {
-  "name": "@savantql/webapp-sdk",
+  "name": "@savantlink/savantlink-sdk",
   "version": "0.0.10",
-  "description": "A package that contains reusables components and services of the SavantQL design system and architecture",
-  "homepage": "https://github.com/savantql/webapp-sdk.git",
+  "description": "A package that contains reusables components and services of the Savantlink design system and architecture",
+  "homepage": "https://github.com/savantlink/savantlink-sdk.git",
   "files": [
     "dist/**/*",
     "scss/**/*",
@@ -10,11 +10,11 @@
     "README.md"
   ],
   "repository": {
-    "url": "https://github.com/savantql/webapp-sdk.git",
+    "url": "https://github.com/savantlink/savantlink-sdk.git",
     "type": "git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@savantql"
+    "registry": "https://npm.pkg.github.com/@savantlink"
   },
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production rollup --config",
