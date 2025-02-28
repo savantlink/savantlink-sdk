@@ -55,12 +55,12 @@ label {
 
   &:not(.selectError, .selectSuccess, [disabled]) {
     &:hover {
-      border-color: var(--color-secondary-lighter-2);
+      border-color: var(--color-purple-lighter-2);
     }
 
     &:focus,
     &:focus-visible {
-      border-color: var(--color-secondary);
+      border-color: var(--color-purple);
     }
   }
 }

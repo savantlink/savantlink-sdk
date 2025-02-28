@@ -63,13 +63,6 @@
   --badge-border-color: var(--color-primary);
 }
 
-.secondary {
-  --badge-color: var(--color-light);
-  --badge-bg-color: var(--color-secondary);
-  --badge-bg-color-rgb: var(--color-secondary-rgb);
-  --badge-border-color: var(--color-secondary);
-}
-
 .danger {
   --badge-color: var(--color-light);
   --badge-bg-color: var(--color-danger);
