@@ -1,5 +1,6 @@
 $media-breakpoints: (
-  xs: 0,
+  xxs: 325px,
+  xs: 425px,
   sm: 576px,
   md: 768px,
   lg: 992px,
@@ -7,12 +8,43 @@ $media-breakpoints: (
   xxl: 1400px,
 );
 
-@mixin media-breakpoint-up($breakpoint: lg) {
-  @if not map-has-key($media-breakpoints, $breakpoint) {
-    @error "Invalid breakpoint specified! #{$breakpoint} doesn't exist. Choose one of #{map-keys($media-breakpoints)}";
+@mixin media-breakpoint-up($breakpoint) {
+  @if not map.has-key($media-breakpoints, $breakpoint) {
+    @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($media-breakpoints)}";
   }
 
   @media (min-width: map-get($media-breakpoints, $breakpoint)) {
     @content;
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if not map.has-key($media-breakpoints, $breakpoint) {
+    @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($media-breakpoints)}";
+  }
+
+  @media (max-width: #{map-get($media-breakpoints, $breakpoint) - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-only($breakpoint) {
+  @if not map.has-key($media-breakpoints, $breakpoint) {
+    @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($media-breakpoints)}";
+  }
+
+  $breakpoints: map.keys($media-breakpoints);
+  $index: list.index($breakpoints, $breakpoint);
+
+  @if $index == length($breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      @content;
+    }
+  } @else {
+    $next-breakpoint: list.nth($breakpoints, $index + 1);
+
+    @include media-breakpoint-between($breakpoint, $next-breakpoint) {
+      @content;
+    }
   }
 }
