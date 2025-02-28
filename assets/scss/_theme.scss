@@ -111,27 +111,38 @@
   }
 
   /* colors: primary */
-  --color-primary-lightest: rgb(255 240 232);
-  --color-primary-lighter-3: rgb(255 189 153);
-  --color-primary-lighter-2: rgb(255 156 102);
-  --color-primary-lighter: rgb(255 122 51);
-  --color-primary: rgb(255 91 0);
-  --color-primary-darker: rgb(204 71 0);
-  --color-primary-darker-2: rgb(153 54 0);
-  --color-primary-darkest: rgb(92 39 10);
+  --color-primary: rgb(97 124 88);
+  --color-primary-light: rgb(125 148 117);
+  --color-primary-lighter-1: rgb(146 162 140);
+  --color-primary-lighter-2: rgb(167 177 163);
+  --color-primary-lighter-3: rgb(188, 191, 186);
+  --color-primary-lightest: rgb(206, 215, 202);
+  --color-primary-darker: rgb(45, 55, 42);
+  --color-primary-darker-1: rgb(117 127 115);
+  --color-primary-dark-2: rgb(153 163 151);
 
-  /* colors: tertiary */
-  --color-secondary-lightest-rgb: 225 219 255;
-  --color-secondary-lightest: rgb(225 219 255);
-  --color-secondary-lighter-3: rgb(181 168 255);
-  --color-secondary-lighter-2: rgb(138 117 255);
-  --color-secondary-lighter: rgb(108 87 234);
-  --color-secondary-rgb: 86 66 205;
-  --color-secondary: rgb(86 66 205);
-  --color-secondary-darker: rgb(66 46 173);
-  --color-secondary-darker-2: rgb(50 35 133);
-  --color-secondary-darkest-rgb: 20 14 52;
-  --color-secondary-darkest: rgb(20 14 52);
+  /* colors: orange */
+  --color-orange-lightest: rgb(255 240 232);
+  --color-orange-lighter-3: rgb(255 189 153);
+  --color-orange-lighter-2: rgb(255 156 102);
+  --color-orange-lighter: rgb(255 122 51);
+  --color-orange: rgb(255 91 0);
+  --color-orange-darker: rgb(204 71 0);
+  --color-orange-darker-2: rgb(153 54 0);
+  --color-orange-darkest: rgb(92 39 10);
+
+  /* colors: purple */
+  --color-purple-lightest-rgb: 225 219 255;
+  --color-purple-lightest: rgb(225 219 255);
+  --color-purple-lighter-3: rgb(181 168 255);
+  --color-purple-lighter-2: rgb(138 117 255);
+  --color-purple-lighter: rgb(108 87 234);
+  --color-purple-rgb: 86 66 205;
+  --color-purple: rgb(86 66 205);
+  --color-purple-darker: rgb(66 46 173);
+  --color-purple-darker-2: rgb(50 35 133);
+  --color-purple-darkest-rgb: 20 14 52;
+  --color-purple-darkest: rgb(20 14 52);
 
   /* colors: accent */
   --color-accent-lightest: rgb(255 246 217);
