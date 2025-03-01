@@ -21,6 +21,7 @@
     "lint": "eslint src && stylelint ./src/**/*.scss ./scss/**/*.scss",
     "lint:fix": "eslint src --fix && stylelint ./src/**/*.scss ./scss/**/*.scss --fix",
     "prepare": "husky install",
+    "prepublishOnly": "yarn lint && yarn test --silent && yarn build",
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
     "test": "jest"
