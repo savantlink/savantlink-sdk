@@ -25,10 +25,12 @@
     "storybook:build": "build-storybook -s public",
     "test": "jest"
   },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
   "dependencies": {
     "clsx": "^1.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "style-inject": "^0.3.0",
     "web-vitals": "^2.1.0"
   },
