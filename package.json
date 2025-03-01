@@ -23,7 +23,8 @@
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "yarn lint && yarn build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
