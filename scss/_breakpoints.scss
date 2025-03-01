@@ -15,7 +15,7 @@ $media-breakpoints: (
     @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($media-breakpoints)}";
   }
 
-  @media (min-width: map-get($media-breakpoints, $breakpoint)) {
+  @media (min-width: map.get($media-breakpoints, $breakpoint)) {
     @content;
   }
 }
@@ -25,7 +25,7 @@ $media-breakpoints: (
     @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($media-breakpoints)}";
   }
 
-  @media (max-width: #{map-get($media-breakpoints, $breakpoint) - 1px}) {
+  @media (max-width: #{map.get($media-breakpoints, $breakpoint) - 1px}) {
     @content;
   }
 }
@@ -38,7 +38,7 @@ $media-breakpoints: (
   $breakpoints: map.keys($media-breakpoints);
   $index: list.index($breakpoints, $breakpoint);
 
-  @if $index == length($breakpoints) {
+  @if $index == list.length($breakpoints) {
     @include media-breakpoint-up($breakpoint) {
       @content;
     }
