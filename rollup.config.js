@@ -4,7 +4,6 @@ import fs from 'fs'
 import path from 'path'
 import { externals } from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 
 const SRC_DIR = 'src'
@@ -41,7 +40,7 @@ const plugins = [
     sourceMap: true,
   }),
   svgr(),
-  terser(), // minifies generated bundles
+  // terser(), // minifies generated bundles
   /**
    * custom plugin to fix the relative import of style-inject plugin
    */
