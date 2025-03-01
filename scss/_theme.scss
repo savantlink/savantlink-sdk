@@ -1,12 +1,13 @@
 /* UX design system custom properties */
-@import './breakpoints';
+/* stylelint-disable function-url-quotes */
+@import "./breakpoints";
 
 :root {
   /* Root spacing */
   font-size: 16px;
 
   /* Font Family */
-  --font-family-main: 'IBM Plex Sans', sans-serif;
+  --font-family-main: "IBM Plex Sans", sans-serif;
 
   /* Font Weights */
   --font-weight-thin: 100;
@@ -19,66 +20,68 @@
 
   /* Font Faces */
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/thin.woff2') format('woff2'), url('/fonts/IBMPlexSans/thin.woff') format('woff');
+    font-family: "IBM Plex Sans";
+    font-style: normal;
     font-weight: 100;
-    font-style: normal;
+    src: url("/fonts/IBMPlexSans/thin.woff2") format("woff2"), url("/fonts/IBMPlexSans/thin.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/extra_light.woff2') format('woff2'),
-      url('/fonts/IBMPlexSans/extra_light.woff') format('woff');
+    font-family: "IBM Plex Sans";
+    font-style: normal;
     font-weight: 200;
-    font-style: normal;
+    src:
+      url("/fonts/IBMPlexSans/extra_light.woff2") format("woff2"),
+      url("/fonts/IBMPlexSans/extra_light.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/light.woff2') format('woff2'), url('/fonts/IBMPlexSans/light.woff') format('woff');
+    font-family: "IBM Plex Sans";
+    font-style: normal;
     font-weight: 300;
-    font-style: normal;
+    src: url("/fonts/IBMPlexSans/light.woff2") format("woff2"), url("/fonts/IBMPlexSans/light.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/regular.woff2') format('woff2'), url('/fonts/IBMPlexSans/regular.woff') format('woff');
-    font-weight: 400;
+    font-family: "IBM Plex Sans";
     font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/IBMPlexSans/regular.woff2") format("woff2"), url("/fonts/IBMPlexSans/regular.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/medium.woff2') format('woff2'), url('/fonts/IBMPlexSans/medium.woff') format('woff');
+    font-family: "IBM Plex Sans";
+    font-style: normal;
     font-weight: 500;
-    font-style: normal;
+    src: url("/fonts/IBMPlexSans/medium.woff2") format("woff2"), url("/fonts/IBMPlexSans/medium.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/semi_bold.woff2') format('woff2'),
-      url('/fonts/IBMPlexSans/semi_bold.woff') format('woff');
+    font-family: "IBM Plex Sans";
+    font-style: normal;
     font-weight: 600;
-    font-style: normal;
+    src:
+      url("/fonts/IBMPlexSans/semi_bold.woff2") format("woff2"),
+      url("/fonts/IBMPlexSans/semi_bold.woff") format("woff");
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBMPlexSans/bold.woff2') format('woff2'), url('/fonts/IBMPlexSans/bold.woff') format('woff');
-    font-weight: 700;
+    font-family: "IBM Plex Sans";
     font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/IBMPlexSans/bold.woff2") format("woff2"), url("/fonts/IBMPlexSans/bold.woff") format("woff");
     font-display: swap;
   }
 
   /* font-sizes: static */
-  --label: 0.75rem; // 12px
-  --span: 0.875rem; // 14px
+  --label: .75rem; // 12px
+  --span: .875rem; // 14px
   --p: 1rem; // 16px
   --h6: 1.125rem; // 18px
   --h5: 1.25rem; // 20px
@@ -88,9 +91,9 @@
   --h1: 3rem; // 48px
 
   /* font-sizes: responsive */
-  --label-resp: 0.625rem; // 10px
-  --span-resp: 0.75rem; // 12px
-  --p-resp: 0.875rem; // 14px
+  --label-resp: .625rem; // 10px
+  --span-resp: .75rem; // 12px
+  --p-resp: .875rem; // 14px
   --h6-resp: 1rem; // 16px
   --h5-resp: 1.125rem; // 18px
   --h4-resp: 1.375rem; // 22px
@@ -115,9 +118,9 @@
   --color-primary-light: rgb(125 148 117);
   --color-primary-lighter-1: rgb(146 162 140);
   --color-primary-lighter-2: rgb(167 177 163);
-  --color-primary-lighter-3: rgb(188, 191, 186);
-  --color-primary-lightest: rgb(206, 215, 202);
-  --color-primary-darker: rgb(45, 55, 42);
+  --color-primary-lighter-3: rgb(188 191 186);
+  --color-primary-lightest: rgb(206 215 202);
+  --color-primary-darker: rgb(45 55 42);
   --color-primary-darker-1: rgb(117 127 115);
   --color-primary-dark-2: rgb(153 163 151);
 
