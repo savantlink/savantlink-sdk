@@ -24,7 +24,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
     "test": "jest",
-    "prepublishOnly": "yarn lint && yarn build"
+    "prepublishOnly": "yarn lint && yarn build",
+    "analyze": "react-scripts build && npx webpack-bundle-analyzer build/static/js/*.js"
   },
   "dependencies": {
     "clsx": "^1.2.1",
@@ -90,7 +91,8 @@
     "ttypescript": "^1.5.15",
     "typescript": "^4.4.2",
     "typescript-transform-paths": "^3.4.6",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "eslintConfig": {
     "extends": [
