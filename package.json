@@ -1,6 +1,6 @@
 {
   "name": "@savantlink/sdk",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A package that contains reusables components and services of the Savantlink design system and architecture",
   "homepage": "https://github.com/savantlink/savantlink-sdk.git",
   "files": [
@@ -23,12 +23,15 @@
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "yarn lint && yarn build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "style-inject": "^0.3.0",
     "web-vitals": "^2.1.0"
   },

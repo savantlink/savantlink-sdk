@@ -45,7 +45,7 @@ $typography-config: (
 );
 
 @mixin typography($type) {
-  @if not map-has-key($typography-config, $type) {
+  @if not map.has-key($typography-config, $type) {
     @error "Invalid type specified! #{$type} doesn't exist. Choose one of #{map-keys($typography-config)}";
   }
 

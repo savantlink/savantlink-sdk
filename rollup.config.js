@@ -4,7 +4,6 @@ import fs from 'fs'
 import path from 'path'
 import { externals } from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 
 const SRC_DIR = 'src'
@@ -16,7 +15,7 @@ const entryPoints = fs.readdirSync(path.join(__dirname, SRC_DIR)).filter((dirNam
   return !/^\./.test(dirName) && fs.existsSync(path.join(__dirname, SRC_DIR, dirName, 'index.ts'))
 })
 const plugins = [
-  externals(), // define package.json dependencies to be external ones
+  externals({ deps: true, peerDeps: true }), // define package.json dependencies to be external ones
   typescript({
     typescript: require('ttypescript'), // resolve alias (e.g. @/services --> ../../services) in type declaration files
     tsconfigDefaults: {
@@ -41,7 +40,7 @@ const plugins = [
     sourceMap: true,
   }),
   svgr(),
-  terser(), // minifies generated bundles
+  // terser(), // minifies generated bundles
   /**
    * custom plugin to fix the relative import of style-inject plugin
    */
@@ -76,5 +75,6 @@ export default {
       preserveModulesRoot: 'src', // to maintain the same structure as src and create modules as chunks
     },
   ],
+  external: ['react', 'react-dom'],
   plugins,
 }
