@@ -5,6 +5,7 @@ import path from 'path'
 import { externals } from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
 import typescript from 'rollup-plugin-typescript2'
+import terser from '@rollup/plugin-terser'
 
 const SRC_DIR = 'src'
 /**
