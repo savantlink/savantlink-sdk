@@ -16,7 +16,7 @@ const entryPoints = fs.readdirSync(path.join(__dirname, SRC_DIR)).filter((dirNam
   return !/^\./.test(dirName) && fs.existsSync(path.join(__dirname, SRC_DIR, dirName, 'index.ts'))
 })
 const plugins = [
-  externals(), // define package.json dependencies to be external ones
+  externals({ deps: true, peerDeps: true }), // define package.json dependencies to be external ones
   typescript({
     typescript: require('ttypescript'), // resolve alias (e.g. @/services --> ../../services) in type declaration files
     tsconfigDefaults: {
@@ -76,5 +76,6 @@ export default {
       preserveModulesRoot: 'src', // to maintain the same structure as src and create modules as chunks
     },
   ],
+  external: ['react', 'react-dom'],
   plugins,
 }
