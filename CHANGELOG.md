@@ -16,6 +16,10 @@ Types of changes are:
 ### Added
 - CHANGELOG.md file, config and ci/cd setup
 
+### Added
+- Github action workflow for sdk package release
+- Husky workflow for prepush and pre-commit
+
 ## [1.0.0] - 2025-02-23
 ### Added
 - Initial release with core functionality.
