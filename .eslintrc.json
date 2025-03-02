@@ -53,5 +53,18 @@
         }
       }
     ]
-  }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the React version
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx", "*.test.tsx"],
+      "rules": {
+        "no-use-before-define": "off"
+      }
+    }
+  ]
 }

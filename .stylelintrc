@@ -53,7 +53,6 @@
   "no-invalid-position-at-import-rule": null,
   "value-keyword-case": null,
   "scss/selector-no-redundant-nesting-selector": true,
-  "scss/load-no-partial-leading-underscore": true,
   "at-rule-no-unknown": null,
   "scss/at-rule-no-unknown": true,
   "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
