@@ -1,3 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
 node scripts/verify-changelog.js
 yarn lint
 # yarn test --silent
