@@ -14,6 +14,11 @@
     "standard",
     "prettier"
   ],
+  "settings": {
+    "react": {
+      "version": "18.0.0"
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -25,6 +30,8 @@
   "plugins": ["react", "@typescript-eslint", "prettier", "eslint-plugin-import"],
   "ignorePatterns": ["dist", "!.storybook"],
   "rules": {
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "react/react-in-jsx-scope": "off",
     "no-console": 2,
     // this is for sorting WITHIN an import
@@ -53,5 +60,18 @@
         }
       }
     ]
-  }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the React version
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx", "*.test.tsx"],
+      "rules": {
+        "no-use-before-define": "off"
+      }
+    }
+  ]
 }
