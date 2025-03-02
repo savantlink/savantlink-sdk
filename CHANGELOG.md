@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## [Unreleased]
+### Added
+- CHANGELOG.md file, config and ci/cd setup
 
 ## [1.0.0] - 2025-02-23
 ### Added
