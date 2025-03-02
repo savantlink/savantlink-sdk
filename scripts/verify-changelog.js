@@ -1,7 +1,7 @@
-import { readFileSync } from 'fs'
-import { parser } from 'keep-a-changelog'
+const fs = require('fs')
+const { parser } = require('keep-a-changelog')
 
-const changelog = parser(readFileSync('CHANGELOG.md', 'utf8'))
+const changelog = parser(fs.readFileSync('CHANGELOG.md', 'utf8'))
 
 const release = changelog.findRelease()
 
