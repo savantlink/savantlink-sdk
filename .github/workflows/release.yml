@@ -103,7 +103,7 @@ jobs:
         with:
           path-to-changelog: CHANGELOG.md
           version: ${{ env.NEW_VERSION }}
-          operate: release
+          operation: release
 
       # Remove git tag if exists
       - name: Remove git tag if exists
