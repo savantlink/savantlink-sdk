@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `Spinner` component
+
+### Fixed
+- Fixed `Input` scss bug (style conflict with Select component)
 
 ## 1.0.14 - 2025-03-03
 ### Fixed
