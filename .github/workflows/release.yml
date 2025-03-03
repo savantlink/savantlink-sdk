@@ -76,12 +76,12 @@ jobs:
         name: Get current package version
         uses: martinbeentjes/npm-get-version-action@main
 
-      # Bump package version (Use tag-latest)
+      # Bump package version
       - name: Bump release version
         run: |
           echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
           echo "NEW_VERSION=$(npm --no-git-tag-version version $RELEASE_TYPE)" >> $GITHUB_ENV
-          echo "RELEASE_TAG=latest=${{startsWith(github.event.inputs.release-type, 'pre') && 'beta' || 'latest' }}" >> $GITHUB_ENV
+          echo "RELEASE_TAG=${{startsWith(github.event.inputs.release-type, 'pre') && 'beta' || 'latest' }}" >> $GITHUB_ENV
         env:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
           CURRENT_VERSION: ${{ steps.package-version.outputs.current-version}}
@@ -105,22 +105,25 @@ jobs:
           version: ${{ env.NEW_VERSION }}
           operation: release
 
-      # Remove git tag if exists
-      - name: Remove git tag if exists
-        run: git tag -d ${{ env.NEW_VERSION }}
-        continue-on-error: true
-
       # Install dependencies required for prePublish script
       - name: Install required dependencies
         run: yarn install --frozen-lockfile
-        env:
-          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Lint
       - name: Run linting
         run: yarn lint
-        env:
-          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
+
+      # Build
+      - name: Build
+        run: yarn build
+
+      # Setup git authentication
+      - name: Setup git token
+        uses: fregante/setup-git-token@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: "Github Actions"
+          email: ${{ secrets.DEVOPS_EMAIL }}
 
       # Commit changes
       - name: Commit CHANGELOG.md and package.json changes and create tag
@@ -129,22 +132,17 @@ jobs:
           git add "CHANGELOG.md"
           git commit --no-verify -m "chore: release ${{ env.NEW_VERSION }}"
           git tag ${{ env.NEW_VERSION }}
-        env:
-          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Publish version to packages repository
       - name: Publish
         run: yarn publish --verbose --ignore-scripts --non-interactive --tag ${{ env.RELEASE_TAG }}
         env:
-          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Push repository changes
       - name: Push changes to repository
         run: |
-          git push --no-verify origin HEAD
-          git push --no-verify --tags
-        env:
-          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
+          git push --no-verify origin HEAD --tags
 
       # Read changelog content for release body
       - id: get-changelog-content
