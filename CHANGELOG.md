@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.15 - 2025-03-03
 ### Added
 - Created `Spinner` component
 
