@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-  args: {},
+  args: { inputId: 'test-input', label: 'Email' },
   argTypes: {
     label: {
       type: 'string',
@@ -49,7 +49,7 @@ export default {
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = (args) => {
-  return <Input {...args} />
+  return <Input placeholder="Enter email" {...args} />
 }
 
 export const Default = Template.bind({})
