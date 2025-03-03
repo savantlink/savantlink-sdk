@@ -14,6 +14,10 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.14 - 2025-03-03
+### Fixed
+- Fixed style-inject bug by extracting components styles to index.css file in dist folder
+
 ## 1.0.13 - 2025-03-02
 ### Added
 - CHANGELOG.md file, config and ci/cd setup
