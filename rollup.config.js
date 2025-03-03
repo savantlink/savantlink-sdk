@@ -39,6 +39,7 @@ const plugins = [
     modules: true,
     minimize: true,
     sourceMap: true,
+    extract: true,
   }),
   svgr(),
   terser(), // minifies generated bundles

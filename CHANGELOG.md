@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- Fixed style-inject bug by extracting components styles to index.css file in dist folder
 
 ## 1.0.13 - 2025-03-02
 ### Added
