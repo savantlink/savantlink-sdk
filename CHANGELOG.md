@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created reusable `axiosClient` handler for API calls
 
 ## 1.0.15 - 2025-03-03
 ### Added
