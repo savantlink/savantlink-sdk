@@ -30,6 +30,7 @@ axiosClient.interceptors.response.use(
     return response.data // Return only the data part of the response
   },
   (error) => {
+    // TODO: cleanup handler
     // // Handle errors globally
     // if (error.response) {
     //   // The request was made and the server responded with a status code
