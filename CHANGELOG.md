@@ -19,6 +19,10 @@ Types of changes are:
 ### Added
 - Created reusable `axiosClient` handler for API calls
 
+## 1.0.16 - 2025-03-04
+### Added
+- Created reusable `axiosClient` handler for API calls
+
 ## 1.0.15 - 2025-03-03
 ### Added
 - Created `Spinner` component
