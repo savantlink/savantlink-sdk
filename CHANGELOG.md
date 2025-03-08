@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- created `OTPInput` component
+
 ### Removed
 - `axiosClient` handler
 
