@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -14,12 +13,14 @@ module.exports = {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
+    // Add aliases
     config.resolve.alias = {
       ...config.resolve.alias,
       '@/icons': path.resolve(__dirname, '../icons/'),
       '@': path.resolve(__dirname, '../src/'),
-    }
+    };
 
+    // Add SCSS support
     config.module.rules.push({
       test: /\.scss$/,
       use: [
@@ -39,28 +40,14 @@ module.exports = {
           },
         },
       ],
-    })
+    });
 
-    // const fileLoaderRule = config.module.rules.find((rule) => rule.test && rule.test.test('.svg'))
-    // fileLoaderRule.exclude = /\.svg$/
+    // Add SVGR support for SVGs
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
 
-    // config.module.rules.push({
-    //   test: /\.svg$/i,
-    //   issuer: /\.[jt]sx?$/,
-    //   use: [
-    //     {
-    //       loader: '@svgr/webpack',
-    //       options: {
-    //         svgoConfig: {
-    //           plugins: {
-    //             removeViewBox: false,
-    //           },
-    //         },
-    //       },
-    //     },
-    //   ],
-    // })
-
-    return config
+    return config;
   },
-}
+};
