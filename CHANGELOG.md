@@ -14,6 +14,15 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.19 - 2025-03-09
+### Added
+- Created `Toast` component
+- Created `PhoneInput` component
+- New system icon (eye-closed)
+
+### Fixed
+- SVG icons loading
+
 ## 1.0.18 - 2025-03-09
 ### Changed
 - Changed `Spinner` filled color to --color-primary

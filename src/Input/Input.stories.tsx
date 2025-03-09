@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-  args: { inputId: 'test-input', label: 'Email' },
+  args: { inputId: 'test-input', label: 'Email', required: true },
   argTypes: {
     label: {
       type: 'string',
