@@ -16,6 +16,6 @@
   transition: border-color .3s ease;
 
   &:focus {
-    border-color: var(--color-info);
+    border-color: var(--color-primary-lighter);
   }
 }
