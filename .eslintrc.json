@@ -14,11 +14,6 @@
     "standard",
     "prettier"
   ],
-  "settings": {
-    "react": {
-      "version": "18.0.0"
-    }
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -34,9 +29,7 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/react-in-jsx-scope": "off",
     "no-console": 2,
-    // this is for sorting WITHIN an import
     "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
-    // this is for sorting imports
     "import/order": [
       "error",
       {
