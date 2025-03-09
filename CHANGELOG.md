@@ -14,6 +14,10 @@ Types of changes are:
 
 ## Unreleased
 ### Fixed
+- Exported `Toast` component
+
+## 1.0.20 - 2025-03-09
+### Fixed
 - Storybook SVG icon loading error
 
 ## 1.0.19 - 2025-03-09
