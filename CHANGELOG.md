@@ -14,7 +14,12 @@ Types of changes are:
 
 ## Unreleased
 ### Added
-- Created `Toast` cmponent
+- Created `Toast` component
+- Created `PhoneInput` component
+- New system icon (eye-closed)
+
+### Fixed
+- SVG icons loading
 
 ## 1.0.18 - 2025-03-09
 ### Changed
