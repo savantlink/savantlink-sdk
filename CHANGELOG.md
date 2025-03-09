@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.18 - 2025-03-09
 ### Changed
 - Changed `Spinner` filled color to --color-primary
 - Changed `OTPInput` focus color --color-primary-lighter
