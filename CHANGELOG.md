@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.17 - 2025-03-08
 ### Added
 - created `OTPInput` component
 
