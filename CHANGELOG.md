@@ -14,6 +14,18 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.18 - 2025-03-09
+### Changed
+- Changed `Spinner` filled color to --color-primary
+- Changed `OTPInput` focus color --color-primary-lighter
+
+## 1.0.17 - 2025-03-08
+### Added
+- created `OTPInput` component
+
+### Removed
+- `axiosClient` handler
+
 ## 1.0.16 - 2025-03-04
 ### Added
 - Created reusable `axiosClient` handler for API calls
