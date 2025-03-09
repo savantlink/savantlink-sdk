@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -18,7 +18,7 @@ module.exports = {
       ...config.resolve.alias,
       '@/icons': path.resolve(__dirname, '../icons/'),
       '@': path.resolve(__dirname, '../src/'),
-    };
+    }
 
     // Add SCSS support
     config.module.rules.push({
@@ -40,14 +40,22 @@ module.exports = {
           },
         },
       ],
-    });
+    })
 
-    // Add SVGR support for SVGs
+    // Exclude SVGs from existing file-loader
+    config.module.rules = config.module.rules.map((rule) => {
+      if (rule.test && rule.test.test('.svg')) {
+        return { ...rule, exclude: /\.svg$/ }
+      }
+      return rule
+    })
+
+    // Add SVGR loader for SVG imports
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
-    });
+    })
 
-    return config;
+    return config
   },
-};
+}
