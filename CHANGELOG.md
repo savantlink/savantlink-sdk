@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.21 - 2025-03-09
 ### Fixed
 - Exported `Toast` component
 
