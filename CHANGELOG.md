@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `Breadcrumbs` component
+- New system icon (notification)
 
 ## 1.0.23 - 2025-03-10
 ### Added
