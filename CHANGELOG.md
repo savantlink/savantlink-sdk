@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.22 - 2025-03-10
 ### Fixed
 - Removed Invalid value from `z-index.scss`
 
