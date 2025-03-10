@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.23 - 2025-03-10
 ### Added
 - New system icons (chevron-left, chevron-right, chevron-up, chevron-down, home, shot-cart)
 - New primary color (color-primary-lightest-1, color-primary-lightest-2 )
