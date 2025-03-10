@@ -13,8 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
-### Fixed
-- Removed Invalid value from `z-index.scss`
+### Added
+- New system icons (chevron-left, chevron-right, chevron-up, chevron-down, home, shot-cart)
+- New primary color (color-primary-lightest-1, color-primary-lightest-2 )
 
 ## 1.0.22 - 2025-03-10
 ### Fixed
