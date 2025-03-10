@@ -16,6 +16,10 @@ Types of changes are:
 ### Fixed
 - Removed Invalid value from `z-index.scss`
 
+## 1.0.22 - 2025-03-10
+### Fixed
+- Removed Invalid value from `z-index.scss`
+
 ## 1.0.21 - 2025-03-09
 ### Fixed
 - Exported `Toast` component
