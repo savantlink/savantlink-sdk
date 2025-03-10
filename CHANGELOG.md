@@ -14,6 +14,11 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.24 - 2025-03-10
+### Added
+- Created `Breadcrumbs` component
+- New system icon (notification)
+
 ## 1.0.23 - 2025-03-10
 ### Added
 - New system icons (chevron-left, chevron-right, chevron-up, chevron-down, home, shot-cart)
