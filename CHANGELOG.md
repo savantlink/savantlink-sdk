@@ -14,7 +14,7 @@ Types of changes are:
 
 ## Unreleased
 ### Fixed
-- Exported `Toast` component
+- Removed Invalid value from `z-index.scss`
 
 ## 1.0.21 - 2025-03-09
 ### Fixed
