@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
 
 module.exports = {
@@ -14,12 +13,14 @@ module.exports = {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
+    // Add aliases
     config.resolve.alias = {
       ...config.resolve.alias,
       '@/icons': path.resolve(__dirname, '../icons/'),
       '@': path.resolve(__dirname, '../src/'),
     }
 
+    // Add SCSS support
     config.module.rules.push({
       test: /\.scss$/,
       use: [
@@ -41,25 +42,19 @@ module.exports = {
       ],
     })
 
-    // const fileLoaderRule = config.module.rules.find((rule) => rule.test && rule.test.test('.svg'))
-    // fileLoaderRule.exclude = /\.svg$/
+    // Exclude SVGs from existing file-loader
+    config.module.rules = config.module.rules.map((rule) => {
+      if (rule.test && rule.test.test('.svg')) {
+        return { ...rule, exclude: /\.svg$/ }
+      }
+      return rule
+    })
 
-    // config.module.rules.push({
-    //   test: /\.svg$/i,
-    //   issuer: /\.[jt]sx?$/,
-    //   use: [
-    //     {
-    //       loader: '@svgr/webpack',
-    //       options: {
-    //         svgoConfig: {
-    //           plugins: {
-    //             removeViewBox: false,
-    //           },
-    //         },
-    //       },
-    //     },
-    //   ],
-    // })
+    // Add SVGR loader for SVG imports
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
     return config
   },

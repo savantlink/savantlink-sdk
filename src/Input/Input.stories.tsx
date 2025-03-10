@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Input from './Input'
@@ -14,7 +12,7 @@ export default {
       },
     },
   },
-  args: { inputId: 'test-input', label: 'Email' },
+  args: { inputId: 'test-input', label: 'Email', required: true },
   argTypes: {
     label: {
       type: 'string',

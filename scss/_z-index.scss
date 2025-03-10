@@ -1,6 +1,38 @@
 :root {
-  --z-mega-menu: 13000;
-  --z-modal: 12000;
-  --z-burger-menu: 11000;
-  --z-top-nav-dropdown: 10000;
+  :root {
+    --z-v-tooltip: 10100;
+    --z-modal: 10000;
+    --z-mobile-bottom-sheet: 10000;
+
+    // elements not visible
+    --z-ds-layer-off: -1000;
+
+    // body elements
+    --z-ds-layer-base: 0;
+    --z-ds-layer-base-1: 100;
+    --z-ds-layer-base-2: 200;
+    --z-ds-layer-base-3: 300;
+    --z-ds-layer-base-4: 400;
+
+    // floating elements like widgets bellow navbar
+    --z-ds-layer-floating: 1000;
+    --z-ds-layer-floating-1: 1100;
+    --z-ds-layer-floating-2: 1200;
+    --z-ds-layer-floating-3: 1300;
+    --z-ds-layer-floating-4: 1400;
+
+    // navigation
+    --z-ds-layer-navigation: 2000;
+    --z-ds-layer-navigation-1: 2100;
+    --z-ds-layer-navigation-2: 2200;
+    --z-ds-layer-navigation-3: 2300;
+    --z-ds-layer-navigation-4: 2400;
+
+    // modals, alerts, notifications
+    --z-ds-layer-priority: 3000;
+    --z-ds-layer-priority-1: 3100;
+    --z-ds-layer-priority-2: 3200;
+    --z-ds-layer-priority-3: 3300;
+    --z-ds-layer-priority-4: 3400;
+  }
 }

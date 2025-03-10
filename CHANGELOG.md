@@ -14,6 +14,32 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.23 - 2025-03-10
+### Added
+- New system icons (chevron-left, chevron-right, chevron-up, chevron-down, home, shot-cart)
+- New primary color (color-primary-lightest-1, color-primary-lightest-2 )
+
+## 1.0.22 - 2025-03-10
+### Fixed
+- Removed Invalid value from `z-index.scss`
+
+## 1.0.21 - 2025-03-09
+### Fixed
+- Exported `Toast` component
+
+## 1.0.20 - 2025-03-09
+### Fixed
+- Storybook SVG icon loading error
+
+## 1.0.19 - 2025-03-09
+### Added
+- Created `Toast` component
+- Created `PhoneInput` component
+- New system icon (eye-closed)
+
+### Fixed
+- SVG icons loading
+
 ## 1.0.18 - 2025-03-09
 ### Changed
 - Changed `Spinner` filled color to --color-primary
