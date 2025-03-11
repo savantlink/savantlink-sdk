@@ -1,7 +1,11 @@
+import React from 'react'
+
 import clsx from 'clsx'
 
 import styles from './Pagination.module.scss'
-import { ELLIPSIS, usePagination } from '../use-pagination'
+import ChevronLeft from '../../icons/system/chevron-left.svg'
+import ChevronRight from '../../icons/system/chevron-right.svg'
+import { ELLIPSIS, usePagination } from '../hooks'
 
 type PaginationProps = {
   onPageChange: (currentPage: number) => void
@@ -9,8 +13,8 @@ type PaginationProps = {
   perPageSize: number
   currentPageSiblings: number
   currentPage: number
-  previousText: string
-  nextText: string
+  previousText?: string
+  nextText?: string
   className?: string
 }
 const Pagination = ({
@@ -19,8 +23,8 @@ const Pagination = ({
   currentPageSiblings,
   currentPage,
   perPageSize,
-  nextText,
-  previousText,
+  nextText = 'Next',
+  previousText = 'Prev',
   className,
   ...props
 }: PaginationProps) => {
@@ -35,25 +39,34 @@ const Pagination = ({
     return null
   }
 
+  if (totalSize <= 0 || perPageSize <= 0 || currentPage <= 0) {
+    return null
+  }
+
   const lastPage = paginationRange[paginationRange.length - 1]
 
   return (
-    <nav role="navigation" aria-label="pagination" className={className} {...props}>
+    <nav role="navigation" aria-label="pagination" className={clsx(styles.pagination, className)} {...props}>
+      <p className={styles.stats}>
+        Showing {perPageSize} of <span>{totalSize}</span>
+      </p>
       <ul className={styles.wrapper}>
         {/* Left navigation */}
-        <li
-          className={clsx(styles.item, styles.navigation, {
-            [styles.hide]: currentPage === 1,
-          })}
-          onClick={() => onPageChange(currentPage - 1)}
-        >
-          {previousText}
+        <li>
+          <button
+            className={clsx(styles.item, styles.navigation)}
+            disabled={currentPage === 1}
+            onClick={() => onPageChange(currentPage - 1)}
+          >
+            <ChevronLeft />
+            {previousText}
+          </button>
         </li>
         {paginationRange?.map((pageNumber, index) => {
           // If the pageNumber is an ellipsis
           if (pageNumber === ELLIPSIS) {
             return (
-              <li key={index} className={clsx(styles.item, styles.ellipsis)}>
+              <li key={`ellipsis-${index}`} className={clsx(styles.item, styles.ellipsis)}>
                 &#8230;
               </li>
             )
@@ -65,7 +78,7 @@ const Pagination = ({
               aria-label={`page ${pageNumber}`}
               aria-current={currentPage === pageNumber ? 'true' : 'false'}
               key={index}
-              className={clsx(styles.item, styles.button, {
+              className={clsx(styles.item, styles.pill, {
                 [styles.active]: pageNumber === currentPage,
               })}
               onClick={() => typeof pageNumber === 'number' && onPageChange(pageNumber)}
@@ -76,18 +89,20 @@ const Pagination = ({
         })}
 
         {/*  Right Navigation */}
-        <li
-          className={clsx(styles.item, styles.navigation, {
-            [styles.hide]: currentPage === lastPage,
-          })}
-          onClick={() => onPageChange(currentPage + 1)}
-        >
-          {nextText}
+        <li>
+          <button
+            className={clsx(styles.item, styles.navigation)}
+            disabled={currentPage === lastPage}
+            onClick={() => onPageChange(currentPage + 1)}
+          >
+            {nextText}
+            <ChevronRight />
+          </button>
         </li>
       </ul>
     </nav>
   )
 }
 
-export default Pagination
+export default React.memo(Pagination)
 export type { PaginationProps }
