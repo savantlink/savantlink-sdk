@@ -1,0 +1,61 @@
+@import "scss/breakpoints";
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto; // Enable horizontal scrolling
+  -webkit-overflow-scrolling: touch; // Smooth scrolling on mobile devices
+
+  &::after {
+    display: block;
+    height: 1px;
+    margin-top: -1px;
+    content: "";
+    background: linear-gradient(to right, transparent, var(--color-gray-light));
+  }
+}
+
+.tableWrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: var(--color-gray-light);
+  border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: var(--color-gray-lightest);
+}
+
+.table {
+  width: 100%;
+  min-width: 600px; // Ensure the table has a minimum width for scrolling
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-light);
+  }
+
+  th {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--color-primary-lightest-1);
+
+    &.sortable:hover {
+      background-color: var(--color-primary-lightest);
+    }
+  }
+
+  tr:hover {
+    background-color: var(--color-primary-lightest-2);
+  }
+
+  .sortIndicator {
+    margin-left: 8px;
+    font-size: .8rem;
+  }
+}

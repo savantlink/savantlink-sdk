@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `Table` component
+
+### Changed
+- Refactored `Pagination` component
 
 ## 1.0.24 - 2025-03-10
 ### Added

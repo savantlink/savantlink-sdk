@@ -34,7 +34,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 2: Only right ellipsis to be shown
     if (!showLeftEllipsis && showRightEllipsis) {
-      const leftItemCount = 3 + 2 * currentPageSiblings
+      const leftItemCount = 2 + 2 * currentPageSiblings
       const leftRange = range(1, leftItemCount)
 
       return [...leftRange, ELLIPSIS, totalPageCount]
@@ -42,7 +42,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 3: Only left ellipsis to be shown
     if (showLeftEllipsis && !showRightEllipsis) {
-      const rightItemCount = 3 + 2 * currentPageSiblings
+      const rightItemCount = 2 + 2 * currentPageSiblings
       const rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
       return [firstPageIndex, ELLIPSIS, ...rightRange]
     }

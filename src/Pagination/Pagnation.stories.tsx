@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Pagination from './Pagination'
 
 export default {
-  title: 'Atoms/Pagination',
+  title: 'Molecules/Pagination',
   component: Pagination,
 } as ComponentMeta<typeof Pagination>
 
@@ -20,8 +20,6 @@ Default.args = {
   perPageSize: 10,
   currentPageSiblings: 2,
   currentPage: 1,
-  previousText: 'Previous',
-  nextText: 'Next',
   onPageChange: () => {
     return true
   },

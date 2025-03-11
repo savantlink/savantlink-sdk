@@ -6,7 +6,7 @@ import Typography from './Typography'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Foundation/Typography',
+  title: 'Atoms/Typography',
   component: Typography,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Typography>
