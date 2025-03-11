@@ -46,7 +46,7 @@ const Table = <T,>({ columns, data, sortConfig, onSort }: TableProps<T>) => {
             <tr key={rowIndex}>
               {columns.map((column) => (
                 <td key={column.key}>
-                  {column.render ? column.render(row) : (row as Record<string, string>)[column.key]}
+                  {column.render ? column.render(row) : (row as Record<string, any>)[column.key]}
                 </td>
               ))}
             </tr>
