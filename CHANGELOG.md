@@ -13,6 +13,13 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New system icons (plus, search, trash, edit, data)
+- New mono-color icon (check)
+
+### Change
+- Added icons props to `Toast` component
+- Added icons props to `Button` component
 
 ## 1.0.27 - 2025-03-12
 ### Added
