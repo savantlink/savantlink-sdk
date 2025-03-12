@@ -1,0 +1,82 @@
+// Drawer.module.scss
+.drawerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background: var(--color-transparent-black);
+  opacity: 0;
+  transition: opacity .3s ease, visibility .3s ease;
+
+  .drawerContent {
+    position: fixed;
+    padding: 20px;
+    background: var(--color-light);
+    box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+    transition: transform .3s ease;
+  }
+
+  .drawerClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  &.left {
+    .drawerContent {
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      transform: translateX(-100%);
+    }
+  }
+
+  &.right {
+    .drawerContent {
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      transform: translateX(100%);
+    }
+  }
+
+  &.top {
+    .drawerContent {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      transform: translateY(-100%);
+    }
+  }
+
+  &.bottom {
+    .drawerContent {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      transform: translateY(100%);
+    }
+  }
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+
+    .drawerContent {
+      transform: translateX(0);
+    }
+  }
+}
