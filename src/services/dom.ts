@@ -10,8 +10,4 @@ const BREAKPOINTS = {
 
 const isClient = () => typeof window !== 'undefined'
 
-const isSmallScreen = () => {
-  return isClient() && window.innerWidth < BREAKPOINTS.md
-}
-
-export { BREAKPOINTS,isClient, isSmallScreen }
+export { BREAKPOINTS,isClient }
