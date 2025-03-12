@@ -4,6 +4,8 @@ import clsx from 'clsx'
 
 import styles from './Modal.module.scss'
 
+import useScrollLock from '@/hooks/use-scroll-lock'
+
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
@@ -13,6 +15,7 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, position = 'center', hasCancelBtn = 'false' }) => {
+  useScrollLock(isOpen)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
