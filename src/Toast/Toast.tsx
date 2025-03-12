@@ -1,17 +1,18 @@
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 import styles from './Toast.module.scss'
+import CloseIcon from '../../icons/system/close.svg'
 
 import Typography from '@/Typography'
-
 
 interface ToastProps {
   message: string
   variant: 'info' | 'success' | 'warning' | 'danger'
   position: 'top-left' | 'top-right' | 'bottom-right' | 'bottom-left'
   onClose: () => void
+  icon?: ReactNode
 }
-const Toast = ({ message, variant = 'info', position = 'top-right', onClose }: ToastProps) => {
+const Toast = ({ message, variant = 'info', position = 'top-right', onClose, icon }: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose()
@@ -23,11 +24,10 @@ const Toast = ({ message, variant = 'info', position = 'top-right', onClose }: T
   return (
     <div className={`${styles.toast} ${styles[`toast-${variant}`]} ${styles[`toast-${position}`]}`}>
       <div className={styles['toast-content']}>
+        {icon && <span className={styles.icon}>{icon}</span>}
         <Typography variant="regular">{message}</Typography>
       </div>
-      <button className={styles['toast-close']} onClick={onClose}>
-        &times;
-      </button>
+      <CloseIcon className={styles['toast-close']} onClick={onClose} />
     </div>
   )
 }

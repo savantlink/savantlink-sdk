@@ -14,7 +14,14 @@
   box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
 
   &-content {
+    display: flex;
+    gap: 1rem;
     width: calc(100% - 25px);
+
+    .icon {
+      width: max-content;
+      height: max-content;
+    }
   }
 
   &-close {

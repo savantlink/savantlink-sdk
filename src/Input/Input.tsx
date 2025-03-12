@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react'
+import { forwardRef, InputHTMLAttributes, ReactNode, useState } from 'react'
 
 import clsx from 'clsx'
 
@@ -19,6 +19,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   hintClassName?: string
   errorClassName?: string
   required?: boolean
+  icon?: ReactNode
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -37,6 +38,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       hintClassName,
       errorClassName,
       type,
+      icon,
       required = false,
       ...props
     },
@@ -61,6 +63,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </label>
         )}
         <div className={styles.inputContainer}>
+          {icon && <span className={styles.icon}>{icon}</span>}
           <input
             id={id}
             ref={ref}
@@ -68,6 +71,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             className={clsx(styles.input, inputClassName, {
               [styles.inputError]: isError,
               [styles.inputSuccess]: isSuccess && !isError,
+              [styles.hasIcon]: icon,
             })}
             aria-invalid={isError}
             {...props}

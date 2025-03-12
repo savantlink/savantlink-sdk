@@ -31,6 +31,22 @@
   align-items: center;
 }
 
+.icon {
+  position: absolute;
+  left: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: 1rem;
+  background: none;
+  border: none;
+}
+
+.hasIcon {
+  padding-left: 2.5rem !important;
+}
+
 .toggleButton {
   position: absolute;
   right: .75rem;

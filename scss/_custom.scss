@@ -1,0 +1,22 @@
+.scrollLock {
+  overflow: hidden;
+}
+
+.dFlex {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dFlexCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dFlexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
