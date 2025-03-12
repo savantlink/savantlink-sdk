@@ -14,12 +14,14 @@ Types of changes are:
 
 ## Unreleased
 ### Added
-- New system icons (plus, search, trash, edit, data)
+- New system icons (plus, search, trash, edit, data, close)
 - New mono-color icon (check)
+- `_custom.scss` css theme file
 
 ### Changed
 - Added icons props to `Toast` component
 - Added icons props to `Button` component
+- Added icons props to `Input` component
 
 ## 1.0.27 - 2025-03-12
 ### Added
