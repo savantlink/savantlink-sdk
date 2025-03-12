@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- Table typing warning
+
+### Added
+- `className` styles props to Table
 
 ## 1.0.28 - 2025-03-12
 ### Added
