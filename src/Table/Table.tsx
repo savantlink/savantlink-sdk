@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import styles from './Table.module.scss'
 import DataIcon from '../../icons/system/data.svg'
+import clsx from 'clsx'
 
 interface ColumnProps<T> {
   key: string
@@ -14,13 +15,13 @@ interface TableProps<T> {
   columns: ColumnProps<T>[]
   data: T[]
   sortConfig?: { key: string; direction: 'asc' | 'desc' }
-  onSort?: (key: string) => void
   emptyState: {
     title?: string // Title for the empty state
     description?: string // Description for the empty state
     cTA?: React.ReactNode // Optional CTA button for the empty state
-
   }
+  onSort?: (key: string) => void
+  className?: string
 }
 
 const Table = <T,>({
@@ -28,12 +29,8 @@ const Table = <T,>({
   data,
   sortConfig,
   onSort,
-  emptyState: {
-    title = 'No Data Available',
-    description = 'There is no data to display at the moment.',
-    cTA,
-
-  }
+  emptyState: { title = 'No Data Available', description = 'There is no data to display at the moment.', cTA },
+  className
 }: TableProps<T>) => {
   const handleSort = (key: string) => {
     if (onSort) {
@@ -44,7 +41,7 @@ const Table = <T,>({
   // Render empty state if data is empty
   if (data.length === 0) {
     return (
-      <div className={styles.emptyState}>
+      <div className={clsx(styles.emptyState, className)}>
         <DataIcon className={styles.emptyStateIcon} />
         <h3 className={styles.emptyStateTitle}>{title}</h3>
         <p className={styles.emptyStateDescription}>{description}</p>
@@ -54,7 +51,7 @@ const Table = <T,>({
   }
 
   return (
-    <div className={styles.tableWrapper}>
+    <div className={clsx(styles.tableWrapper, className)}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -77,7 +74,7 @@ const Table = <T,>({
             <tr key={rowIndex}>
               {columns.map((column) => (
                 <td key={column.key}>
-                  {column.render ? column.render(row) : (row as Record<string, any>)[column.key]}
+                  {column.render ? column.render(row) : (row as unknown as Record<string, ReactNode>)[column.key]}
                 </td>
               ))}
             </tr>
