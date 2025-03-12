@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 import { useState } from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Table, { ColumnProps } from './Table'
+import Button from '../Button' // Assuming you have a Button component
 
 export default {
   title: 'Organisms/Table',
@@ -15,12 +17,18 @@ export default {
     },
   },
 } as ComponentMeta<typeof Table>
+
 interface User {
   id: number
   name: string
   userId: string
   email: string
   role: string
+}
+const emptyState = {
+  title: 'No Data Available',
+  descrption: 'There is no data to display. Please add some data or check back later.',
+  cTA: <Button onClick={() => console.log('Add Data clicked')}>Add Data</Button>,
 }
 
 const Template: ComponentStory<typeof Table> = () => {
@@ -40,12 +48,12 @@ const Template: ComponentStory<typeof Table> = () => {
   ]
 
   const data: User[] = [
-    { id: 1, userId: "john", name: 'John Doe', email: 'john@example.com', role: 'Admin' },
-    { id: 2, userId: "jane", name: 'Jane Smith', email: 'jane@example.com', role: 'User' },
-    { id: 3, userId: "alice", name: 'Alice Johnson', email: 'alice@example.com', role: 'User' },
-    { id: 4, userId: "fuller", name: 'John Fuller', email: 'john@example.com', role: 'Admin' },
-    { id: 5, userId: "sarah", name: 'Sarah Smith', email: 'jane@example.com', role: 'User' },
-    { id: 6, userId: "johnson", name: 'Sarkl Johnson', email: 'alice@example.com', role: 'User' },
+    { id: 1, userId: 'john', name: 'John Doe', email: 'john@example.com', role: 'Admin' },
+    { id: 2, userId: 'jane', name: 'Jane Smith', email: 'jane@example.com', role: 'User' },
+    { id: 3, userId: 'alice', name: 'Alice Johnson', email: 'alice@example.com', role: 'User' },
+    { id: 4, userId: 'fuller', name: 'John Fuller', email: 'john@example.com', role: 'Admin' },
+    { id: 5, userId: 'sarah', name: 'Sarah Smith', email: 'jane@example.com', role: 'User' },
+    { id: 6, userId: 'johnson', name: 'Sarkl Johnson', email: 'alice@example.com', role: 'User' },
   ]
 
   const handleSort = (key: string) => {
@@ -65,7 +73,36 @@ const Template: ComponentStory<typeof Table> = () => {
         return 0
       })
     : data
-  return <Table columns={columns} data={sortedData} sortConfig={sortConfig || undefined} onSort={handleSort} />
+
+  return (
+    <Table
+      columns={columns}
+      data={sortedData}
+      sortConfig={sortConfig || undefined}
+      onSort={handleSort}
+      emptyState={emptyState}
+    />
+  )
 }
 
 export const Default = Template.bind({})
+
+// New story for empty state
+export const EmptyState = () => {
+  const columns: ColumnProps<User>[] = [
+    { key: 'id', header: 'S/N', sortable: true },
+    { key: 'name', header: 'Name', sortable: true },
+    { key: 'userId', header: 'User Id', sortable: true },
+    { key: 'email', header: 'Email' },
+    { key: 'role', header: 'Role', sortable: true },
+    {
+      key: 'actions',
+      header: 'Actions',
+      render: (user: { name: string }) => <button onClick={() => console.log(`Edit ${user.name}`)}>Edit</button>,
+    },
+  ]
+
+  const data: User[] = [] // Empty data array
+
+  return <Table columns={columns} data={data} emptyState={emptyState} />
+}
