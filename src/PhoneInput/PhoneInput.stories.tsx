@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
