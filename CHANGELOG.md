@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.27 - 2025-03-12
 ### Added
 - Created dom.ts with `breakpoints`, `isClient`
 - Added `scroll lock` to drawer and modal component
