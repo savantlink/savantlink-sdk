@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.28 - 2025-03-12
 ### Added
 - New system icons (plus, search, trash, edit, data, close)
 - New mono-color icon (check)
