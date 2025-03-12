@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `Modal` component
+- Created `Drawer` component
 
 ## 1.0.25 - 2025-03-11
 ### Added
