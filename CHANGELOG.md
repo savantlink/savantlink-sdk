@@ -17,7 +17,7 @@ Types of changes are:
 - New system icons (plus, search, trash, edit, data)
 - New mono-color icon (check)
 
-### Change
+### Changed
 - Added icons props to `Toast` component
 - Added icons props to `Button` component
 
