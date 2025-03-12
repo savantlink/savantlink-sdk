@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 
+import useScreenSize from './use-screen-size'
 import { range } from '../services/number'
 
 const ELLIPSIS = '...'
@@ -12,9 +13,10 @@ type usePaginationProps = {
 }
 
 const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPage }: usePaginationProps) => {
+  const { isMobileScreen } = useScreenSize()
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalSize / perPageSize)
-    const totalPageNumbers = currentPageSiblings + 5
+    const totalPageNumbers = isMobileScreen ? 6 : currentPageSiblings + 5
 
     // Case 1: If the number of pages is less than the page numbers
     if (totalPageNumbers >= totalPageCount) {
@@ -34,7 +36,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 2: Only right ellipsis to be shown
     if (!showLeftEllipsis && showRightEllipsis) {
-      const leftItemCount = 2 + 2 * currentPageSiblings
+      const leftItemCount = isMobileScreen ? 3 : 2 + 2 * currentPageSiblings
       const leftRange = range(1, leftItemCount)
 
       return [...leftRange, ELLIPSIS, totalPageCount]
@@ -42,7 +44,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 3: Only left ellipsis to be shown
     if (showLeftEllipsis && !showRightEllipsis) {
-      const rightItemCount = 2 + 2 * currentPageSiblings
+      const rightItemCount = isMobileScreen ? 3 : 2 + 2 * currentPageSiblings
       const rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
       return [firstPageIndex, ELLIPSIS, ...rightRange]
     }
@@ -52,7 +54,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
       const middleRange = range(leftSiblingIndex, rightSiblingIndex)
       return [firstPageIndex, ELLIPSIS, ...middleRange, ELLIPSIS, lastPageIndex]
     }
-  }, [totalSize, perPageSize, currentPageSiblings, currentPage])
+  }, [totalSize, perPageSize, currentPageSiblings, currentPage, isMobileScreen])
   return paginationRange
 }
 

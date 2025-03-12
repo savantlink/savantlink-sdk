@@ -4,6 +4,8 @@ import clsx from 'clsx'
 
 import styles from './Drawer.module.scss'
 
+import useScrollLock from '@/hooks/use-scroll-lock'
+
 interface DrawerProps {
   isOpen: boolean
   onClose: () => void
@@ -12,6 +14,7 @@ interface DrawerProps {
 }
 
 const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, position = 'left', children }) => {
+  useScrollLock(isOpen)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()

@@ -4,14 +4,6 @@
   width: 100%;
   overflow-x: auto; // Enable horizontal scrolling
   -webkit-overflow-scrolling: touch; // Smooth scrolling on mobile devices
-
-  &::after {
-    display: block;
-    height: 1px;
-    margin-top: -1px;
-    content: "";
-    background: linear-gradient(to right, transparent, var(--color-gray-light));
-  }
 }
 
 .tableWrapper::-webkit-scrollbar {

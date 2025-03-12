@@ -59,14 +59,14 @@ const Pagination = ({
             onClick={() => onPageChange(currentPage - 1)}
           >
             <ChevronLeft />
-            {previousText}
+            <span className={styles.text}>{previousText}</span>
           </button>
         </li>
         {paginationRange?.map((pageNumber, index) => {
           // If the pageNumber is an ellipsis
           if (pageNumber === ELLIPSIS) {
             return (
-              <li key={`ellipsis-${index}`} className={clsx(styles.item, styles.ellipsis)}>
+              <li key={`ellipsis-${index}`} className={clsx(styles.ellipsis)}>
                 &#8230;
               </li>
             )
@@ -95,7 +95,7 @@ const Pagination = ({
             disabled={currentPage === lastPage}
             onClick={() => onPageChange(currentPage + 1)}
           >
-            {nextText}
+            <span className={styles.text}>{nextText}</span>
             <ChevronRight />
           </button>
         </li>
