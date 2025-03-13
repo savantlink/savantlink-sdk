@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.32 - 2025-03-13
 ### Changed
 - `Drawer` & `Modal` added className props
 
