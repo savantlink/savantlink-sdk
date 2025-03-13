@@ -40,7 +40,7 @@ Default.args = {
   onClose: () => console.log('Modal closed'),
   position: 'center',
   children: 'This is a default modal.',
-  hasCancelBtn: true
+  showDefaultClose: true
 }
 
 export const TopPosition = Template.bind({})
@@ -49,7 +49,7 @@ TopPosition.args = {
   onClose: () => console.log('Modal closed'),
   position: 'top',
   children: 'This is a modal positioned at the top.',
-  hasCancelBtn: true
+  showDefaultClose: true
 }
 
 export const WithCustomContent = Template.bind({})
@@ -64,5 +64,5 @@ WithCustomContent.args = {
       <button onClick={() => console.log('Button clicked')}>Click Me</button>
     </div>
   ),
-  hasCancelBtn: true
+  showDefaultClose: true
 }
