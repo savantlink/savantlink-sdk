@@ -46,4 +46,4 @@ const Badge = ({
 Badge.displayName = 'Badge'
 
 export default Badge
-export type { BadgeProps }
+export type { BadgeProps, TColor, TSkin, TSize }

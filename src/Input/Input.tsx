@@ -59,7 +59,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
             {label}
-            {required && <span className={styles.required}>*</span>}
+            {required && <span className="asterick">*</span>}
           </label>
         )}
         <div className={styles.inputContainer}>

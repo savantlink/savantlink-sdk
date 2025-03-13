@@ -42,4 +42,4 @@ const Tag = ({
 Tag.displayName = 'Tag'
 
 export default Tag
-export type { TagProps }
+export type { TagProps, TColor, TSkin, TSize }
