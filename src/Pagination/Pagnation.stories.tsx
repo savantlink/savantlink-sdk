@@ -18,9 +18,13 @@ const Template: ComponentStory<typeof Pagination> = (args) => {
     args.onPageChange(newPage); // Call the onPageChange callback
   };
 
+  const skip = (currentPage - 1) * args.perPageSize
+  const range = `${skip + 1} - ${currentPage * args.perPageSize}`
+
   return (
     <Pagination
       {...args}
+      range={range}
       currentPage={currentPage} // Pass the updated currentPage state
       onPageChange={handlePageChange} // Pass the handler
     />

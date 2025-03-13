@@ -13,6 +13,7 @@ type PaginationProps = {
   perPageSize: number
   currentPageSiblings: number
   currentPage: number
+  range: string
   previousText?: string
   nextText?: string
   className?: string
@@ -23,6 +24,7 @@ const Pagination = ({
   currentPageSiblings,
   currentPage,
   perPageSize,
+  range,
   nextText = 'Next',
   previousText = 'Prev',
   className,
@@ -48,7 +50,7 @@ const Pagination = ({
   return (
     <nav role="navigation" aria-label="pagination" className={clsx(styles.pagination, className)} {...props}>
       <p className={styles.stats}>
-        Showing {perPageSize} of <span>{totalSize}</span>
+        Showing {range} of <span>{totalSize}</span>
       </p>
       <ul className={styles.wrapper}>
         {/* Left navigation */}

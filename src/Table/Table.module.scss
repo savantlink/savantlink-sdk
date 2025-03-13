@@ -36,6 +36,7 @@
     font-weight: bold;
     cursor: pointer;
     background-color: var(--color-primary-lightest-1);
+    border-radius: 4px 4px 0 0;
 
     &.sortable:hover {
       background-color: var(--color-primary-lightest);
