@@ -11,9 +11,18 @@ interface DrawerProps {
   onClose: () => void
   position?: 'left' | 'right' | 'top' | 'bottom'
   children: React.ReactNode
+  showDefaultClose?: boolean
+  className?: string
 }
 
-const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, position = 'left', children }) => {
+const Drawer: React.FC<DrawerProps> = ({
+  isOpen,
+  onClose,
+  position = 'left',
+  children,
+  showDefaultClose,
+  className,
+}) => {
   useScrollLock(isOpen)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -33,11 +42,13 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, position = 'left', chi
 
   return (
     <div className={clsx(styles.drawerOverlay, styles[position], { [styles.open]: isOpen })} onClick={onClose}>
-      <div className={styles.drawerContent} onClick={(e) => e.stopPropagation()}>
+      <div className={clsx(styles.drawerContent, className)} onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className={styles.drawerClose} onClick={onClose}>
-          &times;
-        </button>
+        {showDefaultClose && (
+          <button className={styles.drawerClose} onClick={onClose}>
+            &times;
+          </button>
+        )}
       </div>
     </div>
   )

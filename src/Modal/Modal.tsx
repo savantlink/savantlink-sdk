@@ -11,10 +11,18 @@ interface ModalProps {
   onClose: () => void
   children: React.ReactNode
   position?: 'top' | 'center'
-  hasCancelBtn?: boolean
+  showDefaultClose?: boolean
+  className?: string
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, position = 'center', hasCancelBtn = 'false' }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+  position = 'center',
+  showDefaultClose = 'false',
+  className,
+}) => {
   useScrollLock(isOpen)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -34,9 +42,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, position = 'ce
 
   return (
     <div className={clsx(styles.modalOverlay, styles[position], { [styles.open]: isOpen })} onClick={onClose}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+      <div className={clsx(styles.modalContent, className)} onClick={(e) => e.stopPropagation()}>
         {children}
-        {hasCancelBtn && (
+        {showDefaultClose && (
           <button className={styles.modalClose} onClick={onClose}>
             &times;
           </button>
