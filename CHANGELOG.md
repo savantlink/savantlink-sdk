@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.30 - 2025-03-13
 ### Added
 - Created `Textarea` component
 
