@@ -49,7 +49,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
       {label && (
         <label className={styles.label}>
           {label}
-          {required && <span className={styles.required}>*</span>}
+          {required && <span className="asterick">*</span>}
         </label>
       )}
       <div className={`${styles.inputContainer} ${!isValid ? styles.invalid : ''}`}>

@@ -93,7 +93,7 @@
   --button-bg-active: var(--color-primary-lighter-2);
   --button-border-color: var(--color-primary);
   --button-color: var(--color-primary);
-  --button-color-active: var(--color-gray-light);
+  --button-color-active: var(--color-light);
 
   &[disabled],
   &:disabled,
@@ -107,6 +107,14 @@
 
     pointer-events: none;
     user-select: none;
+  }
+
+  &:hover {
+    color: var(--color-light);
+  }
+
+  &:focus {
+    color: var(--color-light);
   }
 }
 

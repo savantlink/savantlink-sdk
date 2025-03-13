@@ -1,0 +1,32 @@
+.textareaContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-gray-dark);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: .75rem;
+    font-size: 1rem;
+    resize: vertical; // Allow vertical resizing
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
