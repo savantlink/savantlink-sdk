@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import clsx from 'clsx'
+
 import Radio from './Radio'
 import styles from './RadioGroup.module.scss'
 
@@ -9,9 +11,17 @@ interface RadioGroupProps {
   defaultValue?: string
   disabled?: boolean
   onChange: (selectedValue: string) => void
+  className?: string
 }
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ title, options, defaultValue = '', disabled = false, onChange }) => {
+const RadioGroup: React.FC<RadioGroupProps> = ({
+  title,
+  options,
+  defaultValue = '',
+  disabled = false,
+  onChange,
+  className,
+}) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
 
   const handleChange = (value: string) => {
@@ -20,7 +30,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ title, options, defaultValue = 
   }
 
   return (
-    <div className={styles.radioGroup}>
+    <div className={clsx(styles.radioGroup, className)}>
       <label className={styles.title}>{title}</label>
       {options.map((option) => (
         <Radio
@@ -36,7 +46,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ title, options, defaultValue = 
   )
 }
 
-RadioGroup.displayName = "RadioGroup"
+RadioGroup.displayName = 'RadioGroup'
 
 export default RadioGroup
 export type { RadioGroupProps }

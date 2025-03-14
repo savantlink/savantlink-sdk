@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- Added missing displayName to `PhoneInput`, `RadioGroup`, `Select`, `Textarea` and `Toast`  components
 
 ## 1.0.33 - 2025-03-14
 ### Added

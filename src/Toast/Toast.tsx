@@ -1,5 +1,7 @@
 import { ReactNode, useEffect } from 'react'
 
+import clsx from 'clsx'
+
 import styles from './Toast.module.scss'
 import CloseIcon from '../../icons/system/close.svg'
 
@@ -11,8 +13,9 @@ interface ToastProps {
   position: 'top-left' | 'top-right' | 'bottom-right' | 'bottom-left'
   onClose: () => void
   icon?: ReactNode
+  className?: string
 }
-const Toast = ({ message, variant = 'info', position = 'top-right', onClose, icon }: ToastProps) => {
+const Toast = ({ message, variant = 'info', position = 'top-right', onClose, icon, className }: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose()
@@ -22,7 +25,7 @@ const Toast = ({ message, variant = 'info', position = 'top-right', onClose, ico
   }, [onClose])
 
   return (
-    <div className={`${styles.toast} ${styles[`toast-${variant}`]} ${styles[`toast-${position}`]}`}>
+    <div className={clsx(styles.toast, className, styles[`toast-${variant}`], styles[`toast-${position}`])}>
       <div className={styles['toast-content']}>
         {icon && <span className={styles.icon}>{icon}</span>}
         <Typography variant="regular">{message}</Typography>

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
+import clsx from 'clsx'
+
 import styles from './Select.module.scss'
 
 type SelectOptions = string | string[] | null
@@ -11,6 +13,7 @@ interface SelectProps {
   multiple?: boolean
   value?: SelectOptions
   required?: boolean
+  className?: string
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -21,6 +24,7 @@ const Select: React.FC<SelectProps> = ({
   value,
   onChange,
   required = false,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const selectRef = useRef<HTMLDivElement>(null)
@@ -72,7 +76,7 @@ const Select: React.FC<SelectProps> = ({
   }
 
   return (
-    <div className={`${styles.select} ${isOpen ? styles.selectOpen : ''}`} ref={selectRef}>
+    <div className={clsx(styles.select, className, { [styles.selectOpen]: isOpen })} ref={selectRef}>
       {label && (
         <label className="inputLabel">
           {label}
@@ -103,9 +107,10 @@ const Select: React.FC<SelectProps> = ({
           {options.map((option) => (
             <div
               key={option.value}
-              className={`${styles.selectOption} ${isSelected(option.value) ? styles.selectOptionSelected : ''} ${
-                multiple && isSelected(option.value) ? styles.selectOptionDisabled : ''
-              }`}
+              className={clsx(styles.selectOption, {
+                [styles.selectOptionSelected]: isSelected(option.value),
+                [styles.selectOptionDisabled]: multiple && isSelected(option.value),
+              })}
               onClick={() => !(multiple && isSelected(option.value)) && handleSelect(option.value)}
             >
               {option.label}

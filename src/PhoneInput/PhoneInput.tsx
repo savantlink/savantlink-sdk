@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import clsx from 'clsx'
+
 import styles from './PhoneInput.module.scss'
 
 import { countryCodes } from '@/services/data/country'
@@ -12,6 +14,7 @@ interface PhoneInputProps {
   label?: string
   errorMessage?: string
   required?: boolean
+  className?: string
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
@@ -22,6 +25,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   label = 'Phone Number',
   errorMessage = 'Invalid phone number',
   required = false,
+  className,
 }) => {
   const [isValid, setIsValid] = useState(true)
   const [selectedCountryCode, setSelectedCountryCode] = useState('+234')
@@ -45,14 +49,14 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   }
 
   return (
-    <div className={styles.phoneInput}>
+    <div className={clsx(styles.phoneInput, className)}>
       {label && (
         <label className="inputLabel">
           {label}
           {required && <span className="asterick">*</span>}
         </label>
       )}
-      <div className={`${styles.inputContainer} ${!isValid ? styles.invalid : ''}`}>
+      <div className={clsx(styles.inputContainer, { [styles.invalid]: !isValid })}>
         <select value={selectedCountryCode} onChange={handleCountryCodeChange} className={styles.countryCode}>
           {countryCodes.map((country) => (
             <option key={country.code} value={country.code}>
