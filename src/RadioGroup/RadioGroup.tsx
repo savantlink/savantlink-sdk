@@ -36,5 +36,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ title, options, defaultValue = 
   )
 }
 
+RadioGroup.displayName = "RadioGroup"
+
 export default RadioGroup
 export type { RadioGroupProps }

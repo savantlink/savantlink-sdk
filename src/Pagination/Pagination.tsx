@@ -106,5 +106,7 @@ const Pagination = ({
   )
 }
 
+Pagination.displayName = 'Pagination'
+
 export default React.memo(Pagination)
 export type { PaginationProps }

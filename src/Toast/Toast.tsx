@@ -32,5 +32,7 @@ const Toast = ({ message, variant = 'info', position = 'top-right', onClose, ico
   )
 }
 
+Toast.displayName = 'Toast'
+
 export default Toast
 export type { ToastProps }

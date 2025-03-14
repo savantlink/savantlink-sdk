@@ -86,5 +86,7 @@ const Table = <T,>({
   )
 }
 
+Table.displayName = "Table"
+
 export default Table
 export type { TableProps, ColumnProps }

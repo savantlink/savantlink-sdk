@@ -47,7 +47,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   return (
     <div className={styles.phoneInput}>
       {label && (
-        <label className={styles.label}>
+        <label className="inputLabel">
           {label}
           {required && <span className="asterick">*</span>}
         </label>
@@ -72,6 +72,8 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
     </div>
   )
 }
+
+PhoneInput.displayName = 'PhoneInput'
 
 export default PhoneInput
 export type { PhoneInputProps }

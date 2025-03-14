@@ -25,4 +25,7 @@ const Radio: React.FC<RadioProps> = ({ label, value, checked = false, disabled =
   )
 }
 
+Radio.displayName = 'Radio'
+
 export default Radio
+export type { RadioProps }
