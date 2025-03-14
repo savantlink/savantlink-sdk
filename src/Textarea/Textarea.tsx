@@ -1,19 +1,16 @@
-import React from 'react'
+import React, { TextareaHTMLAttributes } from 'react'
 
 import clsx from 'clsx'
 
 import styles from './Textarea.module.scss'
 
-interface TextareaProps {
-  id: string
+type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'children'> & {
   label?: string
-  value: string
-  placeholder?: string
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   rows?: number
-  disabled?: boolean
-  required?: boolean
   className?: string
+  error?: string
+  isError?: boolean
 }
 
 const Textarea: React.FC<TextareaProps> = ({
@@ -26,6 +23,9 @@ const Textarea: React.FC<TextareaProps> = ({
   disabled = false,
   required = true,
   className,
+  error,
+  isError,
+  ...props
 }) => {
   return (
     <div className={clsx(styles.textareaContainer, className)}>
@@ -42,7 +42,10 @@ const Textarea: React.FC<TextareaProps> = ({
         onChange={onChange}
         rows={rows}
         disabled={disabled}
+        className={`${isError ? styles.inputError : ''}`}
+        {...props}
       />
+      {error && <span className={clsx(styles.error)}>{error}</span>}
     </div>
   )
 }
