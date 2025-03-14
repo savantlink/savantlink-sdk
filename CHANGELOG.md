@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.33 - 2025-03-14
 ### Added
 - Created `RadioGroup` and `Radio` component
 - Created `Select` component
