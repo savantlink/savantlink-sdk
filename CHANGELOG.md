@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- Extended `HTMLTextAreaProps` on `TextArea` component
 
 ## 1.0.34 - 2025-03-14
 ### Changed
