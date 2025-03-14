@@ -8,9 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
+    min-height: 3rem;
+    padding: 8px;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--color-light);
     border: 1px solid var(--color-gray-alto);
     border-radius: 4px;
 
@@ -54,9 +55,9 @@
     left: 0;
     z-index: 10;
     width: 100%;
-    padding: 4px;
+    padding: 8px;
     margin-top: 4px;
-    background-color: white;
+    background-color: var(--color-light);
     border: 1px solid var(--color-gray);
     border-radius: 4px;
   }

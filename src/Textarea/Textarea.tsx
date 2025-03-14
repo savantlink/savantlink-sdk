@@ -1,5 +1,7 @@
 import React from 'react'
 
+import clsx from 'clsx'
+
 import styles from './Textarea.module.scss'
 
 interface TextareaProps {
@@ -11,6 +13,7 @@ interface TextareaProps {
   rows?: number
   disabled?: boolean
   required?: boolean
+  className?: string
 }
 
 const Textarea: React.FC<TextareaProps> = ({
@@ -22,9 +25,10 @@ const Textarea: React.FC<TextareaProps> = ({
   rows = 4,
   disabled = false,
   required = true,
+  className,
 }) => {
   return (
-    <div className={styles.textareaContainer}>
+    <div className={clsx(styles.textareaContainer, className)}>
       {label && (
         <label>
           {label}
