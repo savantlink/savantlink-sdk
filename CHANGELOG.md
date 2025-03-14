@@ -13,6 +13,12 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `RadioGroup` and `Radio` component
+- Created `Select` component
+
+### Changed
+- Added missing displayName to affected components
 
 ## 1.0.32 - 2025-03-13
 ### Changed

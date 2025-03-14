@@ -43,5 +43,7 @@ const Textarea: React.FC<TextareaProps> = ({
   )
 }
 
+Textarea.displayName = 'Textarea'
+
 export default Textarea
 export type { TextareaProps }

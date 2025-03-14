@@ -1,77 +1,87 @@
-.wrapper {
-  position: relative;
-}
-
-.group {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 2.5rem;
-}
-
-.label {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 11px;
-  color: #172836;
-  text-transform: uppercase;
-
-  span {
-    font-size: 12px;
-    color: #f14c18;
-  }
-}
-
 .select {
-  box-sizing: border-box;
+  position: relative;
   width: 100%;
-  height: 100%;
-  padding: 0 16px;
-  border: 1px solid #e5e5e5;
-  border-radius: 5px;
-  appearance: none;
+  max-width: 300px;
+  font-family: Arial, sans-serif;
 
-  :focus {
-    border: 1px solid #bdbdbd;
-    outline: none;
-  }
+  &Trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid var(--color-gray-alto);
+    border-radius: 4px;
 
-  &.selectError {
-    border-color: var(--color-danger);
-  }
+    .placeholder {
+      color: var(--color-gray);
+    }
 
-  &.selectSuccess {
-    border-color: var(--color-success);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-white-off);
-  }
-
-  &:not(.selectError, .selectSuccess, [disabled]) {
     &:hover {
-      border-color: var(--color-purple-lighter-2);
-    }
-
-    &:focus,
-    &:focus-visible {
-      border-color: var(--color-purple);
+      border-color: var(--color-primary);
     }
   }
-}
 
-.group::after {
-  position: absolute;
-  right: 15px;
-  font-size: 1rem;
-  content: "▼";
+  &Tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
 
-  @media screen and (max-width: 425px) {
-    top: 16px;
+  &Tag {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    font-size: 14px;
+    background-color: var(--color-primary-lightest);
+    border-radius: 4px;
+  }
+
+  &TagRemove {
+    margin-left: 4px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+
+  &Dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 4px;
+    margin-top: 4px;
+    background-color: white;
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+  }
+
+  &Option {
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-gray-light);
+    }
+
+    &Selected {
+      background-color: var(--color-gray-light);
+    }
+
+    &Disabled {
+      cursor: not-allowed;
+      opacity: .6;
+    }
+  }
+
+  &Open {
+    .selectTrigger {
+      border-color: var(--color-primary);
+    }
   }
 }

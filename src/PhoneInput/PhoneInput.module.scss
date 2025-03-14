@@ -1,14 +1,6 @@
 @import "scss/breakpoints";
 
 .phoneInput {
-  .label {
-    display: block;
-    margin-bottom: .5rem;
-    font-size: .9rem;
-    font-weight: var(--font-weight-normal);
-    color: var(--color-gray-dark);
-  }
-
   .inputContainer {
     display: flex;
     align-items: center;
