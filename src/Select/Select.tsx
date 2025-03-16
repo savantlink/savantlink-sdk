@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 
 import styles from './Select.module.scss'
+import ChevronDown from '../../icons/system/chevron-down.svg'
 
 type SelectOptions = string | string[] | null
 interface SelectProps {
@@ -101,6 +102,7 @@ const Select: React.FC<SelectProps> = ({
         )}
         {!multiple && value && options.find((opt) => opt.value === value)?.label}
         {!value && <span className={styles.placeholder}>{placeholder}</span>}
+        <ChevronDown />
       </div>
       {isOpen && (
         <div className={styles.selectDropdown}>
