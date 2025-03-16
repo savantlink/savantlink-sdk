@@ -1,8 +1,6 @@
-import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import Tooltip from './Tooltip';
+import Tooltip from './Tooltip'
 
 export default {
   title: 'Atoms/Tooltip',
@@ -37,7 +35,7 @@ export default {
       description: 'Text displayed inside the tooltip.',
     },
   },
-} as ComponentMeta<typeof Tooltip>;
+} as ComponentMeta<typeof Tooltip>
 
 // Template for the Tooltip story
 const Template: ComponentStory<typeof Tooltip> = (args) => (
@@ -46,43 +44,43 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
       <button>Hover me</button>
     </Tooltip>
   </div>
-);
+)
 
 // Default Tooltip story
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   text: 'This is a tooltip',
   position: 'top',
   variant: 'dark',
-};
+}
 
 // Tooltip with different variants
-export const Light = Template.bind({});
+export const Light = Template.bind({})
 Light.args = {
   text: 'This is a light tooltip',
   variant: 'light',
-};
+}
 
-export const Success = Template.bind({});
+export const Success = Template.bind({})
 Success.args = {
   text: 'This is a success tooltip',
   variant: 'success',
-};
+}
 
-export const Info = Template.bind({});
+export const Info = Template.bind({})
 Info.args = {
   text: 'This is an info tooltip',
   variant: 'info',
-};
+}
 
-export const Warning = Template.bind({});
+export const Warning = Template.bind({})
 Warning.args = {
   text: 'This is a warning tooltip',
   variant: 'warning',
-};
+}
 
-export const Danger = Template.bind({});
+export const Danger = Template.bind({})
 Danger.args = {
   text: 'This is a danger tooltip',
   variant: 'danger',
-};
+}
