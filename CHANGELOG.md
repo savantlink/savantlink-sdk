@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Created `Tooltip` component
+- Added arrow-down icon to `Select` component
 
 ## 1.0.35 - 2025-03-14
 ### Fixed
