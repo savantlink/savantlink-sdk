@@ -7,12 +7,12 @@ import styles from './Tooltip.module.scss' // Import scoped SCSS
 interface TooltipProps {
   text: string // Tooltip text
   position?: 'top' | 'bottom' | 'left' | 'right' // Tooltip position
-  variant?: 'dark' | 'light' | 'success' | 'info' | 'warning' | 'danger' // Tooltip background variant
+  variant?: 'primary' | 'dark' | 'light' | 'success' | 'info' | 'warning' | 'danger' // Tooltip background variant
   children: React.ReactNode // The element that triggers the tooltip
   className?: string
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, position = 'top', variant = 'dark', children, className }) => {
+const Tooltip: React.FC<TooltipProps> = ({ text, position = 'top', variant = 'primary', children, className }) => {
   const [isVisible, setIsVisible] = useState(false)
 
   // Handle mouse enter and leave events

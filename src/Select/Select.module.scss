@@ -1,7 +1,6 @@
 .select {
   position: relative;
   width: 100%;
-  max-width: 300px;
   font-family: Arial, sans-serif;
 
   &Trigger {
@@ -9,10 +8,10 @@
     align-items: center;
     justify-content: space-between;
     min-height: 3rem;
-    padding: 8px;
+    padding: 12px;
     cursor: pointer;
     background-color: var(--color-light);
-    border: 1px solid var(--color-gray-alto);
+    border: 1px solid var(--color-primary-lighter);
     border-radius: 4px;
 
     .placeholder {

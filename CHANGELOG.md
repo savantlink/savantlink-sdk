@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- Updated Input components' label to accept type `string | ReactNode`
+
+### Fixed
+- `Tooltip` component width
 
 ## 1.0.37 - 2025-03-17
 ### Added

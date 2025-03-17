@@ -49,12 +49,18 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
 // Default Tooltip story
 export const Default = Template.bind({})
 Default.args = {
-  text: 'This is a tooltip',
+  text: 'This is a tooltip with a much longer text, to test the maximum width property',
   position: 'top',
-  variant: 'dark',
+  variant: 'primary',
 }
 
 // Tooltip with different variants
+export const Dark = Template.bind({})
+Dark.args = {
+  text: 'This is a light tooltip',
+  variant: 'dark',
+}
+
 export const Light = Template.bind({})
 Light.args = {
   text: 'This is a light tooltip',

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 
 import clsx from 'clsx'
 
@@ -7,7 +7,7 @@ import ChevronDown from '../../icons/system/chevron-down.svg'
 
 type SelectOptions = string | string[] | null
 interface SelectProps {
-  label: string
+  label: string | ReactNode
   options: { label: string; value: string }[]
   onChange: (selectedValue: SelectOptions) => void
   placeholder?: string
