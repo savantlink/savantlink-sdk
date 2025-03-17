@@ -7,7 +7,7 @@ import EyeClosed from '../../icons/system/eye-closed.svg'
 import Eye from '../../icons/system/eye.svg'
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
-  label?: string
+  label?: string | ReactNode
   hint?: string
   error?: string
   isSuccess?: boolean

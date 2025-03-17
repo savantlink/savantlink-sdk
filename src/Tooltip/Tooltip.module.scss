@@ -5,11 +5,16 @@
 
 .tooltip {
   position: absolute;
-  z-index: 1000;
+  z-index: var(--z-ds-layer-floating);
+  width: max-content; // Ensure the tooltip expands to fit its content
+  min-width: 120px; // Optional: Set a minimum width for the tooltip
+  max-width: 300px; // Limit the maximum width of the tooltip
   padding: 8px;
   font-size: 14px;
   color: var(--color-light); // Default text color
-  white-space: nowrap;
+  word-wrap: break-word; // Break long words if necessary
+  overflow-wrap: break-word; // Modern alternative to word-wrap
+  white-space: normal; // Allow text to wrap
   border-radius: 4px;
   box-shadow: var(--shadow-hover); // Box shadow
   opacity: .9;
@@ -18,14 +23,12 @@
   &.top {
     bottom: 100%;
     left: 50%;
-    margin-bottom: 8px;
     transform: translateX(-50%);
   }
 
   &.bottom {
     top: 100%;
     left: 50%;
-    margin-top: 8px;
     transform: translateX(-50%);
   }
 
@@ -44,6 +47,10 @@
   }
 
   // Variant-specific styles
+  &.primary {
+    background-color: var(--color-primary);
+  }
+
   &.dark {
     background-color: var(--color-gray-darkest);
   }

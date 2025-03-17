@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
 import clsx from 'clsx'
 
@@ -11,7 +11,7 @@ interface PhoneInputProps {
   onChange: (value: string) => void
   onCountryCodeChange: (code: string) => void
   placeholder?: string
-  label?: string
+  label?: string | ReactNode
   errorMessage?: string
   required?: boolean
   className?: string
