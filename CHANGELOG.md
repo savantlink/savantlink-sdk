@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New system icons (card, medal, note, peope, receipt, setting, user-circle-add)
 
 ## 1.0.36 - 2025-03-16
 ### Added
