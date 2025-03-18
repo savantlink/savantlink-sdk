@@ -6,6 +6,7 @@ import styles from './Select.module.scss'
 import ChevronDown from '../../icons/system/chevron-down.svg'
 
 type SelectOptions = string | string[] | null
+
 interface SelectProps {
   label: string | ReactNode
   options: { label: string; value: string }[]
@@ -15,6 +16,8 @@ interface SelectProps {
   value?: SelectOptions
   required?: boolean
   className?: string
+  disabled?: boolean // New prop for disabled state
+  readOnly?: boolean // New prop for read-only state
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -26,6 +29,8 @@ const Select: React.FC<SelectProps> = ({
   onChange,
   required = false,
   className,
+  disabled = false, // Default to false
+  readOnly = false, // Default to false
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const selectRef = useRef<HTMLDivElement>(null)
@@ -43,6 +48,7 @@ const Select: React.FC<SelectProps> = ({
   }, [])
 
   const handleSelect = (selectedValue: string) => {
+    if (disabled || readOnly) return // Do nothing if disabled or read-only
     if (multiple) {
       const currentValues = Array.isArray(value) ? value : []
       const newValues = currentValues.includes(selectedValue)
@@ -56,14 +62,15 @@ const Select: React.FC<SelectProps> = ({
   }
 
   const removeSelected = (selectedValue: string) => {
+    if (disabled || readOnly) return // Do nothing if disabled or read-only
     if (multiple && Array.isArray(value)) {
       const newValues = value.filter((val) => val !== selectedValue)
-
       onChange(newValues.length > 0 ? newValues : null)
     }
   }
 
   const clearSelected = () => {
+    if (disabled || readOnly) return // Do nothing if disabled or read-only
     if (multiple && Array.isArray(value)) {
       onChange(null)
     }
@@ -77,49 +84,67 @@ const Select: React.FC<SelectProps> = ({
   }
 
   return (
-    <div className={clsx(styles.select, className, { [styles.selectOpen]: isOpen })} ref={selectRef}>
+    <div
+      className={clsx(styles.select, className, {
+        [styles.selectOpen]: isOpen,
+        [styles.selectDisabled]: disabled, // Add disabled styling
+        [styles.selectReadOnly]: readOnly, // Add read-only styling
+      })}
+      ref={selectRef}
+    >
       {label && (
         <label className="inputLabel">
           {label}
           {required && <span className="asterick">*</span>}
         </label>
       )}
-      <div className={styles.selectTrigger} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={styles.selectTrigger}
+        onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)} // Prevent opening if disabled or read-only
+      >
         {multiple && Array.isArray(value) && value.length > 0 && (
           <>
             <div className={styles.selectTags}>
               {value.map((val) => (
                 <div key={val} className={styles.selectTag}>
                   {options.find((opt) => opt.value === val)?.label}
-                  <span className={styles.selectTagRemove} onClick={() => removeSelected(val)}>
-                    &times;
-                  </span>
+                  {!disabled &&
+                    !readOnly && ( // Only show remove button if not disabled or read-only
+                      <span className={styles.selectTagRemove} onClick={() => removeSelected(val)}>
+                        &times;
+                      </span>
+                    )}
                 </div>
               ))}
             </div>
-            <div onClick={clearSelected}>&times;</div>
+            {!disabled &&
+              !readOnly && ( // Only show clear button if not disabled or read-only
+                <div onClick={clearSelected}>&times;</div>
+              )}
           </>
         )}
         {!multiple && value && options.find((opt) => opt.value === value)?.label}
         {!value && <span className={styles.placeholder}>{placeholder}</span>}
-        <ChevronDown />
+        {!disabled && !readOnly && <ChevronDown />} {/* Only show chevron if not disabled or read-only */}
       </div>
-      {isOpen && (
-        <div className={styles.selectDropdown}>
-          {options.map((option) => (
-            <div
-              key={option.value}
-              className={clsx(styles.selectOption, {
-                [styles.selectOptionSelected]: isSelected(option.value),
-                [styles.selectOptionDisabled]: multiple && isSelected(option.value),
-              })}
-              onClick={() => !(multiple && isSelected(option.value)) && handleSelect(option.value)}
-            >
-              {option.label}
-            </div>
-          ))}
-        </div>
-      )}
+      {isOpen &&
+        !disabled &&
+        !readOnly && ( // Only show dropdown if not disabled or read-only
+          <div className={styles.selectDropdown}>
+            {options.map((option) => (
+              <div
+                key={option.value}
+                className={clsx(styles.selectOption, {
+                  [styles.selectOptionSelected]: isSelected(option.value),
+                  [styles.selectOptionDisabled]: multiple && isSelected(option.value),
+                })}
+                onClick={() => !(multiple && isSelected(option.value)) && handleSelect(option.value)}
+              >
+                {option.label}
+              </div>
+            ))}
+          </div>
+        )}
     </div>
   )
 }
