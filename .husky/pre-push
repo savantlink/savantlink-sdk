@@ -4,4 +4,4 @@
 node scripts/verify-changelog.js
 yarn lint
 # yarn test --silent
-# yarn build
+yarn build
