@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- id and name props to `PhoneInput` component
 
 ## 1.0.39 - 2025-03-18
 ### Fixed

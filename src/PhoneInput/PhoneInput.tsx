@@ -7,6 +7,8 @@ import styles from './PhoneInput.module.scss'
 import { countryCodes } from '@/services/data/country'
 
 interface PhoneInputProps {
+  id: string
+  name?: string
   value: string
   onChange: (value: string) => void
   onCountryCodeChange: (code: string) => void
@@ -25,6 +27,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   label = 'Phone Number',
   errorMessage = 'Invalid phone number',
   required = false,
+  name,
   className,
 }) => {
   const [isValid, setIsValid] = useState(true)
@@ -65,6 +68,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
           ))}
         </select>
         <input
+          name={name}
           type="tel"
           value={value}
           onChange={handlePhoneNumberChange}
