@@ -24,6 +24,7 @@ const Template: ComponentStory<typeof PhoneInput> = () => {
   return (
     <>
       <PhoneInput
+        id="phoneNumber"
         value={phoneNumber}
         onChange={setPhoneNumber}
         onCountryCodeChange={setCountryCode}
@@ -33,7 +34,8 @@ const Template: ComponentStory<typeof PhoneInput> = () => {
         required
       />
       <p>
-        You entered: {countryCode}{phoneNumber}
+        You entered: {countryCode}
+        {phoneNumber}
       </p>
     </>
   )

@@ -89,7 +89,7 @@ jobs:
       # Manual approval for package release (issues)
       - name: Pending for approval
         uses: trstringer/manual-approval@v1
-        timeout-minutes: 3
+        timeout-minutes: 10
         with:
           secret: ${{ github.TOKEN }}
           approvers: abfatahi
