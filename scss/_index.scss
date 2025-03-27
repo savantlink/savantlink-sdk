@@ -1,4 +1,4 @@
-@import "./reset";
-@import "./z-index";
-@import "./theme";
-@import "./custom";
+@forward "./reset";
+@forward "./z-index";
+@forward "./theme";
+@forward "./custom";

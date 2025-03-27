@@ -1,5 +1,5 @@
 /* UX design system custom properties */
-@import "./breakpoints";
+@use "./breakpoints" as *;
 
 :root {
   /* Root spacing */
@@ -37,18 +37,6 @@
   --h3-resp: 1.75rem; // 28px
   --h2-resp: 2rem; // 32px
   --h1-resp: 2.5rem; // 40px
-
-  @include media-breakpoint-up(lg) {
-    --label-resp: var(--label);
-    --span-resp: var(--span);
-    --p-resp: var(--p);
-    --h6-resp: var(--h6);
-    --h5-resp: var(--h5);
-    --h4-resp: var(--h4);
-    --h3-resp: var(--h3);
-    --h2-resp: var(--h2);
-    --h1-resp: var(--h1);
-  }
 
   /* colors: primary */
   --color-primary: rgb(97 124 88);
@@ -159,4 +147,16 @@
   --shadow-medium: 0 0 1px rgb(0 0 0 / 8%), 0 8px 16px rgb(0 0 0 / 5%);
   --shadow-large: 0 0 1px rgb(0 0 0 / 5%), 0 24px 48px rgb(0 0 0 / 5%);
   --shadow-largest: 0 0 1px rgb(0 0 0 / 5%), 0 32px 64px rgb(0 0 0 / 5%);
+
+  @include media-breakpoint-up(lg) {
+    --label-resp: var(--label);
+    --span-resp: var(--span);
+    --p-resp: var(--p);
+    --h6-resp: var(--h6);
+    --h5-resp: var(--h5);
+    --h4-resp: var(--h4);
+    --h3-resp: var(--h3);
+    --h2-resp: var(--h2);
+    --h1-resp: var(--h1);
+  }
 }
