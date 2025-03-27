@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.41 - 2025-03-27
 ### Fixed
 - Fix scss deprecation warnins
 
