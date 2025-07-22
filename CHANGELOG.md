@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- Exported all component to default index
 
 ## 1.0.41 - 2025-03-27
 ### Fixed

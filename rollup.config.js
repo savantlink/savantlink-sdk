@@ -1,11 +1,11 @@
 import alias from '@rollup/plugin-alias'
+import terser from '@rollup/plugin-terser'
 import svgr from '@svgr/rollup'
 import fs from 'fs'
 import path from 'path'
 import { externals } from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
 import typescript from 'rollup-plugin-typescript2'
-import terser from '@rollup/plugin-terser'
 
 const SRC_DIR = 'src'
 /**
@@ -46,7 +46,8 @@ const plugins = [
 ]
 
 export default {
-  input: entryPoints.map((entryPoint) => `src/${entryPoint}/index.ts`),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  input: entryPoints.map((_entryPoint) => `src/index.ts`),
   output: [
     {
       dir: 'dist',
