@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New custom css classes (padding)
+- SDK doucmentation
+
+## 1.0.42 - 2025-07-22
 ### Changed
 - Exported all component to default index
 
