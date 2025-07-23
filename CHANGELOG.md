@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- `Select` Component styling
 
 ## 1.0.43 - 2025-07-23
 ### Added

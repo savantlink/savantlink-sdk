@@ -1,9 +1,10 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
+import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
 import clsx from 'clsx'
 
 import styles from './Select.module.scss'
 import ChevronDown from '../../icons/system/chevron-down.svg'
+import Close from '../../icons/system/close.svg'
 
 type SelectOptions = string | string[] | null
 
@@ -16,8 +17,10 @@ interface SelectProps {
   value?: SelectOptions
   required?: boolean
   className?: string
-  disabled?: boolean // New prop for disabled state
-  readOnly?: boolean // New prop for read-only state
+  disabled?: boolean
+  readOnly?: boolean
+  error?: boolean // New: Error state
+  errorMessage?: string // New: Custom error message
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -29,10 +32,13 @@ const Select: React.FC<SelectProps> = ({
   onChange,
   required = false,
   className,
-  disabled = false, // Default to false
-  readOnly = false, // Default to false
+  disabled = false,
+  readOnly = false,
+  error = false, // Default: false
+  errorMessage = 'This field is required', // Default message
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1)
   const selectRef = useRef<HTMLDivElement>(null)
 
   // Close dropdown when clicking outside
@@ -42,109 +48,172 @@ const Select: React.FC<SelectProps> = ({
         setIsOpen(false)
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  // Reset focus when dropdown closes
+  useEffect(() => {
+    if (!isOpen) setFocusedIndex(-1)
+  }, [isOpen])
+
+  // Memoize filtered options for performance
+  const memoizedOptions = useMemo(() => options, [options])
+
   const handleSelect = (selectedValue: string) => {
-    if (disabled || readOnly) return // Do nothing if disabled or read-only
+    if (disabled || readOnly) return
     if (multiple) {
       const currentValues = Array.isArray(value) ? value : []
       const newValues = currentValues.includes(selectedValue)
-        ? currentValues.filter((val) => val !== selectedValue) // Deselect if already selected
-        : [...currentValues, selectedValue] // Add to selection
-      onChange(newValues)
+        ? currentValues.filter((val) => val !== selectedValue)
+        : [...currentValues, selectedValue]
+      onChange(newValues.length > 0 ? newValues : null)
     } else {
       onChange(selectedValue)
-      setIsOpen(false) // Close dropdown after selection
+      setIsOpen(false)
     }
   }
 
-  const removeSelected = (selectedValue: string) => {
-    if (disabled || readOnly) return // Do nothing if disabled or read-only
+  const removeSelected = (selectedValue: string, e: React.MouseEvent) => {
+    e.stopPropagation() // Prevent triggering dropdown toggle
+    if (disabled || readOnly) return
     if (multiple && Array.isArray(value)) {
       const newValues = value.filter((val) => val !== selectedValue)
       onChange(newValues.length > 0 ? newValues : null)
     }
   }
 
-  const clearSelected = () => {
-    if (disabled || readOnly) return // Do nothing if disabled or read-only
-    if (multiple && Array.isArray(value)) {
-      onChange(null)
-    }
+  const clearSelected = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (disabled || readOnly) return
+    onChange(null)
   }
 
   const isSelected = (optionValue: string) => {
-    if (multiple) {
-      return Array.isArray(value) && value.includes(optionValue)
-    }
+    if (multiple) return Array.isArray(value) && value.includes(optionValue)
     return value === optionValue
+  }
+
+  // Keyboard navigation
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (disabled || readOnly) return
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        e.preventDefault()
+        setIsOpen(!isOpen)
+        break
+      case 'Escape':
+        setIsOpen(false)
+        break
+      case 'ArrowDown':
+        e.preventDefault()
+        if (!isOpen) setIsOpen(true)
+        setFocusedIndex((prev) => (prev < options.length - 1 ? prev + 1 : 0))
+        break
+      case 'ArrowUp':
+        e.preventDefault()
+        if (!isOpen) setIsOpen(true)
+        setFocusedIndex((prev) => (prev > 0 ? prev - 1 : options.length - 1))
+        break
+      default:
+        break
+    }
   }
 
   return (
     <div
       className={clsx(styles.select, className, {
         [styles.selectOpen]: isOpen,
-        [styles.selectDisabled]: disabled, // Add disabled styling
-        [styles.selectReadOnly]: readOnly, // Add read-only styling
+        [styles.selectDisabled]: disabled,
+        [styles.selectReadOnly]: readOnly,
+        [styles.selectError]: error, // Error styling
       })}
       ref={selectRef}
     >
       {label && (
-        <label className="inputLabel">
+        <label className={styles.inputLabel}>
           {label}
-          {required && <span className="asterick">*</span>}
+          {required && <span className={styles.asterisk}>*</span>}
         </label>
       )}
       <div
         className={styles.selectTrigger}
-        onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)} // Prevent opening if disabled or read-only
+        onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)}
+        tabIndex={disabled || readOnly ? -1 : 0}
+        role="combobox"
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-invalid={error}
+        aria-describedby={error ? 'error-message' : undefined}
+        onKeyDown={handleKeyDown}
       >
-        {multiple && Array.isArray(value) && value.length > 0 && (
-          <>
+        {multiple && Array.isArray(value) && value.length > 0 ? (
+          <div className={styles.multipleWrapper}>
             <div className={styles.selectTags}>
               {value.map((val) => (
                 <div key={val} className={styles.selectTag}>
-                  {options.find((opt) => opt.value === val)?.label}
-                  {!disabled &&
-                    !readOnly && ( // Only show remove button if not disabled or read-only
-                      <span className={styles.selectTagRemove} onClick={() => removeSelected(val)}>
-                        &times;
-                      </span>
-                    )}
+                  {memoizedOptions.find((opt) => opt.value === val)?.label}
+                  {!disabled && !readOnly && (
+                    <span
+                      className={styles.selectTagRemove}
+                      onClick={(e) => removeSelected(val, e)}
+                      aria-label={`Remove ${val}`}
+                    >
+                      <Close />
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
-            {!disabled &&
-              !readOnly && ( // Only show clear button if not disabled or read-only
-                <div onClick={clearSelected}>&times;</div>
-              )}
-          </>
-        )}
-        {!multiple && value && options.find((opt) => opt.value === value)?.label}
-        {!value && <span className={styles.placeholder}>{placeholder}</span>}
-        {!disabled && !readOnly && <ChevronDown />} {/* Only show chevron if not disabled or read-only */}
-      </div>
-      {isOpen &&
-        !disabled &&
-        !readOnly && ( // Only show dropdown if not disabled or read-only
-          <div className={styles.selectDropdown}>
-            {options.map((option) => (
-              <div
-                key={option.value}
-                className={clsx(styles.selectOption, {
-                  [styles.selectOptionSelected]: isSelected(option.value),
-                  [styles.selectOptionDisabled]: multiple && isSelected(option.value),
-                })}
-                onClick={() => !(multiple && isSelected(option.value)) && handleSelect(option.value)}
-              >
-                {option.label}
+            {!disabled && !readOnly && (
+              <div onClick={clearSelected} aria-label="Clear all">
+                <Close />
               </div>
-            ))}
+            )}
           </div>
+        ) : !multiple && value ? (
+          <div className={styles.singleValue}>
+            {memoizedOptions.find((opt) => opt.value === value)?.label}
+            {!disabled && !readOnly && (
+              <div onClick={clearSelected} aria-label="Clear selection">
+                <Close />
+              </div>
+            )}
+          </div>
+        ) : (
+          <span className={styles.placeholder}>{placeholder}</span>
         )}
+        {!disabled && !readOnly && (
+          <span className={styles.chevron}>
+            <ChevronDown className={isOpen ? styles.chevron__open : ''} />
+          </span>
+        )}
+      </div>
+      {isOpen && !disabled && !readOnly && (
+        <div className={styles.selectDropdown} role="listbox">
+          {memoizedOptions.map((option, index) => (
+            <div
+              key={option.value}
+              className={clsx(styles.selectOption, {
+                [styles.selectOptionSelected]: isSelected(option.value),
+                [styles.selectOptionFocused]: index === focusedIndex,
+              })}
+              onClick={() => handleSelect(option.value)}
+              role="option"
+              aria-selected={isSelected(option.value)}
+              tabIndex={0}
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
+      )}
+      {error && !isOpen && (
+        <div id="error-message" className="mt2 error">
+          {errorMessage}
+        </div>
+      )}
     </div>
   )
 }
