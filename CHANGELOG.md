@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.43 - 2025-07-23
 ### Added
 - New custom css classes (padding)
 - SDK doucmentation
