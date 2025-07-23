@@ -88,11 +88,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-        {error ? (
-          <span className={clsx(styles.error, errorClassName)}>{error}</span>
-        ) : (
-          hint && <span className={clsx(styles.hint, hintClassName)}>{hint}</span>
-        )}
+        {error && <span className={clsx('error', errorClassName)}>{error}</span>}
+        {hint && <span className={clsx('hint', hintClassName)}>{hint}</span>}
       </div>
     )
   }

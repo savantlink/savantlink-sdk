@@ -1,13 +1,24 @@
+@import "scss/breakpoints";
+
+// TODO: Fix height on Multiple select variant
 .select {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem; /* Ensures spacing between label & input */
   width: 100%;
+  min-height: 48px;
   font-family: Arial, sans-serif;
+
+  @include media-breakpoint-up(md) {
+    gap: .5rem;
+  }
 
   &Trigger {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 3rem;
+    height: 100%;
     padding: 12px;
     cursor: pointer;
     background-color: var(--color-light);
@@ -23,6 +34,13 @@
     }
   }
 
+  .multipleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   &Tags {
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +50,8 @@
   &Tag {
     display: flex;
     align-items: center;
-    padding: 4px 8px;
+    width: max-content;
+    padding: 3px 8px;
     font-size: 14px;
     background-color: var(--color-primary-lightest);
     border-radius: 4px;
@@ -56,7 +75,7 @@
     width: 100%;
     max-height: 200px;
     padding: 8px;
-    margin-top: 4px;
+    margin-top: 10px;
     overflow-y: auto;
     background-color: var(--color-light);
     border: 1px solid var(--color-gray);
@@ -65,6 +84,7 @@
 
   &Option {
     padding: 8px 12px;
+    margin-bottom: 4px;
     cursor: pointer;
 
     &:hover {
@@ -85,6 +105,25 @@
     .selectTrigger {
       border-color: var(--color-primary);
     }
+  }
+
+  .chevron {
+    width: max-content;
+    padding-left: 8px;
+    margin-left: 8px;
+    border-left: 2px solid var(--color-gray-light);
+
+    &__open {
+      transition: .5s all ease-in-out;
+      transform: rotate(180deg);
+    }
+  }
+
+  .label {
+    display: block; /* Ensures visibility */
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-gray-dark);
   }
 }
 
