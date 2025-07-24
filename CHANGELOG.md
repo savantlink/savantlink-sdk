@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 1.0.45 - 2025-07-24
 ### Fixed
 - `Select, Input & PhoneInput` styling
 
