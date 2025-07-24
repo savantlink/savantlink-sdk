@@ -123,22 +123,21 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div
-      className={clsx(styles.select, className, {
+      className={clsx(styles.select, styles[`select__${multiple ? 'multiple' : 'single'}`], className, {
         [styles.selectOpen]: isOpen,
         [styles.selectDisabled]: disabled,
         [styles.selectReadOnly]: readOnly,
-        [styles.selectError]: error, // Error styling
       })}
       ref={selectRef}
     >
       {label && (
         <label className={styles.inputLabel}>
           {label}
-          {required && <span className={styles.asterisk}>*</span>}
+          {required && <span className="asterisk">*</span>}
         </label>
       )}
       <div
-        className={styles.selectTrigger}
+        className={clsx(styles.selectTrigger, { [styles.selectError]: error })}
         onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)}
         tabIndex={disabled || readOnly ? -1 : 0}
         role="combobox"
@@ -173,14 +172,7 @@ const Select: React.FC<SelectProps> = ({
             )}
           </div>
         ) : !multiple && value ? (
-          <div className={styles.singleValue}>
-            {memoizedOptions.find((opt) => opt.value === value)?.label}
-            {!disabled && !readOnly && (
-              <div onClick={clearSelected} aria-label="Clear selection">
-                <Close />
-              </div>
-            )}
-          </div>
+          <div className={styles.singleValue}>{memoizedOptions.find((opt) => opt.value === value)?.label}</div>
         ) : (
           <span className={styles.placeholder}>{placeholder}</span>
         )}
