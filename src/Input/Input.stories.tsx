@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-  args: { inputId: 'test-input', label: 'Email', required: true, icon: <SearchIcon/> },
+  args: { inputId: 'test-input', label: 'Email', required: true, icon: <SearchIcon /> },
   argTypes: {
     label: {
       type: 'string',
@@ -22,6 +22,9 @@ export default {
       type: 'string',
     },
     error: {
+      type: 'boolean',
+    },
+    errorMessage: {
       type: 'string',
     },
     inputId: {

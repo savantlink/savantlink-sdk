@@ -38,9 +38,10 @@ const Template: ComponentStory<typeof Select> = () => {
           { label: 'Option 9', value: 'option9' },
         ]}
         placeholder="Select an option"
-        multiple={true}
         onChange={handleChange}
         value={selectedValue}
+        error={true}
+        errorMessage='Required'
         required
       />
     </>

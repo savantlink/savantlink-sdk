@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Fixed
+- `Select, Input & PhoneInput` styling
+
 ## 1.0.44 - 2025-07-23
 ### Fixed
 - `Select` Component styling

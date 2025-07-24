@@ -9,9 +9,9 @@ import Eye from '../../icons/system/eye.svg'
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   label?: string | ReactNode
   hint?: string
-  error?: string
+  errorMessage?: string
   isSuccess?: boolean
-  isError?: boolean
+  error?: boolean
   tooltip?: string
   className?: string
   labelClassName?: string
@@ -30,7 +30,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       hint,
       error,
       isSuccess,
-      isError,
+      errorMessage,
       tooltip,
       className,
       labelClassName,
@@ -69,11 +69,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             type={inputType}
             className={clsx(styles.input, inputClassName, {
-              [styles.inputError]: isError,
-              [styles.inputSuccess]: isSuccess && !isError,
+              [styles.inputError]: error,
+              [styles.inputSuccess]: isSuccess && !error,
               [styles.hasIcon]: icon,
             })}
-            aria-invalid={isError}
+            aria-invalid={error}
             {...props}
           />
           {/* Show/hide password icon for password inputs */}
@@ -88,7 +88,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-        {error && <span className={clsx('error', errorClassName)}>{error}</span>}
+        {error && <span className={clsx('error', errorClassName)}>{errorMessage}</span>}
         {hint && <span className={clsx('hint', hintClassName)}>{hint}</span>}
       </div>
     )
