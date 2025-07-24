@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import clsx from 'clsx'
 
 import styles from './Tooltip.module.scss' // Import scoped SCSS
+import InfoIcon from '../../icons/system/info-circle.svg'
 
 interface TooltipProps {
   text: string // Tooltip text
@@ -26,7 +27,9 @@ const Tooltip: React.FC<TooltipProps> = ({ text, position = 'top', variant = 'pr
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      <span className="dFlex">
+        {children} <InfoIcon className={styles[variant]} />
+      </span>
       {isVisible && <div className={`${styles.tooltip} ${styles[position]} ${styles[variant]}`}>{text}</div>}
     </div>
   )

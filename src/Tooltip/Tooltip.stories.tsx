@@ -26,7 +26,7 @@ export default {
         type: 'select',
         options: ['dark', 'light', 'success', 'info', 'warning', 'danger'],
       },
-      defaultValue: 'dark',
+      defaultValue: 'success',
       description: 'Background variant of the tooltip.',
     },
     text: {
