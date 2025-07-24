@@ -2,32 +2,32 @@
   position: relative;
   display: inline-block;
 
- .primary {
+  .primary {
     color: var(--color-primary);
   }
 
- .dark {
+  .dark {
     color: var(--color-gray-darkest);
   }
 
- .light {
+  .light {
     color: var(--color-gray-darkest);
   }
 
- .success {
+  .success {
     color: var(--color-success);
   }
 
- .info {
+  .info {
     color: var(--color-info);
   }
 
- .warning {
+  .warning {
     color: var(--color-gray-darkest);
     color: var(--color-accent);
   }
 
- .danger {
+  .danger {
     color: var(--color-danger);
   }
 }
@@ -46,7 +46,7 @@
   white-space: normal; // Allow text to wrap
   border-radius: 4px;
   box-shadow: var(--shadow-hover); // Box shadow
-  opacity: 0.9;
+  opacity: .9;
 
   // Position-specific styles
   &.top {
