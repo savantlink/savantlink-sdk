@@ -1,6 +1,35 @@
 .tooltipContainer {
   position: relative;
   display: inline-block;
+
+  .primary {
+    color: var(--color-primary);
+  }
+
+  .dark {
+    color: var(--color-gray-darkest);
+  }
+
+  .light {
+    color: var(--color-gray-darkest);
+  }
+
+  .success {
+    color: var(--color-success);
+  }
+
+  .info {
+    color: var(--color-info);
+  }
+
+  .warning {
+    color: var(--color-gray-darkest);
+    color: var(--color-accent);
+  }
+
+  .danger {
+    color: var(--color-danger);
+  }
 }
 
 .tooltip {
