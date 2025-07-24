@@ -1,10 +1,10 @@
-@import 'scss/breakpoints';
+@import "scss/breakpoints";
 
 .phoneInput {
   .inputContainer {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
     border: 1px solid var(--color-primary-lighter);
     border-radius: 4px;
 
@@ -14,7 +14,7 @@
     }
 
     @include media-breakpoint-up(md) {
-      padding: 0.75rem;
+      padding: .75rem;
     }
   }
 
@@ -26,7 +26,7 @@
     background-color: var(--color-light);
     border: none;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color .3s ease;
 
     &:focus {
       border: none;
@@ -44,7 +44,7 @@
     font-size: var(--span);
     border: none;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color .3s ease;
 
     &:focus {
       border: none;
@@ -57,8 +57,8 @@
   }
 
   .error {
-    margin-top: 0.25rem;
-    font-size: 0.8rem;
+    margin-top: .25rem;
+    font-size: .8rem;
     color: var(--color-danger);
   }
 }
