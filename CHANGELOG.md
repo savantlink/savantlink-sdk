@@ -13,9 +13,13 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
-
 ### Fixed
-- `Select, Input & PhoneInput` styling
+- `Select` component styling
+
+## 1.0.45 - 2025-07-24
+### Fixed
+- `Select, Input & PhoneInput` component styling
+- `Input & PhoneInput` component props name (error & errorMessage)
 
 ## 1.0.44 - 2025-07-23
 ### Fixed
