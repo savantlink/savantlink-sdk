@@ -123,7 +123,7 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div
-      className={clsx(styles.select, styles[`select__${multiple ? 'multiple' : 'single'}`], className, {
+      className={clsx(styles.select, className, {
         [styles.selectOpen]: isOpen,
         [styles.selectDisabled]: disabled,
         [styles.selectReadOnly]: readOnly,
@@ -137,7 +137,9 @@ const Select: React.FC<SelectProps> = ({
         </label>
       )}
       <div
-        className={clsx(styles.selectTrigger, { [styles.selectError]: error })}
+        className={clsx(styles.selectTrigger, styles[`select__${multiple ? 'multiple' : 'single'}`], {
+          [styles.selectError]: error,
+        })}
         onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)}
         tabIndex={disabled || readOnly ? -1 : 0}
         role="combobox"

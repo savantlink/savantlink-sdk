@@ -36,6 +36,13 @@ yalc publish
 yalc link @savantlink/sdk
 ```
 
+OR
+
+```
+yalc link @savantlink/sdk
+```
+
+
 The SDK is now linked to the consumer application for local development.
 
 
