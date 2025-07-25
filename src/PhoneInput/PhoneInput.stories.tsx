@@ -30,7 +30,7 @@ const Template: ComponentStory<typeof PhoneInput> = () => {
         onCountryCodeChange={setCountryCode}
         placeholder="Enter your phone number"
         label="Phone Number"
-        error={true}
+        isError={true}
         errorMessage="Please enter a valid 10-digit phone number"
         required
       />

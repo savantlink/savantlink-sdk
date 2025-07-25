@@ -21,7 +21,7 @@ export default {
     hint: {
       type: 'string',
     },
-    error: {
+    isError: {
       type: 'boolean',
     },
     errorMessage: {
