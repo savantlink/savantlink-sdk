@@ -14,7 +14,6 @@ Types of changes are:
 
 ## Unreleased
 
-## 1.0.47 - 2025-07-24
 ### Fixed
 - `Tooltip` component styling
 
