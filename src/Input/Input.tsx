@@ -11,7 +11,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   hint?: string
   errorMessage?: string
   isSuccess?: boolean
-  error?: boolean
+  isError?: boolean
   tooltip?: string
   className?: string
   labelClassName?: string
@@ -28,7 +28,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       id,
       label,
       hint,
-      error,
+      isError,
       isSuccess,
       errorMessage,
       tooltip,
@@ -69,11 +69,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             type={inputType}
             className={clsx(styles.input, inputClassName, {
-              [styles.inputError]: error,
-              [styles.inputSuccess]: isSuccess && !error,
+              [styles.inputError]: isError,
+              [styles.inputSuccess]: isSuccess && !isError,
               [styles.hasIcon]: icon,
             })}
-            aria-invalid={error}
+            aria-invalid={isError}
             {...props}
           />
           {/* Show/hide password icon for password inputs */}
@@ -88,7 +88,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-        {error && <span className={clsx('error', errorClassName)}>{errorMessage}</span>}
+        {isError && <span className={clsx('error', errorClassName)}>{errorMessage}</span>}
         {hint && <span className={clsx('hint', hintClassName)}>{hint}</span>}
       </div>
     )

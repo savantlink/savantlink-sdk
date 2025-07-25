@@ -11,7 +11,7 @@ interface PhoneInputProps {
   name?: string
   value: string
   onChange: (value: string) => void
-  onCountryCodeChange: (code: string) => void
+  onCountryCodeChange?: (code: string) => void
   placeholder?: string
   label?: string | ReactNode
   isError?: boolean
@@ -50,7 +50,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const handleCountryCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const code = e.target.value
     setSelectedCountryCode(code)
-    onCountryCodeChange(code)
+    onCountryCodeChange && onCountryCodeChange(code)
   }
 
   return (

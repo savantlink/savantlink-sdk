@@ -13,6 +13,10 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- `Tooltip` component styling
+- `Input, Select & PhoneInput` component props name (isError & errorMessage)
+
 
 ### Fixed
 - `Tooltip` component styling

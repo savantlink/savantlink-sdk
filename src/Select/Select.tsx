@@ -19,7 +19,7 @@ interface SelectProps {
   className?: string
   disabled?: boolean
   readOnly?: boolean
-  error?: boolean // New: Error state
+  isError?: boolean // New: Error state
   errorMessage?: string // New: Custom error message
 }
 
@@ -34,7 +34,7 @@ const Select: React.FC<SelectProps> = ({
   className,
   disabled = false,
   readOnly = false,
-  error = false, // Default: false
+  isError = false, // Default: false
   errorMessage = 'This field is required', // Default message
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -133,20 +133,20 @@ const Select: React.FC<SelectProps> = ({
       {label && (
         <label className={styles.inputLabel}>
           {label}
-          {required && <span className="asterisk">*</span>}
+          {required && <span className="asterick">*</span>}
         </label>
       )}
       <div
         className={clsx(styles.selectTrigger, styles[`select__${multiple ? 'multiple' : 'single'}`], {
-          [styles.selectError]: error,
+          [styles.selectError]: isError,
         })}
         onClick={() => !disabled && !readOnly && setIsOpen(!isOpen)}
         tabIndex={disabled || readOnly ? -1 : 0}
         role="combobox"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-invalid={error}
-        aria-describedby={error ? 'error-message' : undefined}
+        aria-invalid={isError}
+        aria-describedby={isError ? 'error-message' : undefined}
         onKeyDown={handleKeyDown}
       >
         {multiple && Array.isArray(value) && value.length > 0 ? (
@@ -203,10 +203,10 @@ const Select: React.FC<SelectProps> = ({
           ))}
         </div>
       )}
-      {error && !isOpen && (
-        <div id="error-message" className="mt2 error">
+      {isError && !isOpen && (
+        <span id="error-message" className="error">
           {errorMessage}
-        </div>
+        </span>
       )}
     </div>
   )
