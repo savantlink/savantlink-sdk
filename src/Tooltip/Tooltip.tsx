@@ -11,9 +11,17 @@ interface TooltipProps {
   variant?: 'primary' | 'dark' | 'light' | 'success' | 'info' | 'warning' | 'danger' // Tooltip background variant
   children: React.ReactNode // The element that triggers the tooltip
   className?: string
+  hasAsterick?: boolean
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, position = 'top', variant = 'primary', children, className }) => {
+const Tooltip: React.FC<TooltipProps> = ({
+  text,
+  hasAsterick,
+  position = 'top',
+  variant = 'primary',
+  children,
+  className,
+}) => {
   const [isVisible, setIsVisible] = useState(false)
 
   // Handle mouse enter and leave events
@@ -27,8 +35,9 @@ const Tooltip: React.FC<TooltipProps> = ({ text, position = 'top', variant = 'pr
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <span className="dFlex">
-        {children} <InfoIcon className={styles[variant]} />
+      <span className={styles.labelGroup}>
+        {children} {hasAsterick && <span className="asterick">*</span>}
+        <InfoIcon className={styles[`labelGroup__${variant}`]} />
       </span>
       {isVisible && <div className={`${styles.tooltip} ${styles[position]} ${styles[variant]}`}>{text}</div>}
     </div>

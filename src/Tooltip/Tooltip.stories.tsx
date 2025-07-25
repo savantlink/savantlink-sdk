@@ -34,6 +34,11 @@ export default {
       defaultValue: 'This is a tooltip',
       description: 'Text displayed inside the tooltip.',
     },
+    hasAsterick: {
+      control: 'boolean',
+      defaultValue: true,
+      description: 'Text displayed inside the tooltip.',
+    },
   },
 } as ComponentMeta<typeof Tooltip>
 

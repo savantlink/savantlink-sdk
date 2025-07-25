@@ -11,10 +11,10 @@ interface PhoneInputProps {
   name?: string
   value: string
   onChange: (value: string) => void
-  onCountryCodeChange: (code: string) => void
+  onCountryCodeChange?: (code: string) => void
   placeholder?: string
   label?: string | ReactNode
-  error?: boolean
+  isError?: boolean
   errorMessage?: string
   required?: boolean
   className?: string
@@ -26,7 +26,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   onCountryCodeChange,
   placeholder = 'Enter your phone number',
   label = 'Phone Number',
-  error,
+  isError,
   errorMessage = 'Invalid phone number',
   required = false,
   name,
@@ -50,7 +50,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const handleCountryCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const code = e.target.value
     setSelectedCountryCode(code)
-    onCountryCodeChange(code)
+    onCountryCodeChange && onCountryCodeChange(code)
   }
 
   return (
@@ -61,7 +61,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
           {required && <span className="asterick">*</span>}
         </label>
       )}
-      <div className={clsx(styles.inputContainer, { [styles.invalid]: !isValid, [styles.inputError]: error })}>
+      <div className={clsx(styles.inputContainer, { [styles.invalid]: !isValid, [styles.inputError]: isError })}>
         <select value={selectedCountryCode} onChange={handleCountryCodeChange} className={styles.countryCode}>
           {countryCodes.map((country) => (
             <option key={country.code} value={country.code}>
@@ -78,7 +78,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
           className={styles.input}
         />
       </div>
-      {!isValid || (error && <p className={styles.error}>{errorMessage}</p>)}
+      {!isValid || (isError && <p className={styles.error}>{errorMessage}</p>)}
     </div>
   )
 }
