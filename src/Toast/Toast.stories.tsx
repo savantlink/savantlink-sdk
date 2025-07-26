@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof Toast> = () => {
       <button onClick={() => setShowToast(true)}>Show Toast</button>
       {showToast && (
         <Toast
-          message="This is test message"
+          message={<div>This is test message</div>}
           variant="success"
           position="top-right"
           onClose={() => setShowToast(false)}

@@ -8,21 +8,30 @@ import CloseIcon from '../../icons/system/close.svg'
 import Typography from '@/Typography'
 
 interface ToastProps {
-  message: string
+  message: ReactNode
   variant: 'info' | 'success' | 'warning' | 'danger'
   position: 'top-left' | 'top-right' | 'bottom-right' | 'bottom-left'
   onClose: () => void
   icon?: ReactNode
   className?: string
+  timeoutInterval?: number
 }
-const Toast = ({ message, variant = 'info', position = 'top-right', onClose, icon, className }: ToastProps) => {
+const Toast = ({
+  message,
+  variant = 'info',
+  position = 'top-right',
+  onClose,
+  icon,
+  className,
+  timeoutInterval = 5000,
+}: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose()
-    }, 3000)
+    }, timeoutInterval)
 
     return () => clearTimeout(timer)
-  }, [onClose])
+  }, [onClose, timeoutInterval])
 
   return (
     <div className={clsx(styles.toast, className, styles[`toast-${variant}`], styles[`toast-${position}`])}>
