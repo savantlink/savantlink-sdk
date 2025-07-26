@@ -13,12 +13,13 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- `Toast` component message props from string to ReactNode
+
+## 1.0.48 - 2025-07-25
 ### Fixed
 - `Tooltip` component styling
 - `Input, Select & PhoneInput` component props name (isError & errorMessage)
-
-
-### Fixed
 - `Tooltip` component styling
 
 ## 1.0.46 - 2025-07-24
