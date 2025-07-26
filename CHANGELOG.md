@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 1.0.49 - 2025-07-26
 ### Changed
 - `Toast` component message props from string to ReactNode
 
