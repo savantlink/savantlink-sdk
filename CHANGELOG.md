@@ -13,8 +13,10 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- Removed `Tabs` component (Temporarily)
+
 ### Added
-- `Tabs` component
 - New theme color (color-warning)
 
 ## 1.0.49 - 2025-07-26
