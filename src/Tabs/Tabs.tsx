@@ -1,60 +1,68 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect,useState } from "react";
 
-import { useSearchParams } from 'react-router-dom' // Import for query params
+import { useSearchParams } from "react-router-dom"; // Import for query params
 
-import styles from './Tabs.module.scss'
+import styles from "./Tabs.module.scss";
 
 interface TabItem {
-  id: string
-  label: string
-  content: React.ReactNode
-  disabled?: boolean
+  id: string;
+  label: string;
+  content: React.ReactNode;
+  disabled?: boolean;
 }
 
 interface TabsProps {
-  tabs: TabItem[]
-  defaultActiveTab?: string
-  variant?: 'primary' | 'secondary'
-  onTabChange?: (tabId: string) => void
+  tabs: TabItem[];
+  defaultActiveTab?: string;
+  variant?: "primary" | "secondary";
+  onTabChange?: (tabId: string) => void;
 }
 
-const TabContext =
-  createContext<{
-    changeTab: (tabId: string) => void
-  } | null>(null)
+const TabContext = createContext<{
+  changeTab: (tabId: string) => void;
+} | null>(null);
 
 export const useTabs = () => {
-  const context = useContext(TabContext)
+  const context = useContext(TabContext);
   if (!context) {
-    throw new Error('useTabs must be used within a Tabs component')
+    throw new Error("useTabs must be used within a Tabs component");
   }
-  return context
-}
+  return context;
+};
 
-const Tabs: React.FC<TabsProps> = ({ tabs, defaultActiveTab, variant = 'primary', onTabChange }) => {
-  const [searchParams, setSearchParams] = useSearchParams() // Hook to read/update query params
-  const activeTabFromQuery = searchParams.get('activeTab') // Get activeTab from URL
+const Tabs: React.FC<TabsProps> = ({
+  tabs,
+  defaultActiveTab,
+  variant = "primary",
+  onTabChange,
+}) => {
+  const [searchParams, setSearchParams] = useSearchParams(); // Hook to read/update query params
+  const activeTabFromQuery = searchParams.get("activeTab"); // Get activeTab from URL
   const initialTab =
     activeTabFromQuery && tabs.some((tab) => tab.id === activeTabFromQuery)
       ? activeTabFromQuery // Use query param if valid
-      : defaultActiveTab || tabs[0]?.id // Fallback to default or first tab
-  const [activeTab, setActiveTab] = useState(initialTab)
+      : defaultActiveTab || tabs[0]?.id; // Fallback to default or first tab
+  const [activeTab, setActiveTab] = useState(initialTab);
 
   // Sync activeTab with query params when they change
   useEffect(() => {
-    if (activeTabFromQuery && tabs.some((tab) => tab.id === activeTabFromQuery) && activeTabFromQuery !== activeTab) {
-      setActiveTab(activeTabFromQuery)
+    if (
+      activeTabFromQuery &&
+      tabs.some((tab) => tab.id === activeTabFromQuery) &&
+      activeTabFromQuery !== activeTab
+    ) {
+      setActiveTab(activeTabFromQuery);
     }
-  }, [activeTabFromQuery, tabs, activeTab])
+  }, [activeTabFromQuery, tabs, activeTab]);
 
   const handleTabClick = (tabId: string) => {
-    if (tabs.find((tab) => tab.id === tabId)?.disabled) return
+    if (tabs.find((tab) => tab.id === tabId)?.disabled) return;
 
-    setActiveTab(tabId)
+    setActiveTab(tabId);
     // Update URL query param
-    setSearchParams({ activeTab: tabId })
-    onTabChange?.(tabId)
-  }
+    setSearchParams({ activeTab: tabId });
+    onTabChange?.(tabId);
+  };
 
   return (
     <TabContext.Provider value={{ changeTab: handleTabClick }}>
@@ -63,9 +71,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs, defaultActiveTab, variant = 'primary'
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ''} ${
-                tab.disabled ? styles.disabled : ''
-              }`}
+              className={`${styles.tabButton} ${
+                activeTab === tab.id ? styles.active : ""
+              } ${tab.disabled ? styles.disabled : ""}`}
               onClick={() => handleTabClick(tab.id)}
               disabled={tab.disabled}
               aria-selected={activeTab === tab.id}
@@ -87,8 +95,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, defaultActiveTab, variant = 'primary'
         </div>
       </div>
     </TabContext.Provider>
-  )
-}
+  );
+};
 
-export default Tabs
-export type { TabItem, TabsProps }
+export default Tabs;
+export type { TabItem, TabsProps };
