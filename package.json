@@ -29,15 +29,13 @@
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^7.2.0"
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
     "clsx": "1.2.1",
     "web-vitals": "2.1.0"
   },
   "devDependencies": {
-    "react-router-dom": "^7.2.0",
     "@rollup/plugin-alias": "4.0.3",
     "@rollup/plugin-terser": "0.4.4",
     "@storybook/addon-a11y": "6.5.16",
