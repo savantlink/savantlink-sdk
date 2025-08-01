@@ -15,6 +15,7 @@ Types of changes are:
 ## Unreleased
 ### Added
 - `Tabs` component
+- New theme color (color-warning)
 
 ## 1.0.49 - 2025-07-26
 ### Changed
