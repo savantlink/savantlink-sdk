@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "clsx": "1.2.1",
-    "react-router-dom": "^7.7.1",
     "web-vitals": "2.1.0"
   },
   "devDependencies": {
