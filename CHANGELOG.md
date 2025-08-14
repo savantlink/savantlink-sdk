@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- `Select` component option label props from `string` to `string | number`
 
 ## 1.0.50 - 2025-08-01
 ### Added
