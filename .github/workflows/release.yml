@@ -107,7 +107,7 @@ jobs:
 
       # Install dependencies required for prePublish script
       - name: Install required dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       # Lint
       - name: Run linting
