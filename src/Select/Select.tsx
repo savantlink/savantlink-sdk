@@ -6,7 +6,7 @@ import styles from './Select.module.scss'
 import ChevronDown from '../../icons/system/chevron-down.svg'
 import Close from '../../icons/system/close.svg'
 
-type SelectOptions = string | string[] | null
+type SelectOptions = string | number | string[] | null
 
 interface SelectProps {
   label: string | ReactNode
@@ -89,8 +89,8 @@ const Select: React.FC<SelectProps> = ({
     onChange(null)
   }
 
-  const isSelected = (optionValue: string) => {
-    if (multiple) return Array.isArray(value) && value.includes(optionValue)
+  const isSelected = (optionValue: string | number) => {
+    if (multiple) return Array.isArray(value) && value.includes(optionValue as unknown as string)
     return value === optionValue
   }
 
@@ -193,7 +193,7 @@ const Select: React.FC<SelectProps> = ({
                 [styles.selectOptionSelected]: isSelected(option.value),
                 [styles.selectOptionFocused]: index === focusedIndex,
               })}
-              onClick={() => handleSelect(option.value)}
+              onClick={() => handleSelect(option.value as unknown as string)}
               role="option"
               aria-selected={isSelected(option.value)}
               tabIndex={0}
