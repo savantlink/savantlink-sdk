@@ -22,10 +22,10 @@ import Search from '../../icons/system/search.svg'
 import Setting from '../../icons/system/setting.svg'
 import ShopCart from '../../icons/system/shop-cart.svg'
 import Trash from '../../icons/system/trash.svg'
-import UserCircle from '../../icons/system/user-circle.svg'
+import UserCircle from '../../icons/system/user-circle-add.svg'
 
 // Define all possible icon names
-type IconName =
+export type IconName =
   | 'card'
   | 'chevron-down'
   | 'chevron-up'

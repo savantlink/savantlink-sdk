@@ -19,7 +19,8 @@
       "@/*": ["src/*"]
     },
     "lib": ["ES2015", "DOM"],
-    "target": "ES2015"
+    "target": "ES2015",
+    "types": ["node"]
   },
   "include": ["custom.d.ts", "src", "icons"],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"]
