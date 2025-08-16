@@ -10,7 +10,7 @@ type SelectOptions = string | string[] | null
 
 interface SelectProps {
   label: string | ReactNode
-  options: { label: string | number; value: string }[]
+  options: { label: string | number; value: string | number }[]
   onChange: (selectedValue: SelectOptions) => void
   placeholder?: string
   multiple?: boolean
