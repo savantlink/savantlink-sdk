@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New component `IconFactory`
 ### Changed
 - `Select` component option label props from `string` to `string | number`
 
