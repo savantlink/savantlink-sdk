@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Input from './Input'
-import SearchIcon from '../../assets/icons/system/search.svg'
+import SearchIcon from '../../icons/system/search.svg'
 
 export default {
   title: 'Atoms/Input',
