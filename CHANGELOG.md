@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.0 - 2025-08-17
 ### Added
 - New system icons (ellipsis, export)
 - Created `assets/` folder at root
