@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.1 - 2025-08-17
 ### Fixed
 - Rollback asset folder changes to fix broken icons
 
