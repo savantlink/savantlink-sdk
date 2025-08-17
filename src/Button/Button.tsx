@@ -1,7 +1,7 @@
 import { createElement, forwardRef } from 'react'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Button.module.scss'
 
@@ -48,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {icon && <span className={clsx(styles.btnIcon, styles.preIcon)}>{icon}</span>}
         {children}
         {trailingIcon && <span className={clsx(styles.btnIcon, styles.postIcon)}>{trailingIcon}</span>}
-        {isLoading && <Spinner/>}
+        {isLoading && <Spinner />}
       </>
     )
 

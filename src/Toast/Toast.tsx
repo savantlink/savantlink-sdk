@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Toast.module.scss'
 import CloseIcon from '../../assets/icons/system/close.svg'

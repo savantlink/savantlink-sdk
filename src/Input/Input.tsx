@@ -1,6 +1,6 @@
 import { forwardRef, InputHTMLAttributes, ReactNode, useState } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Input.module.scss'
 import EyeClosed from '../../assets/icons/system/eye-closed.svg'

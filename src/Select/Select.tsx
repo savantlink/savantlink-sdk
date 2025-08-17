@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Select.module.scss'
 import ChevronDown from '../../assets/icons/system/chevron-down.svg'

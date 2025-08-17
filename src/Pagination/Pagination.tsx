@@ -1,6 +1,6 @@
 import React from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Pagination.module.scss'
 import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
