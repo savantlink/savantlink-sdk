@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 import clsx from 'clsx'
 
 import styles from './Table.module.scss'
-import DataIcon from '../../icons/system/data.svg'
+import DataIcon from '../../assets/icons/system/data.svg'
 
 interface ColumnProps<T> {
   key: string

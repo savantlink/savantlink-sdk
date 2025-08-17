@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import clsx from 'clsx'
 
 import styles from './Tooltip.module.scss' // Import scoped SCSS
-import InfoIcon from '../../icons/system/info-circle.svg'
+import InfoIcon from '../../assets/icons/system/info-circle.svg'
 
 interface TooltipProps {
   text: string // Tooltip text

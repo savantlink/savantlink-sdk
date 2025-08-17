@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
 export const Default = Template.bind({})
 
 export const solid = () => {
-  return <Button skin="solid">Solid default (Medium)</Button>
+  return <Button skin="solid" isLoading>Solid default (Medium)</Button>
 }
 
 export const outline = () => {

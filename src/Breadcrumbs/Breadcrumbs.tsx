@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Breadcrumbs.module.scss';
-import ChevronRight from '../../icons/system/chevron-right.svg';
+import ChevronRight from '../../assets/icons/system/chevron-right.svg';
 
 interface BreadcrumbItem {
   label: string;
