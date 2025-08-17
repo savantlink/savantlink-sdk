@@ -1,15 +1,16 @@
+/* eslint-disable import/no-named-as-default */
 import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Select.module.scss'
-import ChevronDown from '../../icons/system/chevron-down.svg'
-import Close from '../../icons/system/close.svg'
+import ChevronDown from '../../assets/icons/system/chevron-down.svg'
+import Close from '../../assets/icons/system/close.svg'
 
 type SelectOptions = string | number | string[] | null
 
 interface SelectProps {
-  label: string | ReactNode
+  label?: string | ReactNode
   options: { label: string | number; value: string | number }[]
   onChange: (selectedValue: SelectOptions) => void
   placeholder?: string
@@ -131,7 +132,7 @@ const Select: React.FC<SelectProps> = ({
       ref={selectRef}
     >
       {label && (
-        <label className={styles.inputLabel}>
+        <label className={clsx('mb2', styles.inputLabel)}>
           {label}
           {required && <span className="asterick">*</span>}
         </label>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Modal.module.scss'
 

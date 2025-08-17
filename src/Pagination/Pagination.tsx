@@ -1,10 +1,10 @@
 import React from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Pagination.module.scss'
-import ChevronLeft from '../../icons/system/chevron-left.svg'
-import ChevronRight from '../../icons/system/chevron-right.svg'
+import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
+import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import { ELLIPSIS, usePagination } from '../hooks'
 
 type PaginationProps = {
@@ -13,7 +13,6 @@ type PaginationProps = {
   perPageSize: number
   currentPageSiblings: number
   currentPage: number
-  range: string
   previousText?: string
   nextText?: string
   className?: string
@@ -24,7 +23,6 @@ const Pagination = ({
   currentPageSiblings,
   currentPage,
   perPageSize,
-  range,
   nextText = 'Next',
   previousText = 'Prev',
   className,
@@ -46,6 +44,8 @@ const Pagination = ({
   }
 
   const lastPage = paginationRange[paginationRange.length - 1]
+  const skip = (currentPage - 1) * perPageSize
+  const range = `${skip + 1} - ${currentPage * perPageSize}`
 
   return (
     <nav role="navigation" aria-label="pagination" className={clsx(styles.pagination, className)} {...props}>

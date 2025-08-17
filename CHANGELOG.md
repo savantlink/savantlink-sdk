@@ -13,6 +13,17 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New system icons (ellipsis, export)
+- Created `assets/` folder at root
+- New image asset (placeholder)
+- `ImageLoader` component
+
+### Changed
+- `Select` component - make label optional
+- `Table` component - Fix header border radius
+- `Pagination` component - Fix range value
+- Move `icons/` into asset/ folder
 
 ## 1.0.51 - 2025-08-17
 ### Added

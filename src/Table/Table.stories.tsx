@@ -24,6 +24,8 @@ interface User {
   userId: string
   email: string
   role: string
+  age: number
+  accountNumber: number
 }
 const emptyState = {
   title: 'No Data Available',
@@ -40,6 +42,8 @@ const Template: ComponentStory<typeof Table> = () => {
     { key: 'userId', header: 'User Id', sortable: true },
     { key: 'email', header: 'Email' },
     { key: 'role', header: 'Role', sortable: true },
+      { key: 'age', header: 'Age', sortable: true },
+        { key: 'Account Number', header: 'Role', sortable: true },
     {
       key: 'actions',
       header: 'Actions',
@@ -48,12 +52,60 @@ const Template: ComponentStory<typeof Table> = () => {
   ]
 
   const data: User[] = [
-    { id: 1, userId: 'john', name: 'John Doe', email: 'john@example.com', role: 'Admin' },
-    { id: 2, userId: 'jane', name: 'Jane Smith', email: 'jane@example.com', role: 'User' },
-    { id: 3, userId: 'alice', name: 'Alice Johnson', email: 'alice@example.com', role: 'User' },
-    { id: 4, userId: 'fuller', name: 'John Fuller', email: 'john@example.com', role: 'Admin' },
-    { id: 5, userId: 'sarah', name: 'Sarah Smith', email: 'jane@example.com', role: 'User' },
-    { id: 6, userId: 'johnson', name: 'Sarkl Johnson', email: 'alice@example.com', role: 'User' },
+    {
+      id: 1,
+      userId: 'john',
+      name: 'John Doe',
+      email: 'john@example.com',
+      role: 'Admin',
+      age: 70,
+      accountNumber: 2978639873,
+    },
+    {
+      id: 2,
+      userId: 'jane',
+      name: 'Jane Smith',
+      email: 'jane@example.com',
+      role: 'User',
+      age: 70,
+      accountNumber: 2978639873,
+    },
+    {
+      id: 3,
+      userId: 'alice',
+      name: 'Alice Johnson',
+      email: 'alice@example.com',
+      role: 'User',
+      age: 70,
+      accountNumber: 2978639873,
+    },
+    {
+      id: 4,
+      userId: 'fuller',
+      name: 'John Fuller',
+      email: 'john@example.com',
+      role: 'Admin',
+      age: 70,
+      accountNumber: 2978639873,
+    },
+    {
+      id: 5,
+      userId: 'sarah',
+      name: 'Sarah Smith',
+      email: 'jane@example.com',
+      role: 'User',
+      age: 70,
+      accountNumber: 2978639873,
+    },
+    {
+      id: 6,
+      userId: 'johnson',
+      name: 'Sarkl Johnson',
+      email: 'alice@example.com',
+      role: 'User',
+      age: 70,
+      accountNumber: 2978639873,
+    },
   ]
 
   const handleSort = (key: string) => {

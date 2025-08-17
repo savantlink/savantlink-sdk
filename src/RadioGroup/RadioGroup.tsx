@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import Radio from './Radio'
 import styles from './RadioGroup.module.scss'

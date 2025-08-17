@@ -22,6 +22,6 @@
     "target": "ES2015",
     "types": ["node"]
   },
-  "include": ["custom.d.ts", "src", "icons"],
+  "include": ["custom.d.ts", "src", "assets"],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"]
 }

@@ -36,7 +36,14 @@
     font-weight: bold;
     cursor: pointer;
     background-color: var(--color-primary-lightest-1);
-    border-radius: 4px 4px 0 0;
+
+    &:last-of-type {
+      border-radius: 0 4px 0 0;
+    }
+
+    &:first-of-type {
+      border-radius: 4px 0 0;
+    }
 
     &.sortable:hover {
       background-color: var(--color-primary-lightest);

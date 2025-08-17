@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Toast from './Toast'
-import CheckMarkIcon from '../../icons/mono-color/check.svg'
+import CheckMarkIcon from '../../assets/icons/mono-color/check.svg'
 
 export default {
   title: 'Molecules/Toast',
