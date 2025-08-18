@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.2 - 2025-08-18
 ### Fixed
 - Move `icons/` into asset/ folder
 - Removed `@rollup/plugin-image` transforming svg to image
