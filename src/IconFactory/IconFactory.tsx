@@ -83,7 +83,7 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   export: Export,
 }
 
-interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
+export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
   name: IconName
 }
 
