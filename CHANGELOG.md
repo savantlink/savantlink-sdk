@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- `Dropdown` component
+- `IconFactory` component stories
 
 ## 2.0.3 - 2025-08-18
 ### Added
