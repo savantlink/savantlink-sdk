@@ -16,7 +16,7 @@ module.exports = {
     // Add aliases
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@/icons': path.resolve(__dirname, '../icons/'),
+      '@/icons': path.resolve(__dirname, '../assets/icons/'),
       '@': path.resolve(__dirname, '../src/'),
     }
 

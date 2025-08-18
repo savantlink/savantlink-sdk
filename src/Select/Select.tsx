@@ -4,8 +4,8 @@ import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState }
 import { clsx } from 'clsx'
 
 import styles from './Select.module.scss'
-import ChevronDown from '../../icons/system/chevron-down.svg'
-import Close from '../../icons/system/close.svg'
+import ChevronDown from '../../assets/icons/system/chevron-down.svg'
+import Close from '../../assets/icons/system/close.svg'
 
 type SelectOptions = string | number | string[] | null
 

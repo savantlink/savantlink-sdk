@@ -3,8 +3,8 @@ import React from 'react'
 import { clsx } from 'clsx'
 
 import styles from './Pagination.module.scss'
-import ChevronLeft from '../../icons/system/chevron-left.svg'
-import ChevronRight from '../../icons/system/chevron-right.svg'
+import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
+import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import { ELLIPSIS, usePagination } from '../hooks'
 
 type PaginationProps = {
