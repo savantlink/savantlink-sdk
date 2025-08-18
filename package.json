@@ -6,7 +6,6 @@
   "files": [
     "dist/**/*",
     "scss/**/*",
-    "assets/icons",
     "README.md"
   ],
   "repository": {

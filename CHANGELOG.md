@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- `IconFactory` component
+
+### Changed
+- Removed `asset/` from exported files
 
 ## 2.0.2 - 2025-08-18
 ### Fixed
