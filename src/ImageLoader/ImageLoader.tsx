@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import fallbackImgSrc from '../../images/img_placeholder.png'
+import fallbackImgSrc from '../../assets/images/img_placeholder.png'
 
 interface ImageLoaderProps {
   src: string

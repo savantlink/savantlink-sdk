@@ -3,8 +3,8 @@ import { forwardRef, InputHTMLAttributes, ReactNode, useState } from 'react'
 import { clsx } from 'clsx'
 
 import styles from './Input.module.scss'
-import EyeClosed from '../../icons/system/eye-closed.svg'
-import Eye from '../../icons/system/eye.svg'
+import EyeClosed from '../../assets/icons/system/eye-closed.svg'
+import Eye from '../../assets/icons/system/eye.svg'
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   label?: string | ReactNode
