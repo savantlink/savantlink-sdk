@@ -6,7 +6,7 @@
   "files": [
     "dist/**/*",
     "scss/**/*",
-    "assets/**/*",
+    "assets/icons",
     "README.md"
   ],
   "repository": {
@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "@rollup/plugin-alias": "4.0.3",
-    "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-terser": "0.4.4",
     "@storybook/addon-a11y": "6.5.16",
     "@storybook/addon-actions": "6.5.16",

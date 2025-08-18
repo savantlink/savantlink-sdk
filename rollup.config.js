@@ -1,5 +1,4 @@
 import alias from '@rollup/plugin-alias'
-import image from '@rollup/plugin-image';
 import terser from '@rollup/plugin-terser'
 import svgr from '@svgr/rollup'
 import fs from 'fs'
@@ -43,7 +42,6 @@ const plugins = [
     extract: true,
   }),
   svgr(),
-  image(),
   terser(), // minifies generated bundles
 ]
 
