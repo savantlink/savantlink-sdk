@@ -23,8 +23,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
     "test": "jest",
-    "prepublishOnly": "yarn lint:fix && yarn build",
-    "analyze": "react-scripts build && npx webpack-bundle-analyzer build/static/js/*.js"
+    "prepublishOnly": "yarn lint:fix && yarn build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
