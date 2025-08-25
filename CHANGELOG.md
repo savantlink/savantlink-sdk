@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.0.5 - 2025-08-25
 ### Removed
 - Remove analyze script from package.json
 
