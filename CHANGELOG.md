@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Removed
+- Remove analyze script from package.json
+
 ## 2.0.4 - 2025-08-18
 ### Added
 - `Dropdown` component
