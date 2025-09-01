@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./Dropdown.module.scss";
 
 interface Option {
-  label: string;
+  label: React.ReactNode;
   value: string | number;
 }
 

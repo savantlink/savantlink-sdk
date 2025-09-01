@@ -51,3 +51,17 @@ ManyOptions.args = {
     value: i + 1,
   })),
 }
+
+export const WithCustomLabel = Template.bind({})
+WithCustomLabel.args = {
+  control: (
+    <button style={{ padding: '12px', border: '1px solid #ccc', borderRadius: '4px' }}>
+      Custom Button
+    </button>
+  ),
+  options: [
+    { label: <strong style={{ color: 'red' }}>Custom Option 1</strong>, value: 'custom1' },
+    { label: <em style={{ color: 'green' }}>Custom Option 2</em>, value: 'custom2' },
+    { label: <u style={{ color: 'blue' }}>Custom Option 3</u>, value: 'custom3' },
+  ],
+}

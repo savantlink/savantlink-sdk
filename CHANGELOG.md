@@ -14,6 +14,13 @@ Types of changes are:
 
 ## Unreleased
 
+### Changed
+- Change `Dropdown component` label option type from string to ReactNode
+
+### Added
+- Add WithCustomLabel story with custom option labels to `Dropdown component` stories
+
+
 ## 2.0.5 - 2025-08-25
 ### Removed
 - Remove analyze script from package.json
