@@ -14,6 +14,13 @@ Types of changes are:
 
 ## Unreleased
 
+### Changed
+- Change label option type from string to ReactNode
+
+### Added
+- Add WithCustomLabel story with custom option labels
+
+
 ## 2.0.5 - 2025-08-25
 ### Removed
 - Remove analyze script from package.json
