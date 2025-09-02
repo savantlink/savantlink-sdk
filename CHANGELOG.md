@@ -14,11 +14,12 @@ Types of changes are:
 
 ## Unreleased
 
-### Changed
-- Change `Dropdown component` label option type from string to ReactNode
-
+## 2.0.6 - 2025-09-02
 ### Added
 - Add WithCustomLabel story with custom option labels to `Dropdown component` stories
+
+### Changed
+- Change `Dropdown component` label option type from string to ReactNode
 
 ### Fixed
 - Update expired SDK token to fix release workflow failure
