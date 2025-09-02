@@ -16,7 +16,7 @@ export const Default = Template.bind({})
 Default.args = {
   control: <button>Click Me!</button>,
   options: [
-    { label: 'Option 1', value: '1' },
+    { label: <div style={{color: "red"}}>Option 1</div>, value: '1' },
     { label: 'Option 2', value: '2' },
     { label: 'Option 3', value: '3' },
   ],

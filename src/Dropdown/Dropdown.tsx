@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 
 import styles from "./Dropdown.module.scss";
 
 interface Option {
-  label: string;
+  label: ReactNode;
   value: string | number;
 }
 
