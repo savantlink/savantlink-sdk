@@ -92,7 +92,7 @@ jobs:
         timeout-minutes: 10
         with:
           secret: ${{ github.TOKEN }}
-          approvers: abfatahi, habibthadev
+          approvers: abfatahi
           minimum-approvals: 1
           issue-title: 'Publishing savantlink-sdk: version will go from ${{ env.CURRENT_VERSION }} to ${{ env.NEW_VERSION }}'
         continue-on-error: false
@@ -108,14 +108,20 @@ jobs:
       # Install dependencies required for prePublish script
       - name: Install required dependencies
         run: yarn install --frozen-lockfile
+        env:
+          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Lint
       - name: Run linting
         run: yarn lint
+        env:
+          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Build
       - name: Build
         run: yarn build
+        env:
+          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Setup git authentication
       - name: Setup git token
@@ -132,12 +138,14 @@ jobs:
           git add "CHANGELOG.md"
           git commit --no-verify -m "chore: release ${{ env.NEW_VERSION }}"
           git tag ${{ env.NEW_VERSION }}
+        env:
+          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Publish version to packages repository
       - name: Publish
         run: yarn publish --verbose --ignore-scripts --non-interactive --tag ${{ env.RELEASE_TAG }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
+          SAVANTLINK_GITHUB_SDK_TOKEN: ${{ secrets.SAVANTLINK_GITHUB_SDK_TOKEN }}
 
       # Push repository changes
       - name: Push changes to repository
