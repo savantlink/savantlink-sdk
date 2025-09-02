@@ -20,6 +20,8 @@ Types of changes are:
 ### Added
 - Add WithCustomLabel story with custom option labels to `Dropdown component` stories
 
+### Fixed
+- Update expired SDK token to fix release workflow failure
 
 ## 2.0.5 - 2025-08-25
 ### Removed
