@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Fixed
+- Fixed hidden content in the `Drawer component` by setting overflow to auto
+
 ## 2.0.6 - 2025-09-02
 ### Added
 - Add WithCustomLabel story with custom option labels to `Dropdown component` stories

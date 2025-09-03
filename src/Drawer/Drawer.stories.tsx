@@ -79,3 +79,22 @@ WithCustomContent.args = {
     </div>
   ),
 }
+
+export const WithScrollableContent = Template.bind({})
+WithScrollableContent.args = {
+  isOpen: true,
+  onClose: () => console.log('Drawer closed'),
+  position: 'left',
+  children: (
+    <div>
+      <h2>Scrollable Content</h2>
+      <p>This drawer demonstrates scrollable content when it exceeds the drawer height.</p>
+      {Array.from({ length: 10 }, (_, index) => (
+        <div key={index} style={{ padding: '10px 0', borderBottom: '1px solid #eee' }}>
+          <h4>Item {index + 1}</h4>
+          <p>This is some content for item {index + 1}. The drawer should be scrollable when content overflows.</p>
+        </div>
+      ))}
+    </div>
+  ),
+}
