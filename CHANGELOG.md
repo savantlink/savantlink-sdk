@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.0.7 - 2025-09-03
 ### Fixed
 - Fixed hidden content in the `Drawer component` by setting overflow to auto
 
