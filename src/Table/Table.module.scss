@@ -1,9 +1,29 @@
-@import "scss/breakpoints";
+.pagerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  pointer-events: auto;
+  cursor: pointer;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+}
 
-.tableWrapper {
-  width: 100%;
-  overflow-x: auto; // Enable horizontal scrolling
-  -webkit-overflow-scrolling: touch; // Smooth scrolling on mobile devices
+.pagerButton svg {
+  color: var(--color-light);
+}
+
+.pagerHeader {
+  width: 56px;
+  text-align: center;
+  vertical-align: middle;
+  background: var(--color-primary-lightest-1);
+}
+
+.pagerCell {
+  width: 56px;
 }
 
 .tableWrapper::-webkit-scrollbar {
@@ -56,7 +76,6 @@
 
   .sortIndicator {
     margin-left: 8px;
-    font-size: .8rem;
   }
 }
 
@@ -79,7 +98,6 @@
 }
 
 .emptyStateTitle {
-  margin-bottom: .5rem;
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-gray-dark);

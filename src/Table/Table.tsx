@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 
 import { clsx } from 'clsx'
 
 import styles from './Table.module.scss'
+import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
+import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import DataIcon from '../../assets/icons/system/data.svg'
 
 interface ColumnProps<T> {
@@ -23,6 +25,7 @@ interface TableProps<T> {
   }
   onSort?: (key: string) => void
   className?: string
+  visibleColumns?: number
 }
 
 const Table = <T,>({
@@ -31,13 +34,40 @@ const Table = <T,>({
   sortConfig,
   onSort,
   emptyState: { title = 'No Data Available', description = 'There is no data to display at the moment.', cTA },
-  className
+  className,
+  visibleColumns,
 }: TableProps<T>) => {
   const handleSort = (key: string) => {
     if (onSort) {
       onSort(key)
     }
   }
+
+  const [pageIndex, setPageIndex] = useState(0)
+
+  const dataColumnCount = columns.length
+
+  const pages = useMemo(() => {
+    return visibleColumns && visibleColumns > 0 ? Math.ceil(dataColumnCount / visibleColumns) : 1
+  }, [dataColumnCount, visibleColumns])
+
+  const visible = useMemo(() => {
+    if (!visibleColumns || visibleColumns <= 0) return columns
+    const start = pageIndex * visibleColumns
+    return columns.slice(start, start + visibleColumns)
+  }, [columns, pageIndex, visibleColumns])
+
+  const canPrev = pageIndex > 0
+  const canNext = pageIndex < pages - 1
+
+  const goPrev = () => setPageIndex((p) => Math.max(0, p - 1))
+  const goNext = () => setPageIndex((p) => Math.min(pages - 1, p + 1))
+
+  useEffect(() => {
+    if (pageIndex > pages - 1) {
+      setPageIndex(Math.max(0, pages - 1))
+    }
+  }, [pages, pageIndex])
 
   // Render empty state if data is empty
   if (data.length === 0) {
@@ -56,7 +86,14 @@ const Table = <T,>({
       <table className={styles.table}>
         <thead>
           <tr>
-            {columns.map((column) => (
+            {pages > 1 && canPrev && (
+              <th key="pager-left" className={styles.pagerHeader}>
+                <button className={styles.pagerButton} onClick={goPrev} aria-label="Previous columns">
+                  <ChevronLeft />
+                </button>
+              </th>
+            )}
+            {visible.map((column) => (
               <th
                 key={column.key}
                 onClick={() => column.sortable && handleSort(column.key)}
@@ -68,16 +105,25 @@ const Table = <T,>({
                 )}
               </th>
             ))}
+            {pages > 1 && canNext && (
+              <th key="pager-right" className={styles.pagerHeader}>
+                <button className={styles.pagerButton} onClick={goNext} aria-label="Next columns">
+                  <ChevronRight />
+                </button>
+              </th>
+            )}
           </tr>
         </thead>
         <tbody>
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              {columns.map((column) => (
+              {pages > 1 && canPrev && <td className={styles.pagerCell} key={`pager-left-${rowIndex}`} />}
+              {visible.map((column) => (
                 <td key={column.key}>
                   {column.render ? column.render(row) : (row as unknown as Record<string, ReactNode>)[column.key]}
                 </td>
               ))}
+              {pages > 1 && canNext && <td className={styles.pagerCell} key={`pager-right-${rowIndex}`} />}
             </tr>
           ))}
         </tbody>
@@ -86,7 +132,7 @@ const Table = <T,>({
   )
 }
 
-Table.displayName = "Table"
+Table.displayName = 'Table'
 
 export default Table
 export type { TableProps, ColumnProps }
