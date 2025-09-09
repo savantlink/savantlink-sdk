@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- `Table component`: add horizontal column paging via `visibleColumns` and pager controls
+
 ## 2.0.7 - 2025-09-03
 ### Fixed
 - Fixed hidden content in the `Drawer component` by setting overflow to auto

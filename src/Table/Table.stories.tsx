@@ -42,8 +42,6 @@ const Template: ComponentStory<typeof Table> = () => {
     { key: 'userId', header: 'User Id', sortable: true },
     { key: 'email', header: 'Email' },
     { key: 'role', header: 'Role', sortable: true },
-      { key: 'age', header: 'Age', sortable: true },
-        { key: 'Account Number', header: 'Role', sortable: true },
     {
       key: 'actions',
       header: 'Actions',
@@ -157,4 +155,81 @@ export const EmptyState = () => {
   const data: User[] = [] // Empty data array
 
   return <Table columns={columns} data={data} emptyState={emptyState} />
+}
+
+interface InventoryRecord {
+  dateTime: string
+  productName: string
+  orderId: string
+  stockType: string
+  quantity: number
+  sellingPrice: string
+  totalAmount: string
+  store: string
+  referenceStore: string
+  initiator: string
+}
+
+export const HorizontalPaging = () => {
+  const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' } | null>(null)
+
+  const columns: ColumnProps<InventoryRecord>[] = [
+    { key: 'dateTime', header: 'Date/Time' },
+    { key: 'productName', header: 'Product Name' },
+    { key: 'orderId', header: 'Order Id' },
+    { key: 'stockType', header: 'Stock Type' },
+    { key: 'quantity', header: 'Quantity' },
+    { key: 'sellingPrice', header: 'Selling Price' },
+    { key: 'totalAmount', header: 'Total Amount' },
+    { key: 'store', header: 'Store' },
+    { key: 'referenceStore', header: 'Reference Store' },
+    { key: 'initiator', header: 'Initiator' },
+    {
+      key: 'action',
+      header: 'Action',
+      render: (row: InventoryRecord) => <button onClick={() => alert(`View ${row.productName}`)}>View Details</button>,
+    },
+  ]
+
+  const data: InventoryRecord[] = Array.from({ length: 7 }).map((_, i) => ({
+    dateTime: `12 Dec, 2024, 5:07:0${i} AM`,
+    productName: ['Coca-Cola', 'Eggs', 'Sugar', 'Peak Milk', 'Indomie', "Alba's Corn Flakes", 'Milo'][i],
+    orderId: '001284567',
+    stockType: i % 2 === 0 ? 'Sold' : 'Stock-In',
+    quantity: 45,
+    sellingPrice: '950.00',
+    totalAmount: 'NGN 42,750.00',
+    store: i % 2 === 0 ? 'Ketu Branch' : 'Ikeja Branch',
+    referenceStore: i % 3 === 0 ? 'Hazel Store' : 'Central Store',
+    initiator: i % 2 === 0 ? 'Eni Mark' : 'James M.',
+  }))
+
+  const handleSort = (key: string) => {
+    let direction: 'asc' | 'desc' = 'asc'
+    if (sortConfig?.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc'
+    }
+    setSortConfig({ key, direction })
+  }
+
+  const sortedData = sortConfig
+    ? [...data].sort((a: InventoryRecord, b: InventoryRecord) => {
+        const aValue = a[sortConfig.key as keyof InventoryRecord]
+        const bValue = b[sortConfig.key as keyof InventoryRecord]
+        if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1
+        if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1
+        return 0
+      })
+    : data
+
+  return (
+    <Table
+      columns={columns}
+      data={sortedData}
+      sortConfig={sortConfig || undefined}
+      onSort={handleSort}
+      emptyState={emptyState}
+      visibleColumns={6}
+    />
+  )
 }
