@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New mono-color icons (single-product, composite-product and bulk-product)
 
 ## 2.0.8 - 2025-09-09
 ### Added

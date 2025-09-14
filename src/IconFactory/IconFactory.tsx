@@ -1,5 +1,10 @@
 import React from 'react'
 
+// Monocolor Icons
+import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
+import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
+import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
+// System Icons
 import Card from '../../assets/icons/system/card.svg'
 import ChevronDown from '../../assets/icons/system/chevron-down.svg'
 import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
@@ -53,6 +58,9 @@ export type IconName =
   | 'user-circle'
   | 'ellipsis'
   | 'export'
+  | 'single-product'
+  | 'bulk-product'
+  | 'composite-product'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -81,6 +89,9 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'user-circle': UserCircle,
   ellipsis: Ellipsis,
   export: Export,
+  'single-product': SingleProductIcon,
+  'composite-product': CompositeProductIcon,
+  'bulk-product': BulkProductIcon,
 }
 
 export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
