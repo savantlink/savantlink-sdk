@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.0.9 - 2025-09-16
 ### Fixed
 - `Button component`: fix the hover and active state.
 
