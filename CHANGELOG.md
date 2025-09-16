@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Fixed
+- `Button component`: fix the hover and active state.
+
 ## 2.0.8 - 2025-09-09
 ### Added
 - `Table component`: add horizontal column paging via `visibleColumns` and pager controls
