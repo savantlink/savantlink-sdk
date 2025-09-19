@@ -14,7 +14,7 @@ Types of changes are:
 
 ## Unreleased
 ### Added
-- New mono-color icons (single-product, composite-product and bulk-product)
+- New mono-color icons (single-product, composite-product, bulk-product and add-product)
 
 ## 2.0.8 - 2025-09-09
 ### Added

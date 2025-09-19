@@ -1,6 +1,7 @@
 import React from 'react'
 
 // Monocolor Icons
+import AddProductIcon from '../../assets/icons/mono-color/add-product.svg'
 import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
 import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
 import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
@@ -61,6 +62,7 @@ export type IconName =
   | 'single-product'
   | 'bulk-product'
   | 'composite-product'
+  | 'add-product'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -92,6 +94,7 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'single-product': SingleProductIcon,
   'composite-product': CompositeProductIcon,
   'bulk-product': BulkProductIcon,
+  'add-product': AddProductIcon,
 }
 
 export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
