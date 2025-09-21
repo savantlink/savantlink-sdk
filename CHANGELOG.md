@@ -17,6 +17,10 @@ Types of changes are:
 - `Dropdown Component`: Added fullwidth feature to dropdown style and search functionality to dropdown options
 - New system icon (long-arrow-right)
 
+### Fixed
+- `Input Component`: fix the hover and active state color.
+- `Textarea Component`: fix the hover and active state color.
+
 ## 2.0.10 - 2025-09-19
 ### Added
 - New mono-color icons (single-product, composite-product, bulk-product and add-product)
