@@ -20,6 +20,7 @@ import EyeClosed from '../../assets/icons/system/eye-closed.svg'
 import Eye from '../../assets/icons/system/eye.svg'
 import Home from '../../assets/icons/system/home.svg'
 import InfoCircle from '../../assets/icons/system/info-circle.svg'
+import LongArrowRight from '../../assets/icons/system/long-arrow.svg'
 import Medal from '../../assets/icons/system/medal.svg'
 import Note from '../../assets/icons/system/note.svg'
 import Notification from '../../assets/icons/system/notification.svg'
@@ -63,6 +64,7 @@ export type IconName =
   | 'bulk-product'
   | 'composite-product'
   | 'add-product'
+  | 'long-arrow-right'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -95,6 +97,7 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'composite-product': CompositeProductIcon,
   'bulk-product': BulkProductIcon,
   'add-product': AddProductIcon,
+  'long-arrow-right': LongArrowRight,
 }
 
 export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
