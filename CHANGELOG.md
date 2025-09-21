@@ -13,8 +13,14 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.10 - 2025-09-19
 ### Added
 - New mono-color icons (single-product, composite-product, bulk-product and add-product)
+
+## 2.0.9 - 2025-09-16
+### Fixed
+- `Button component`: fix the hover and active state.
 
 ## 2.0.8 - 2025-09-09
 ### Added

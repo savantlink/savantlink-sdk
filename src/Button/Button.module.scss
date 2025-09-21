@@ -4,7 +4,7 @@
 @mixin button-flat($maincolor) {
   --button-bg: transparent;
   --button-bg-hover: var(#{"--color-" + $maincolor + "-lightest"});
-  --button-bg-active: var(#{"--color-" + $maincolor + "-lighter-2"});
+  --button-bg-active: var(#{"--color-" + $maincolor + "-lighter-1"});
   --button-border-color: transparent;
   --button-color: var(#{"--color-" + $maincolor});
   --button-color-active: var(--color-gray-light);
@@ -33,12 +33,12 @@
 
   &:hover {
     color: var(--button-color);
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-lighter);
   }
 
   &:active {
     color: var(--button-color-active);
-    background-color: var(--button-bg-active);
+    background-color: var(--color-primary-lighter-2);
   }
 }
 
@@ -90,7 +90,7 @@
 .outline {
   --button-bg: transparent;
   --button-bg-hover: var(--color-primary-lightest);
-  --button-bg-active: var(--color-primary-lighter-2);
+  --button-bg-active: var(--color-primary-lighter);
   --button-border-color: var(--color-primary);
   --button-color: var(--color-primary);
   --button-color-active: var(--color-light);
@@ -110,10 +110,6 @@
   }
 
   &:hover {
-    color: var(--color-light);
-  }
-
-  &:focus {
     color: var(--color-light);
   }
 }
@@ -145,11 +141,7 @@
   &:hover {
     --button-underline-color: var(--color-primary-darker);
 
-    color: var(--color-primary-darker);
-  }
-
-  &:focus {
-    color: var(--color-primary-darker);
+    color: var(--color-light);
   }
 }
 
@@ -168,6 +160,10 @@
 
     pointer-events: none;
     user-select: none;
+  }
+
+  &:hover {
+    color: var(--color-light);
   }
 }
 
