@@ -15,6 +15,8 @@ const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} 
 export const Default = Template.bind({})
 Default.args = {
   control: <button>Click Me!</button>,
+  isFullWidth: true,
+  hasSearch: true,
   options: [
     { label: 'Option 1', value: '1' },
     { label: 'Option 2', value: '2' },
