@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.11 - 2025-09-21
 ### Added
 - `Dropdown Component`: Added fullwidth feature to dropdown style and search functionality to dropdown options
 - New system icon (long-arrow-right)
