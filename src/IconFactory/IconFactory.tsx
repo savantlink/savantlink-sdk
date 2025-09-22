@@ -13,6 +13,7 @@ import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import ChevronUp from '../../assets/icons/system/chevron-up.svg'
 import Close from '../../assets/icons/system/close.svg'
 import Data from '../../assets/icons/system/data.svg'
+import Download from '../../assets/icons/system/download.svg'
 import Edit from '../../assets/icons/system/edit.svg'
 import Ellipsis from '../../assets/icons/system/ellipsis.svg'
 import Export from '../../assets/icons/system/export.svg'
@@ -65,6 +66,7 @@ export type IconName =
   | 'composite-product'
   | 'add-product'
   | 'long-arrow-right'
+  | 'download'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -98,6 +100,7 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'bulk-product': BulkProductIcon,
   'add-product': AddProductIcon,
   'long-arrow-right': LongArrowRight,
+  download: Download,
 }
 
 export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
