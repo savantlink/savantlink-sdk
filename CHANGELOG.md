@@ -13,6 +13,10 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New system icon (long-arrow-right)
+### Fixed
+- `Button Component`: fix outline skin hover text color.
 
 ## 2.0.11 - 2025-09-21
 ### Added
