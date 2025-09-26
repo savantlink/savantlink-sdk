@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- New system icons
+
 ## 2.0.12 - 2025-09-22
 ### Added
 - New system icon (download)
