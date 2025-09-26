@@ -6,6 +6,7 @@ import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
 import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
 import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
 // System Icons
+import ArrowRight from '../../assets/icons/system/arrow-right.svg'
 import Card from '../../assets/icons/system/card.svg'
 import ChevronDown from '../../assets/icons/system/chevron-down.svg'
 import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
@@ -19,6 +20,8 @@ import Ellipsis from '../../assets/icons/system/ellipsis.svg'
 import Export from '../../assets/icons/system/export.svg'
 import EyeClosed from '../../assets/icons/system/eye-closed.svg'
 import Eye from '../../assets/icons/system/eye.svg'
+import File from '../../assets/icons/system/file.svg'
+import Filter from '../../assets/icons/system/filter.svg'
 import Home from '../../assets/icons/system/home.svg'
 import InfoCircle from '../../assets/icons/system/info-circle.svg'
 import LongArrowRight from '../../assets/icons/system/long-arrow.svg'
@@ -36,6 +39,7 @@ import UserCircle from '../../assets/icons/system/user-cirlce-add.svg'
 
 // Define all possible icon names
 export type IconName =
+  | 'arrow-right'
   | 'card'
   | 'chevron-down'
   | 'chevron-up'
@@ -46,6 +50,8 @@ export type IconName =
   | 'edit'
   | 'eye-closed'
   | 'eye'
+  | 'file'
+  | 'filter'
   | 'home'
   | 'info-circle'
   | 'medal'
@@ -70,6 +76,7 @@ export type IconName =
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
+  'arrow-right': ArrowRight,
   card: Card,
   'chevron-down': ChevronDown,
   'chevron-up': ChevronUp,
@@ -80,6 +87,8 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   edit: Edit,
   'eye-closed': EyeClosed,
   eye: Eye,
+  file: File,
+  filter: Filter,
   home: Home,
   'info-circle': InfoCircle,
   medal: Medal,
