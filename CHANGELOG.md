@@ -19,7 +19,6 @@ Types of changes are:
 - Add the new system icons to `IconFactory Component`
 
 ## 2.0.12 - 2025-09-22
-
 ### Added
 - New system icon (download)
 
