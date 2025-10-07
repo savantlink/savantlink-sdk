@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- New system icons (cloud-upload)
+- `FileUpload` component
 
 ## 2.0.13 - 2025-09-26
 ### Added
