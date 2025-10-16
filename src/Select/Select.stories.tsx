@@ -13,6 +13,7 @@ export default {
     multiple: { control: 'boolean' },
     value: { control: 'text' },
     onChange: { action: 'changed' },
+    clearable: { control: 'boolean' },
   },
 } as ComponentMeta<typeof Select>
 
@@ -40,9 +41,9 @@ const Template: ComponentStory<typeof Select> = () => {
         placeholder="Select an option"
         onChange={handleChange}
         value={selectedValue}
-        isError={true}
-        errorMessage='Required'
+        isError={false}
         required
+        clearable
       />
     </>
   )
@@ -77,7 +78,34 @@ export const MultipleSelect: ComponentStory<typeof Select> = () => {
         onChange={handleChange}
         value={selectedValue}
         required
+        clearable
       />
     </>
+  )
+}
+
+export const ResponsiveSmall: ComponentStory<typeof Select> = () => {
+  const [selectedValue, setSelectedValue] = useState<SelectOptions>('option1')
+  const handleChange = (value: SelectOptions) => {
+    setSelectedValue(value)
+  }
+
+  return (
+    <div style={{ width: '200px' }}>
+      <Select
+        label="Small Size Select"
+        options={[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' },
+          { label: 'Option 4', value: 'option4' },
+          { label: 'Option 5', value: 'option5' },
+        ]}
+        placeholder="Select"
+        onChange={handleChange}
+        value={selectedValue}
+        clearable
+      />
+    </div>
   )
 }
