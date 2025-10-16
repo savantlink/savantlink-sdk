@@ -56,7 +56,6 @@
     &:focus {
       border-color: var(--color-primary);
       outline: none;
-      box-shadow: 0 0 0 2px rgb(0 123 255 / 10%);
     }
   }
 
@@ -207,7 +206,6 @@
     background-color: var(--color-light);
     border: 1px solid var(--color-gray);
     border-radius: 4px;
-    box-shadow: 0 6px 16px rgb(0 0 0 / 15%);
 
     @include media-breakpoint-up(sm) {
       min-width: auto;
@@ -260,7 +258,6 @@
   &Open {
     .selectTrigger {
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 2px rgb(0 123 255 / 10%);
     }
   }
 
@@ -312,10 +309,6 @@
 
 .selectError {
   border-color: var(--color-danger) !important;
-
-  &:focus {
-    box-shadow: 0 0 0 2px rgb(220 53 69 / 10%);
-  }
 }
 
 .selectDisabled {
