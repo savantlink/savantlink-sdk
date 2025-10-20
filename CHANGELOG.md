@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.0.15 - 2025-10-20
 ### Fixed
 - `Select`: Fix responsiveness and added clearable icon to clear option
 
