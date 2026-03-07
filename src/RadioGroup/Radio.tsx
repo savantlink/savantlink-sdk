@@ -1,4 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
+
+import { clsx } from 'clsx'
 
 import styles from './RadioGroup.module.scss'
 
@@ -10,20 +12,12 @@ interface RadioProps {
   onChange: (value: string) => void
 }
 
-const Radio: React.FC<RadioProps> = ({ label, value, checked = false, disabled = false, onChange }) => {
-  const handleChange = () => {
-    if (!disabled) {
-      onChange(value)
-    }
-  }
-
-  return (
-    <label className={`${styles.radio} ${disabled ? styles['radio--disabled'] : ''}`}>
-      <input type="radio" value={value} checked={checked} disabled={disabled} onChange={handleChange} />
-      <span>{label}</span>
-    </label>
-  )
-}
+const Radio: FC<RadioProps> = ({ label, value, checked = false, disabled = false, onChange }) => (
+  <label className={clsx(styles.radio, { [styles['radio--disabled']]: disabled })}>
+    <input type="radio" value={value} checked={checked} disabled={disabled} onChange={() => onChange(value)} />
+    <span>{label}</span>
+  </label>
+)
 
 Radio.displayName = 'Radio'
 

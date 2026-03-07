@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -14,7 +14,7 @@ interface RadioGroupProps {
   className?: string
 }
 
-const RadioGroup: React.FC<RadioGroupProps> = ({
+const RadioGroup: FC<RadioGroupProps> = ({
   title,
   options,
   defaultValue = '',

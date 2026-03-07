@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import { FC, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -20,11 +20,11 @@ interface SelectProps {
   className?: string
   disabled?: boolean
   readOnly?: boolean
-  isError?: boolean // New: Error state
-  errorMessage?: string // New: Custom error message
+  isError?: boolean
+  errorMessage?: string
 }
 
-const Select: React.FC<SelectProps> = ({
+const Select: FC<SelectProps> = ({
   label,
   options,
   placeholder = 'Select an option',
@@ -35,8 +35,8 @@ const Select: React.FC<SelectProps> = ({
   className,
   disabled = false,
   readOnly = false,
-  isError = false, // Default: false
-  errorMessage = 'This field is required', // Default message
+  isError = false,
+  errorMessage = 'This field is required',
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
@@ -58,9 +58,6 @@ const Select: React.FC<SelectProps> = ({
     if (!isOpen) setFocusedIndex(-1)
   }, [isOpen])
 
-  // Memoize filtered options for performance
-  const memoizedOptions = useMemo(() => options, [options])
-
   const handleSelect = (selectedValue: string) => {
     if (disabled || readOnly) return
     if (multiple) {
@@ -75,8 +72,8 @@ const Select: React.FC<SelectProps> = ({
     }
   }
 
-  const removeSelected = (selectedValue: string, e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent triggering dropdown toggle
+  const removeSelected = (selectedValue: string, e: { stopPropagation: () => void }) => {
+    e.stopPropagation()
     if (disabled || readOnly) return
     if (multiple && Array.isArray(value)) {
       const newValues = value.filter((val) => val !== selectedValue)
@@ -84,7 +81,7 @@ const Select: React.FC<SelectProps> = ({
     }
   }
 
-  const clearSelected = (e: React.MouseEvent) => {
+  const clearSelected = (e: { stopPropagation: () => void }) => {
     e.stopPropagation()
     if (disabled || readOnly) return
     onChange(null)
@@ -155,7 +152,7 @@ const Select: React.FC<SelectProps> = ({
             <div className={styles.selectTags}>
               {value.map((val) => (
                 <div key={val} className={styles.selectTag}>
-                  {memoizedOptions.find((opt) => opt.value === val)?.label}
+                  {options.find((opt) => opt.value === val)?.label}
                   {!disabled && !readOnly && (
                     <span
                       className={styles.selectTagRemove}
@@ -169,13 +166,13 @@ const Select: React.FC<SelectProps> = ({
               ))}
             </div>
             {!disabled && !readOnly && (
-              <div onClick={clearSelected} aria-label="Clear all">
+              <div className={styles.selectClearAll} onClick={clearSelected} aria-label="Clear all">
                 <Close />
               </div>
             )}
           </div>
         ) : !multiple && value ? (
-          <div className={styles.singleValue}>{memoizedOptions.find((opt) => opt.value === value)?.label}</div>
+          <div className={styles.singleValue}>{options.find((opt) => opt.value === value)?.label}</div>
         ) : (
           <span className={styles.placeholder}>{placeholder}</span>
         )}
@@ -187,7 +184,7 @@ const Select: React.FC<SelectProps> = ({
       </div>
       {isOpen && !disabled && !readOnly && (
         <div className={styles.selectDropdown} role="listbox">
-          {memoizedOptions.map((option, index) => (
+          {options.map((option, index) => (
             <div
               key={option.value}
               className={clsx(styles.selectOption, {

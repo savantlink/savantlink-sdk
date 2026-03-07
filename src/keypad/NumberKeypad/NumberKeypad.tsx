@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from './NumberKeypad.module.scss'
 import KeypadKey, { KeypadKeys } from '../KeypadKey'
 
@@ -7,45 +6,26 @@ type NumberKeypadProps = {
 }
 
 const NumberKeypad = ({ onKeyPressed }: NumberKeypadProps) => {
-  const rows: string[][] = [
-    [...Object.keys(KeypadKeys).slice(0, 3)],
-    [...Object.keys(KeypadKeys).slice(3, 6)],
-    [...Object.keys(KeypadKeys).slice(6, 9)],
-    [...Object.keys(KeypadKeys).slice(9, 12)],
+  const rows: (keyof typeof KeypadKeys)[][] = [
+    Object.keys(KeypadKeys).slice(0, 3) as (keyof typeof KeypadKeys)[],
+    Object.keys(KeypadKeys).slice(3, 6) as (keyof typeof KeypadKeys)[],
+    Object.keys(KeypadKeys).slice(6, 9) as (keyof typeof KeypadKeys)[],
+    Object.keys(KeypadKeys).slice(9, 12) as (keyof typeof KeypadKeys)[],
   ]
-
-  // const handleKeypadKeyPress = (keyPadKey: KeypadKeys): void => {
-  //   switch (keyPadKey) {
-  //     case KeypadKeys.CLEAR:
-  //       return setKeypadEntries('')
-  //     case KeypadKeys.BKSP:
-  //       return setKeypadEntries(keypadEntries.slice(0, -1))
-  //     default:
-  //       setKeypadEntries((keypadEntries + keyPadKey).toString())
-  //       break
-  //   }
-  // }
 
   return (
     <div className={styles.keypad}>
-      {rows.map(
-        (
-          row: any,
-          idx: number // TODO: resolve type
-        ) => (
-          <div className={styles.keypadRow} key={idx}>
-            {row.map((keyPadNumber: keyof typeof KeypadKeys) => {
-              return (
-                <KeypadKey
-                  keypadKey={KeypadKeys[keyPadNumber]}
-                  key={keyPadNumber}
-                  onKeyPressed={(keyPressed: KeypadKeys) => onKeyPressed(keyPressed)}
-                />
-              )
-            })}
-          </div>
-        )
-      )}
+      {rows.map((row, idx) => (
+        <div className={styles.keypadRow} key={idx}>
+          {row.map((keyPadNumber) => (
+            <KeypadKey
+              keypadKey={KeypadKeys[keyPadNumber]}
+              key={keyPadNumber}
+              onKeyPressed={onKeyPressed}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { FC, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -8,19 +8,19 @@ import IconFactory from '@/IconFactory'
 import Input from '@/Input'
 
 interface Option {
-  label: React.ReactNode
+  label: ReactNode
   value: string | number
 }
 
 interface DropdownProps {
   options: Option[]
-  control: React.ReactNode // custom trigger element
+  control: ReactNode
   onChange?: (value: string | number) => void
   isFullWidth?: boolean
   hasSearch?: boolean
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, control, onChange, isFullWidth, hasSearch }) => {
+const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, hasSearch }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -30,7 +30,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, control, onChange, isFullW
   const handleSelect = (value: string | number) => {
     onChange?.(value)
     setIsOpen(false)
-    setSearchTerm('') // reset search when selecting
+    setSearchTerm('')
   }
 
   // Close dropdown on outside click
@@ -84,6 +84,8 @@ const Dropdown: React.FC<DropdownProps> = ({ options, control, onChange, isFullW
     </div>
   )
 }
+
+Dropdown.displayName = 'Dropdown'
 
 export default Dropdown
 export type { DropdownProps, Option }

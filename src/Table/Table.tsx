@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useEffect, useMemo, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -10,7 +10,7 @@ import DataIcon from '../../assets/icons/system/data.svg'
 interface ColumnProps<T> {
   key: string
   header: string
-  render?: (data: T) => React.ReactNode
+  render?: (data: T) => ReactNode
   sortable?: boolean
 }
 
@@ -19,9 +19,9 @@ interface TableProps<T> {
   data: T[]
   sortConfig?: { key: string; direction: 'asc' | 'desc' }
   emptyState: {
-    title?: string // Title for the empty state
-    description?: string // Description for the empty state
-    cTA?: React.ReactNode // Optional CTA button for the empty state
+    title?: string
+    description?: string
+    cTA?: ReactNode
   }
   onSort?: (key: string) => void
   className?: string
@@ -37,12 +37,6 @@ const Table = <T,>({
   className,
   visibleColumns,
 }: TableProps<T>) => {
-  const handleSort = (key: string) => {
-    if (onSort) {
-      onSort(key)
-    }
-  }
-
   const [pageIndex, setPageIndex] = useState(0)
 
   const dataColumnCount = columns.length
@@ -69,7 +63,6 @@ const Table = <T,>({
     }
   }, [pages, pageIndex])
 
-  // Render empty state if data is empty
   if (data.length === 0) {
     return (
       <div className={clsx(styles.emptyState, className)}>
@@ -96,12 +89,12 @@ const Table = <T,>({
             {visible.map((column) => (
               <th
                 key={column.key}
-                onClick={() => column.sortable && handleSort(column.key)}
-                className={`${column.sortable ? styles.sortable : ''}`}
+                onClick={() => column.sortable && onSort?.(column.key)}
+                className={clsx({ [styles.sortable]: column.sortable })}
               >
                 {column.header}
                 {sortConfig?.key === column.key && (
-                  <span className={styles.sortIndicator}>{sortConfig?.direction === 'asc' ? '▲' : '▼'}</span>
+                  <span className={styles.sortIndicator}>{sortConfig.direction === 'asc' ? '▲' : '▼'}</span>
                 )}
               </th>
             ))}

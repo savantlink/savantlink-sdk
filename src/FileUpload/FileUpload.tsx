@@ -1,132 +1,120 @@
-import React, { DragEvent, useCallback, useRef, useState } from "react";
+import { ChangeEvent, DragEvent, FC, useCallback, useRef, useState } from 'react'
 
-import styles from "./FileUpload.module.scss";
-import Typography from "../Typography";
+import { clsx } from 'clsx'
 
-import IconFactory from "@/IconFactory";
+import styles from './FileUpload.module.scss'
+import Typography from '../Typography'
 
+import IconFactory from '@/IconFactory'
 
 interface FileUploadProps {
-  onFile: (file: File | null) => void;
-  disabled?: boolean;
-  maxSize?: number; // in bytes (default 5MB)
+  onFile: (file: File | null) => void
+  disabled?: boolean
+  maxSize?: number // in bytes (default 5MB)
 }
 
-const CSVFileUpload: React.FC<FileUploadProps> = ({
+const MIME_TYPES = ['text/csv']
+const EXTENSIONS = ['.csv']
+
+const CSVFileUpload: FC<FileUploadProps> = ({
   onFile,
   disabled = false,
-  maxSize = 5 * 1024 * 1024, // 5MB
+  maxSize = 5 * 1024 * 1024,
 }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isDragging, setIsDragging] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
-  // Accepted Excel MIME types and extensions
-  // const EXCEL_MIME_TYPES = [
-  //   "application/vnd.ms-excel", // .xls
-  //   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xlsx
-  //   "text/csv", // .csv
-  // ];
-
-  // const EXCEL_EXTENSIONS = [".xls", ".xlsx", ".csv"];
-  const MIME_TYPES = ["text/csv"];
-  const EXTENSIONS = [".csv"];
-
-  const validateExcelFile = useCallback(
+  const validateFile = useCallback(
     (file: File): boolean => {
-      // Check file type
-      const isExcel =
+      const isCSV =
         MIME_TYPES.includes(file.type) ||
-        EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext));
+        EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext))
 
-      if (!isExcel) {
-        setError("Only CSV files are allowed");
-        return false;
+      if (!isCSV) {
+        setError('Only CSV files are allowed')
+        return false
       }
 
-      // Check file size
       if (file.size > maxSize) {
-        setError(`File exceeds ${maxSize / 1024 / 1024}MB limit`);
-        return false;
+        setError(`File exceeds ${maxSize / 1024 / 1024}MB limit`)
+        return false
       }
 
-      setError(null);
-      return true;
+      setError(null)
+      return true
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [maxSize]
-  );
+  )
 
   const handleFile = useCallback(
     (file: File) => {
-      if (validateExcelFile(file)) {
-        setSelectedFile(file);
-        onFile(file);
+      if (validateFile(file)) {
+        setSelectedFile(file)
+        onFile(file)
       } else {
-        setSelectedFile(null);
-        onFile(null);
+        setSelectedFile(null)
+        onFile(null)
       }
     },
-    [onFile, validateExcelFile]
-  );
+    [onFile, validateFile]
+  )
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      handleFile(e.target.files[0]);
+      handleFile(e.target.files[0])
       if (fileInputRef.current) {
-        fileInputRef.current.value = ""; // Reset input
+        fileInputRef.current.value = ''
       }
     }
-  };
+  }
 
   const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!disabled) setIsDragging(true);
-  };
+    e.preventDefault()
+    e.stopPropagation()
+    if (!disabled) setIsDragging(true)
+  }
 
   const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
-  };
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(false)
+  }
 
   const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
+    e.preventDefault()
+    e.stopPropagation()
+  }
 
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(false)
 
-    if (disabled) return;
+    if (disabled) return
 
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      handleFile(e.dataTransfer.files[0]);
+      handleFile(e.dataTransfer.files[0])
     }
-  };
+  }
 
   const triggerFileInput = () => {
     if (fileInputRef.current && !disabled) {
-      fileInputRef.current.click();
+      fileInputRef.current.click()
     }
-  };
+  }
 
   const removeFile = () => {
-    setSelectedFile(null);
-    onFile(null);
-    setError(null);
-  };
+    setSelectedFile(null)
+    onFile(null)
+    setError(null)
+  }
 
   return (
     <div className={styles.container}>
       <div
-        className={`${styles.dropzone} ${isDragging ? styles.dragging : ""} ${
-          disabled ? styles.disabled : ""
-        }`}
+        className={clsx(styles.dropzone, { [styles.dragging]: isDragging, [styles.disabled]: disabled })}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
@@ -162,8 +150,8 @@ const CSVFileUpload: React.FC<FileUploadProps> = ({
             <button
               type="button"
               onClick={(e) => {
-                e.stopPropagation();
-                removeFile();
+                e.stopPropagation()
+                removeFile()
               }}
               className={styles.removeButton}
               aria-label="Remove file"
@@ -176,8 +164,10 @@ const CSVFileUpload: React.FC<FileUploadProps> = ({
 
       {error && <div className={styles.error}>{error}</div>}
     </div>
-  );
-};
+  )
+}
 
-export default CSVFileUpload;
-export type { FileUploadProps };
+CSVFileUpload.displayName = 'CSVFileUpload'
+
+export default CSVFileUpload
+export type { FileUploadProps }
