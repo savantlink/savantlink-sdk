@@ -8,6 +8,7 @@
     "scss/**/*",
     "README.md"
   ],
+  "exclude": ["stories.*"],
   "repository": {
     "url": "git+https://github.com/savantlink/savantlink-sdk.git",
     "type": "git"

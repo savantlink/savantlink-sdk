@@ -21,7 +21,7 @@ const plugins = [
     typescript: require('ttypescript'), // resolve alias (e.g. @/services --> ../../services) in type declaration files
     tsconfigDefaults: {
       compilerOptions: {
-        sourceMap: true, // without this option source map files were generated with empty content
+        sourceMap: false, // without this option source map files were generated with empty content
         plugins: [
           { transform: 'typescript-transform-paths', afterDeclarations: true }, // resolve alias in type declaration files
         ],
@@ -38,7 +38,7 @@ const plugins = [
   postcss({
     modules: true,
     minimize: true,
-    sourceMap: true,
+    sourceMap: false,
     extract: true,
   }),
   svgr(),
@@ -53,7 +53,7 @@ export default {
       dir: 'dist',
       format: 'cjs',
       exports: 'named',
-      sourcemap: true,
+      sourcemap: false,
       preserveModules: true, // to maintain the same structure as src and create modules as chunks
       preserveModulesRoot: 'src', // to maintain the same structure as src and create modules as chunks
     },
