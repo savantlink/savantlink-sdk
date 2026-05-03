@@ -92,7 +92,7 @@ jobs:
         timeout-minutes: 10
         with:
           secret: ${{ github.TOKEN }}
-          approvers: abfatahi, habibthadev
+          approvers: ayomide-snr, habibthadev
           minimum-approvals: 1
           issue-title: 'Publishing savantlink-sdk: version will go from ${{ env.CURRENT_VERSION }} to ${{ env.NEW_VERSION }}'
         continue-on-error: false
