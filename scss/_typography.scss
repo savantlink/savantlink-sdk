@@ -1,4 +1,3 @@
-@use "sass:list";
 @use "sass:map";
 
 $heading1: (font-size: var(--h1), line-height: 3rem, font-weight: var(--font-weight-medium));
@@ -11,16 +10,6 @@ $large: (font-size: var(--h6), line-height: 1.5rem);
 $regular: (font-size: var(--p), line-height: 1.5rem);
 $small: (font-size: var(--span), line-height: 1.125rem);
 $label: (font-size: var(--label), line-height: 1.25rem);
-$heading1-resp: map.merge($heading1, (font-size: var(--h1-resp)));
-$heading2-resp: map.merge($heading2, (font-size: var(--h2-resp)));
-$heading3-resp: map.merge($heading3, (font-size: var(--h3-resp)));
-$heading4-resp: map.merge($heading4, (font-size: var(--h4-resp)));
-$heading5-resp: map.merge($heading5, (font-size: var(--h5-resp)));
-$heading6-resp: map.merge($heading6, (font-size: var(--h6-resp)));
-$large-resp: map.merge($large, (font-size: var(--h6-resp)));
-$regular-resp: map.merge($regular, (font-size: var(--p-resp)));
-$small-resp: map.merge($small, (font-size: var(--span-resp)));
-$label-resp: map.merge($label, (font-size: var(--label-resp)));
 $typography-config: (
   heading1: $heading1,
   heading2: $heading2,
@@ -32,16 +21,6 @@ $typography-config: (
   regular: $regular,
   small: $small,
   label: $label,
-  heading1Resp: $heading1-resp,
-  heading2Resp: $heading2-resp,
-  heading3Resp: $heading3-resp,
-  heading4Resp: $heading4-resp,
-  heading5Resp: $heading5-resp,
-  heading6Resp: $heading6-resp,
-  largeResp: $large-resp,
-  regularResp: $regular-resp,
-  smallResp: $small-resp,
-  labelResp: $label-resp
 );
 
 @mixin typography($type) {

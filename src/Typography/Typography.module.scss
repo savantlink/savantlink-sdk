@@ -1,105 +1,31 @@
 @import "scss/typography";
 
-.h1 {
-  @include typography(heading1);
-}
+.h1 { @include typography(heading1); }
+.h2 { @include typography(heading2); }
+.h3 { @include typography(heading3); }
+.h4 { @include typography(heading4); }
+.h5 { @include typography(heading5); }
+.h6 { @include typography(heading6); }
+.large { @include typography(large); }
+.regular { @include typography(regular); }
+.small { @include typography(small); }
+.label { @include typography(label); }
 
-.h2 {
-  @include typography(heading2);
-}
+// Responsive overrides: only font-size changes; line-height and weight inherit from the base class above
+.h1.responsive { font-size: var(--h1-resp); }
+.h2.responsive { font-size: var(--h2-resp); }
+.h3.responsive { font-size: var(--h3-resp); }
+.h4.responsive { font-size: var(--h4-resp); }
+.h5.responsive { font-size: var(--h5-resp); }
+.h6.responsive { font-size: var(--h6-resp); }
+.large.responsive { font-size: var(--h6-resp); }
+.regular.responsive { font-size: var(--p-resp); }
+.small.responsive { font-size: var(--span-resp); }
+.label.responsive { font-size: var(--label-resp); }
 
-.h3 {
-  @include typography(heading3);
-}
-
-.h4 {
-  @include typography(heading4);
-}
-
-.h5 {
-  @include typography(heading5);
-}
-
-.h6 {
-  @include typography(heading6);
-}
-
-.large {
-  @include typography(large);
-}
-
-.regular {
-  @include typography(regular);
-}
-
-.small {
-  @include typography(small);
-}
-
-.label {
-  @include typography(label);
-}
-
-.h1Resp {
-  @include typography(heading1Resp);
-}
-
-.h2Resp {
-  @include typography(heading2Resp);
-}
-
-.h3Resp {
-  @include typography(heading3Resp);
-}
-
-.h4Resp {
-  @include typography(heading4Resp);
-}
-
-.h5Resp {
-  @include typography(heading5Resp);
-}
-
-.h6Resp {
-  @include typography(heading6Resp);
-}
-
-.largeResp {
-  @include typography(largeResp);
-}
-
-.regularResp {
-  @include typography(regularResp);
-}
-
-.smallResp {
-  @include typography(smallResp);
-}
-
-.labelResp {
-  @include typography(labelResp);
-}
-
-.fwdefault {
-  font-weight: var(--font-weight-light);
-}
-
-.fwthin {
-  font-weight: var(--font-weight-thin);
-}
-
-.fwregular {
-  font-weight: var(--font-weight-normal);
-}
-
-.fwmedium {
-  font-weight: var(--font-weight-medium);
-}
-
-.fwbold {
-  font-weight: var(--font-weight-bold);
-}
-
-.fwbolder {
-  font-weight: var(--font-weight-black);
-}
+.fwdefault { font-weight: var(--font-weight-light); }
+.fwthin { font-weight: var(--font-weight-thin); }
+.fwregular { font-weight: var(--font-weight-normal); }
+.fwmedium { font-weight: var(--font-weight-medium); }
+.fwbold { font-weight: var(--font-weight-bold); }
+.fwbolder { font-weight: var(--font-weight-black); }

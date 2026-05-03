@@ -14,16 +14,9 @@ type TypographyProps = HTMLAttributes<HTMLElement> & {
 const Typography = ({ tag, variant, className, children, weight, responsive, ...props }: TypographyProps) => {
   const Tag = tag || 'p'
 
-  const getVariantClassName = () => {
-    if (!variant) return ''
-
-    if (!responsive) return variant
-
-    return `${variant}Resp`
-  }
-
   const computedClasses = clsx(className, {
-    [styles[getVariantClassName()]]: variant,
+    [styles[variant ?? '']]: variant,
+    [styles.responsive]: variant && responsive,
     [styles[`fw${weight}`]]: weight,
   })
 
