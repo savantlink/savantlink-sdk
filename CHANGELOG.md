@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- Removed sourcemaps, stories from build file
 
 ## 2.0.16 - 2026-05-03
 ### Changed
