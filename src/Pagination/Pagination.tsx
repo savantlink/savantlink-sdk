@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -17,6 +17,7 @@ type PaginationProps = {
   nextText?: string
   className?: string
 }
+
 const Pagination = ({
   onPageChange,
   totalSize,
@@ -65,16 +66,14 @@ const Pagination = ({
           </button>
         </li>
         {paginationRange?.map((pageNumber, index) => {
-          // If the pageNumber is an ellipsis
           if (pageNumber === ELLIPSIS) {
             return (
-              <li key={`ellipsis-${index}`} className={clsx(styles.ellipsis)}>
+              <li key={`ellipsis-${index}`} className={styles.ellipsis}>
                 &#8230;
               </li>
             )
           }
 
-          // If pageNumber is a number
           return (
             <li
               aria-label={`page ${pageNumber}`}
@@ -83,14 +82,14 @@ const Pagination = ({
               className={clsx(styles.item, styles.pill, {
                 [styles.active]: pageNumber === currentPage,
               })}
-              onClick={() => typeof pageNumber === 'number' && onPageChange(pageNumber)}
+              onClick={() => onPageChange(pageNumber)}
             >
               {pageNumber}
             </li>
           )
         })}
 
-        {/*  Right Navigation */}
+        {/* Right Navigation */}
         <li>
           <button
             className={clsx(styles.item, styles.navigation)}
@@ -108,5 +107,5 @@ const Pagination = ({
 
 Pagination.displayName = 'Pagination'
 
-export default React.memo(Pagination)
+export default memo(Pagination)
 export type { PaginationProps }

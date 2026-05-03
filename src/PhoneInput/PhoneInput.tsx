@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import { ChangeEvent, FC, ReactNode, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -20,7 +20,7 @@ interface PhoneInputProps {
   className?: string
 }
 
-const PhoneInput: React.FC<PhoneInputProps> = ({
+const PhoneInput: FC<PhoneInputProps> = ({
   value,
   onChange,
   onCountryCodeChange,
@@ -35,22 +35,18 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const [isValid, setIsValid] = useState(true)
   const [selectedCountryCode, setSelectedCountryCode] = useState('+234')
 
-  // Validate phone number (basic validation)
-  const validatePhoneNumber = (phone: string) => {
-    const regex = /^[0-9]{10}$/ // Example: 10-digit phone number
-    return regex.test(phone)
-  }
+  const validatePhoneNumber = (phone: string) => /^[0-9]{10}$/.test(phone)
 
-  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value
     onChange(inputValue)
     setIsValid(validatePhoneNumber(inputValue))
   }
 
-  const handleCountryCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCountryCodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const code = e.target.value
     setSelectedCountryCode(code)
-    onCountryCodeChange && onCountryCodeChange(code)
+    onCountryCodeChange?.(code)
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -10,12 +10,12 @@ interface DrawerProps {
   isOpen: boolean
   onClose: () => void
   position?: 'left' | 'right' | 'top' | 'bottom'
-  children: React.ReactNode
+  children: ReactNode
   showDefaultClose?: boolean
   className?: string
 }
 
-const Drawer: React.FC<DrawerProps> = ({
+const Drawer: FC<DrawerProps> = ({
   isOpen,
   onClose,
   position = 'left',

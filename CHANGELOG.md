@@ -13,6 +13,23 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- `Modal` component: fixed `showDefaultClose` prop default from string `'false'` (always truthy) to boolean `false`
+- `Select` component: removed identity `useMemo` wrapping options (no-op optimisation)
+- `Select` component: fixed layout at non-full widths — icons (chevron, clear, tag-remove) no longer cropped
+- `Select` component: added `selectClearAll` style class to the clear-all button
+- `RadioGroup` & `Radio` components: removed redundant disabled guard in `onChange` handler; simplified class composition with `clsx`
+- `Textarea` component: replaced string-template class composition with `clsx`
+- `Dropdown` component: removed redundant search-reset comment; added missing `displayName`
+- `PhoneInput` component: replaced `onCountryCodeChange && onCountryCodeChange(code)` with optional chaining `onCountryCodeChange?.(code)`
+- `Pagination` component: removed redundant `typeof pageNumber === 'number'` check and unnecessary `clsx` wrapper on ellipsis
+- `Table` component: inlined trivial `handleSort` wrapper; fixed unnecessary optional chain on confirmed non-null `sortConfig`; replaced string-template class with `clsx`
+- `IconFactory` component: migrated to named React imports (`FC`, `SVGProps`)
+- `Breadcrumbs` component: migrated to named React imports; added missing `displayName`
+- `OTPInput` component: replaced string-template class composition with `clsx`
+- `FileUpload` component: moved static `MIME_TYPES` / `EXTENSIONS` constants outside component; renamed `validateExcelFile` → `validateFile`; added missing `displayName`
+- `NumberKeypad` component: fixed `any` typed row array; removed large commented-out dead code; inlined pass-through callback
+- `Tooltip` component: inlined trivial mouse event handlers; replaced string-template class with `clsx`; added missing `displayName`
 
 ## 2.0.15 - 2025-10-20
 ### Fixed
@@ -22,6 +39,10 @@ Types of changes are:
 ### Added
 - New system icons (cloud-upload)
 - `FileUpload` component
+
+
+### Fixed
+- `Modal` component: close button was always rendered due to `showDefaultClose = 'false'` (string) being truthy
 
 ## 2.0.13 - 2025-09-26
 ### Added

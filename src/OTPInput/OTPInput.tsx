@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import type { ChangeEvent, ClipboardEvent, FC, KeyboardEvent } from 'react'
 
+import { clsx } from 'clsx'
+
 import styles from './OTPInput.module.scss'
 
 interface OTPInputProps {
@@ -63,7 +65,7 @@ const OTPInput: FC<OTPInputProps> = ({
   }, [autoFocus])
 
   return (
-    <div className={`${styles.otpContainer} ${className}`}>
+    <div className={clsx(styles.otpContainer, className)}>
       {otp.map((digit, index) => (
         <input
           key={index}
@@ -78,7 +80,7 @@ const OTPInput: FC<OTPInputProps> = ({
               inputRefs.current[index] = el
             }
           }}
-          className={`${styles.otpInput} ${inputClassName}`}
+          className={clsx(styles.otpInput, inputClassName)}
         />
       ))}
     </div>

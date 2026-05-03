@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import React, { KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import { FC, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -22,10 +22,9 @@ interface SelectProps {
   readOnly?: boolean
   isError?: boolean
   errorMessage?: string
-  clearable?: boolean
 }
 
-const Select: React.FC<SelectProps> = ({
+const Select: FC<SelectProps> = ({
   label,
   options,
   placeholder = 'Select an option',
@@ -38,12 +37,12 @@ const Select: React.FC<SelectProps> = ({
   readOnly = false,
   isError = false,
   errorMessage = 'This field is required',
-  clearable = true,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
   const selectRef = useRef<HTMLDivElement>(null)
 
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
@@ -59,9 +58,6 @@ const Select: React.FC<SelectProps> = ({
     if (!isOpen) setFocusedIndex(-1)
   }, [isOpen])
 
-  // Memoize filtered options for performance
-  const memoizedOptions = useMemo(() => options, [options])
-
   const handleSelect = (selectedValue: string) => {
     if (disabled || readOnly) return
     if (multiple) {
@@ -76,7 +72,7 @@ const Select: React.FC<SelectProps> = ({
     }
   }
 
-  const removeSelected = (selectedValue: string, e: React.MouseEvent) => {
+  const removeSelected = (selectedValue: string, e: { stopPropagation: () => void }) => {
     e.stopPropagation()
     if (disabled || readOnly) return
     if (multiple && Array.isArray(value)) {
@@ -85,7 +81,8 @@ const Select: React.FC<SelectProps> = ({
     }
   }
 
-  const clearSelected = () => {
+  const clearSelected = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation()
     if (disabled || readOnly) return
     onChange(null)
   }
@@ -155,7 +152,7 @@ const Select: React.FC<SelectProps> = ({
             <div className={styles.selectTags}>
               {value.map((val) => (
                 <div key={val} className={styles.selectTag}>
-                  {memoizedOptions.find((opt) => opt.value === val)?.label}
+                  {options.find((opt) => opt.value === val)?.label}
                   {!disabled && !readOnly && (
                     <span
                       className={styles.selectTagRemove}
@@ -168,37 +165,14 @@ const Select: React.FC<SelectProps> = ({
                 </div>
               ))}
             </div>
-            {!disabled && !readOnly && clearable && (
-              <button
-                className={styles.clearButton}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  clearSelected()
-                }}
-                aria-label="Clear all selections"
-                type="button"
-              >
+            {!disabled && !readOnly && (
+              <div className={styles.selectClearAll} onClick={clearSelected} aria-label="Clear all">
                 <Close />
-              </button>
+              </div>
             )}
           </div>
         ) : !multiple && value ? (
-          <div className={styles.singleValueWrapper}>
-            <div className={styles.singleValue}>{memoizedOptions.find((opt) => opt.value === value)?.label}</div>
-            {!disabled && !readOnly && clearable && (
-              <button
-                className={styles.clearButton}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  clearSelected()
-                }}
-                aria-label="Clear selection"
-                type="button"
-              >
-                <Close />
-              </button>
-            )}
-          </div>
+          <div className={styles.singleValue}>{options.find((opt) => opt.value === value)?.label}</div>
         ) : (
           <span className={styles.placeholder}>{placeholder}</span>
         )}
@@ -210,7 +184,7 @@ const Select: React.FC<SelectProps> = ({
       </div>
       {isOpen && !disabled && !readOnly && (
         <div className={styles.selectDropdown} role="listbox">
-          {memoizedOptions.map((option, index) => (
+          {options.map((option, index) => (
             <div
               key={option.value}
               className={clsx(styles.selectOption, {

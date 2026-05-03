@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, SVGProps } from 'react'
 
 // Monocolor Icons
 import AddProductIcon from '../../assets/icons/mono-color/add-product.svg'
@@ -77,7 +77,7 @@ export type IconName =
   | 'cloud-upload'
 
 // Map icon names to their SVG components
-const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
+const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   'arrow-right': ArrowRight,
   card: Card,
   'chevron-down': ChevronDown,
@@ -115,11 +115,11 @@ const iconMap: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'cloud-upload': CloudUpload,
 }
 
-export interface IconFactoryProps extends React.SVGProps<SVGSVGElement> {
+export interface IconFactoryProps extends SVGProps<SVGSVGElement> {
   name: IconName
 }
 
-const IconFactory: React.FC<IconFactoryProps> = ({ name, ...props }) => {
+const IconFactory: FC<IconFactoryProps> = ({ name, ...props }) => {
   const IconComponent = iconMap[name]
 
   if (!IconComponent) {

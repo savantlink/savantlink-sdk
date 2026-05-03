@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -9,18 +9,18 @@ import useScrollLock from '@/hooks/use-scroll-lock'
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
-  children: React.ReactNode
+  children: ReactNode
   position?: 'top' | 'center'
   showDefaultClose?: boolean
   className?: string
 }
 
-const Modal: React.FC<ModalProps> = ({
+const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
   children,
   position = 'center',
-  showDefaultClose = 'false',
+  showDefaultClose = false,
   className,
 }) => {
   useScrollLock(isOpen)
