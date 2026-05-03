@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.0.16 - 2026-05-03
 ### Changed
 - `Modal` component: fixed `showDefaultClose` prop default from string `'false'` (always truthy) to boolean `false`
 - `Select` component: removed identity `useMemo` wrapping options (no-op optimisation)
@@ -39,7 +41,6 @@ Types of changes are:
 ### Added
 - New system icons (cloud-upload)
 - `FileUpload` component
-
 
 ### Fixed
 - `Modal` component: close button was always rendered due to `showDefaultClose = 'false'` (string) being truthy
