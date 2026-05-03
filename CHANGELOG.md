@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- `Select`: Fix responsiveness and added clearable icon to clear option
 
 ## 2.0.15 - 2025-10-20
 ### Fixed
