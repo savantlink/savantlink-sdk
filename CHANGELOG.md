@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.1.1 - 2026-07-08
 ### Added
 - Added new component: `Validation Error`
 
