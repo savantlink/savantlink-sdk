@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.1.2 - 2026-07-08
 ### Added
 - Added new icons to `IconFactory`: `terminal`, `clock`, `indicator`, and `scan`
 
