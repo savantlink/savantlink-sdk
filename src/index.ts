@@ -19,6 +19,7 @@ export { default as Typography } from './Typography'
 export { default as IconFactory } from './IconFactory'
 export { default as Dropdown } from './Dropdown'
 export { default as FileUpload } from './FileUpload'
+export { default as ValidationError } from './ValidationError'
 
 // Types
 export type { IconName } from './IconFactory'
