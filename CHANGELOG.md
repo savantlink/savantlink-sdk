@@ -14,6 +14,10 @@ Types of changes are:
 
 ## Unreleased
 ### Added
+- Added new icons to `IconFactory`: `terminal`, `clock`, `indicator`, and `scan`
+
+## 2.1.1 - 2026-07-08
+### Added
 - Added new component: `Validation Error`
 
 ## 2.1.0 - 2026-05-03
