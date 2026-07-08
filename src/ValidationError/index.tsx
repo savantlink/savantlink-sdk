@@ -1,0 +1,40 @@
+import styles from "./ValidationError.module.scss";
+
+import Typography from "@/Typography";
+
+interface ApiError {
+  message: string;
+  code?: string;
+  response?: {
+    data?: {
+      errors?: Array<{ msg?: string; message?: string, error?: string }>;
+    };
+  };
+}
+
+const ValidationError = ({ error }: { error?: ApiError | null }) => {
+  if (!error) return null; // Return nothing if there's no error
+  const apiErrors = error.response?.data?.errors || [];
+
+  return (
+    <>
+      {apiErrors.length ? (
+        apiErrors.map((err, index) => (
+          <Typography
+            key={index}
+            variant="label"
+            className={styles.validationError}
+          >
+            {err?.msg || err?.message || err?.error || "An unknown error occurred."}
+          </Typography>
+        ))
+      ) : (
+        <Typography variant="label" className={styles.validationError}>
+          {error.message}
+        </Typography>
+      )}
+    </>
+  );
+};
+
+export default ValidationError;
