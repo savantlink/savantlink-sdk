@@ -1,40 +1,37 @@
-import styles from "./ValidationError.module.scss";
+import styles from './ValidationError.module.scss'
 
-import Typography from "@/Typography";
+import Typography from '@/Typography'
 
 interface ApiError {
-  message: string;
-  code?: string;
+  message: string
+  msg?: string
+  code?: string
   response?: {
     data?: {
-      errors?: Array<{ msg?: string; message?: string, error?: string }>;
-    };
-  };
+      errors?: Array<{ msg?: string; message?: string; error?: string }>
+    }
+  }
 }
 
 const ValidationError = ({ error }: { error?: ApiError | null }) => {
-  if (!error) return null; // Return nothing if there's no error
-  const apiErrors = error.response?.data?.errors || [];
+  if (!error) return null // Return nothing if there's no error
+  const apiErrors = error.response?.data?.errors || []
 
   return (
     <>
       {apiErrors.length ? (
         apiErrors.map((err, index) => (
-          <Typography
-            key={index}
-            variant="label"
-            className={styles.validationError}
-          >
-            {err?.msg || err?.message || err?.error || "An unknown error occurred."}
+          <Typography key={index} variant="label" className={styles.validationError}>
+            {err?.msg || err?.message || err?.error || 'An unknown error occurred.'}
           </Typography>
         ))
       ) : (
         <Typography variant="label" className={styles.validationError}>
-          {error.message}
+          {error.message || error.msg}
         </Typography>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ValidationError;
+export default ValidationError

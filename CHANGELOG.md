@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Added new system icons to `IconFactory`: `arrow-split`, `bank`, `card-solid`, `dollar-circle`, and `percentage-solid`
 
 ## 2.1.2 - 2026-07-08
 ### Added
