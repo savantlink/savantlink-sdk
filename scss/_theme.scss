@@ -6,7 +6,7 @@
   font-size: 16px;
 
   /* Import IBM Plex Sans from Google Fonts */
-  @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap";
+  @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap";
 
   /* Font Family */
   --font-family-main: "IBM Plex Sans", sans-serif;
@@ -14,6 +14,7 @@
   /* Font Weights */
   --font-weight-light: 300;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 600;
 
   /* font-sizes: static */
