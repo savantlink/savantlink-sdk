@@ -13,6 +13,11 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Added the `medium` font weight token (`500`) and included the matching IBM Plex Sans font weight in the Google Fonts import.
+- ### Fixed
+- `Button`: Fixed hover state
+
 
 ## 2.1.3 - 2026-07-09
 ### Added

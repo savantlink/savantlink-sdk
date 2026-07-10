@@ -32,8 +32,7 @@
   transition: all .2s;
 
   &:hover {
-    color: var(--button-color);
-    background-color: var(--color-primary-lighter);
+    opacity: .8;
   }
 
   &:active {
@@ -108,10 +107,6 @@
     pointer-events: none;
     user-select: none;
   }
-
-  &:hover {
-    color: var(--color-light);
-  }
 }
 
 .underline {
@@ -137,12 +132,6 @@
 
     color: var(--color-primary-darker-2);
   }
-
-  &:hover {
-    --button-underline-color: var(--color-primary-darker);
-
-    color: var(--color-light);
-  }
 }
 
 .flat {
@@ -160,10 +149,6 @@
 
     pointer-events: none;
     user-select: none;
-  }
-
-  &:hover {
-    opacity: .8;
   }
 }
 
