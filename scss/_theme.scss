@@ -1,12 +1,12 @@
 /* UX design system custom properties */
 @use "./breakpoints" as *;
 
+/* Import IBM Plex Sans from Google Fonts */
+@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap";
+
 :root {
   /* Root spacing */
   font-size: 16px;
-
-  /* Import IBM Plex Sans from Google Fonts */
-  @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap";
 
   /* Font Family */
   --font-family-main: "IBM Plex Sans", sans-serif;

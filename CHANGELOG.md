@@ -13,12 +13,16 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Fixed
+- Fixed IBM Plex Sans loading by moving the Google Fonts import to the top level.
+- Aligned `Button` and `Select` font-family styles with the SDK font token.
+- `Button`: Fixed hover state
 
 ## 2.1.4 - 2026-07-10
 ### Added
 - Added the `medium` font weight token (`500`) and included the matching IBM Plex Sans font weight in the Google Fonts import.
-- ### Fixed
-- `Button`: Fixed hover state
+
+
 
 ## 2.1.3 - 2026-07-09
 ### Added
