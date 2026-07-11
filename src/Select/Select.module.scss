@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: .4rem; /* Ensures spacing between label & input */
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family-main);
 
   @include media-breakpoint-up(md) {
     gap: .5rem;
