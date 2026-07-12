@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.1.6 - 2026-07-12
 ### Added
 - Added new icons to `IconFactory`: `email`, `printer`, and `star`.
 
