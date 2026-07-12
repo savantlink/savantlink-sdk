@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.1.7 - 2026-07-12
 ### Added
 - Added new icons to `IconFactory`: `cards`, `clipboard-close`, `doc-csv`, `doc-pdf`, `folder-open`, `menu-board`, `moneys`, `naira`, `slider`, `strongbox`, and `wallet`.
 
