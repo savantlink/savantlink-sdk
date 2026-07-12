@@ -79,6 +79,15 @@
   }
 }
 
+.clickableRow {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+  }
+}
+
 .emptyState {
   display: flex;
   flex-direction: column;
