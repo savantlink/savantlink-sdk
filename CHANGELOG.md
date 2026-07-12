@@ -14,6 +14,9 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- Added new icons to `IconFactory`: `email`, `printer`, and `star`.
+
 ## 2.1.5 - 2026-07-11
 ### Fixed
 - Fixed IBM Plex Sans loading by moving the Google Fonts import to the top level.
