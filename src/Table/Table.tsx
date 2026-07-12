@@ -26,6 +26,7 @@ interface TableProps<T> {
   onSort?: (key: string) => void
   className?: string
   visibleColumns?: number
+  onRowClick?: (row: T) => void
 }
 
 const Table = <T,>({
@@ -36,6 +37,7 @@ const Table = <T,>({
   emptyState: { title = 'No Data Available', description = 'There is no data to display at the moment.', cTA },
   className,
   visibleColumns,
+  onRowClick,
 }: TableProps<T>) => {
   const [pageIndex, setPageIndex] = useState(0)
 
@@ -109,7 +111,19 @@ const Table = <T,>({
         </thead>
         <tbody>
           {data.map((row, rowIndex) => (
-            <tr key={rowIndex}>
+            <tr
+              key={rowIndex}
+              className={clsx({ [styles.clickableRow]: onRowClick })}
+              tabIndex={onRowClick ? 0 : undefined}
+              role={onRowClick ? 'button' : undefined}
+              onClick={() => onRowClick?.(row)}
+              onKeyDown={(event) => {
+                if (onRowClick && (event.key === 'Enter' || event.key === ' ')) {
+                  event.preventDefault()
+                  onRowClick(row)
+                }
+              }}
+            >
               {pages > 1 && canPrev && <td className={styles.pagerCell} key={`pager-left-${rowIndex}`} />}
               {visible.map((column) => (
                 <td key={column.key}>
