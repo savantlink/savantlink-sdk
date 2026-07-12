@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.1.9 - 2026-07-12
 ### Changed
 - Added accessible row interaction support to `Table` through the optional `onRowClick` prop.
 
