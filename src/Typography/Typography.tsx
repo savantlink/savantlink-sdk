@@ -7,7 +7,7 @@ import styles from './Typography.module.scss'
 type TypographyProps = HTMLAttributes<HTMLElement> & {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'label' | 'div' | 'a'
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'large' | 'regular' | 'small' | 'label'
-  weight?: 'default' | 'thin' | 'regular' | 'medium' | 'bold' | 'bolder'
+  weight?: 'default' | 'regular' | 'medium' | 'bold' | 'bolder'
   responsive?: boolean
 }
 

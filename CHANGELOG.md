@@ -14,6 +14,14 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- Added the new `lock` system icon to `IconFactory` using the standard `24px` icon dimensions.
+
+### Changed
+- Corrected the bold font weight from semibold (`600`) to bold (`700`) and updated the IBM Plex Sans font import accordingly.
+- Removed the unused thin/light font-weight token and `Typography` option; `default` typography now uses the normal weight (`400`).
+- Updated the base document font weight from light to normal.
+
 ## 2.1.7 - 2026-07-12
 ### Added
 - Added new icons to `IconFactory`: `cards`, `clipboard-close`, `doc-csv`, `doc-pdf`, `folder-open`, `menu-board`, `moneys`, `naira`, `slider`, `strongbox`, and `wallet`.
