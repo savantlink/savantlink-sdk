@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -9,7 +9,7 @@ type TSkin = 'solid' | 'outline' | 'translucent'
 type TSize = 'small' | 'medium'
 
 type TagProps = {
-  label: string
+  label: ReactNode
   skin?: TSkin
   color?: TColor
   size?: TSize
@@ -21,6 +21,7 @@ const Tag = ({
   skin = 'solid',
   color = 'primary',
   size = 'medium',
+  isRounded = false,
   className,
   ...props
 }: TagProps) => {
@@ -29,6 +30,7 @@ const Tag = ({
     styles[skin],
     styles[color],
     styles[size],
+    { [styles.rounded]: isRounded },
     className
   )
 

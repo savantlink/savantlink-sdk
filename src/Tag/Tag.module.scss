@@ -33,6 +33,10 @@
   line-height: 1.25rem;
 }
 
+.rounded {
+  --badge-border-radius: 20px;
+}
+
 // colors
 .primary {
   --badge-color: var(--color-light);
