@@ -40,6 +40,7 @@ import FolderOpen from '../../assets/icons/system/folder-open.svg'
 import Home from '../../assets/icons/system/home.svg'
 import Indicator from '../../assets/icons/system/indicator.svg'
 import InfoCircle from '../../assets/icons/system/info-circle.svg'
+import Lock from '../../assets/icons/system/lock.svg'
 import LongArrowRight from '../../assets/icons/system/long-arrow.svg'
 import Medal from '../../assets/icons/system/medal.svg'
 import MenuBoard from '../../assets/icons/system/menu-board.svg'
@@ -122,6 +123,7 @@ export type IconName =
   | 'slider'
   | 'strongbox'
   | 'wallet'
+  | 'lock'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
@@ -183,6 +185,7 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   slider: Slider,
   strongbox: Strongbox,
   wallet: Wallet,
+  lock: Lock,
 }
 
 export interface IconFactoryProps extends SVGProps<SVGSVGElement> {
