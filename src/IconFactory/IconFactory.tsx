@@ -4,8 +4,11 @@ import { FC, SVGProps } from 'react'
 import AddProductIcon from '../../assets/icons/mono-color/add-product.svg'
 import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
 import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
+import EmailIcon from '../../assets/icons/mono-color/email.svg'
 import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
 import TerminalIcon from '../../assets/icons/mono-color/terminal.svg'
+// Multi-color Icons
+import PrinterIcon from '../../assets/icons/multi-color/printer.svg'
 // System Icons
 import ArrowRight from '../../assets/icons/system/arrow-right.svg'
 import ArrowSplit from '../../assets/icons/system/arrow-split.svg'
@@ -44,6 +47,7 @@ import Scan from '../../assets/icons/system/scan.svg'
 import Search from '../../assets/icons/system/search.svg'
 import Setting from '../../assets/icons/system/setting.svg'
 import ShopCart from '../../assets/icons/system/shop-cart.svg'
+import Star from '../../assets/icons/system/star.svg'
 import Trash from '../../assets/icons/system/trash.svg'
 import UserCircle from '../../assets/icons/system/user-cirlce-add.svg'
 
@@ -93,6 +97,9 @@ export type IconName =
   | 'cloud-upload'
   | 'dollar-circle'
   | 'percentage-solid'
+  | 'email'
+  | 'printer'
+  | 'star'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
@@ -140,6 +147,9 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   'cloud-upload': CloudUpload,
   'dollar-circle': DollarCircle,
   'percentage-solid': PercentageSolid,
+  email: EmailIcon,
+  printer: PrinterIcon,
+  star: Star,
 }
 
 export interface IconFactoryProps extends SVGProps<SVGSVGElement> {
