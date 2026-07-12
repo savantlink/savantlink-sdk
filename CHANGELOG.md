@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.1.8 - 2026-07-12
 ### Added
 - Added the new `lock` system icon to `IconFactory` using the standard `24px` icon dimensions.
 
