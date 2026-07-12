@@ -14,6 +14,13 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- Added new icons to `IconFactory`: `cards`, `clipboard-close`, `doc-csv`, `doc-pdf`, `folder-open`, `menu-board`, `moneys`, `naira`, `slider`, `strongbox`, and `wallet`.
+
+### Changed
+- Updated the `Tag` component's `label` prop to accept `ReactNode` content.
+- Updated the `Tag` component to apply a `20px` border radius when `isRounded` is enabled.
+
 ## 2.1.6 - 2026-07-12
 ### Added
 - Added new icons to `IconFactory`: `email`, `printer`, and `star`.

@@ -4,6 +4,7 @@ import { FC, SVGProps } from 'react'
 import AddProductIcon from '../../assets/icons/mono-color/add-product.svg'
 import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
 import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
+import DocCsvIcon from '../../assets/icons/mono-color/doc-csv.svg'
 import EmailIcon from '../../assets/icons/mono-color/email.svg'
 import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
 import TerminalIcon from '../../assets/icons/mono-color/terminal.svg'
@@ -15,14 +16,17 @@ import ArrowSplit from '../../assets/icons/system/arrow-split.svg'
 import Bank from '../../assets/icons/system/bank.svg'
 import CardSolid from '../../assets/icons/system/card-solid.svg'
 import Card from '../../assets/icons/system/card.svg'
+import Cards from '../../assets/icons/system/cards.svg'
 import ChevronDown from '../../assets/icons/system/chevron-down.svg'
 import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
 import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import ChevronUp from '../../assets/icons/system/chevron-up.svg'
+import ClipboardClose from '../../assets/icons/system/clipboard-close.svg'
 import Clock from '../../assets/icons/system/clock.svg'
 import Close from '../../assets/icons/system/close.svg'
 import CloudUpload from '../../assets/icons/system/cloud-upload.svg'
 import Data from '../../assets/icons/system/data.svg'
+import DocPdfIcon from '../../assets/icons/system/doc-pdf.svg'
 import DollarCircle from '../../assets/icons/system/dollar-circle.svg'
 import Download from '../../assets/icons/system/download.svg'
 import Edit from '../../assets/icons/system/edit.svg'
@@ -32,11 +36,15 @@ import EyeClosed from '../../assets/icons/system/eye-closed.svg'
 import Eye from '../../assets/icons/system/eye.svg'
 import File from '../../assets/icons/system/file.svg'
 import Filter from '../../assets/icons/system/filter.svg'
+import FolderOpen from '../../assets/icons/system/folder-open.svg'
 import Home from '../../assets/icons/system/home.svg'
 import Indicator from '../../assets/icons/system/indicator.svg'
 import InfoCircle from '../../assets/icons/system/info-circle.svg'
 import LongArrowRight from '../../assets/icons/system/long-arrow.svg'
 import Medal from '../../assets/icons/system/medal.svg'
+import MenuBoard from '../../assets/icons/system/menu-board.svg'
+import Moneys from '../../assets/icons/system/moneys.svg'
+import Naira from '../../assets/icons/system/naira.svg'
 import Note from '../../assets/icons/system/note.svg'
 import Notification from '../../assets/icons/system/notification.svg'
 import People from '../../assets/icons/system/people.svg'
@@ -47,9 +55,12 @@ import Scan from '../../assets/icons/system/scan.svg'
 import Search from '../../assets/icons/system/search.svg'
 import Setting from '../../assets/icons/system/setting.svg'
 import ShopCart from '../../assets/icons/system/shop-cart.svg'
+import Slider from '../../assets/icons/system/slider.svg'
 import Star from '../../assets/icons/system/star.svg'
+import Strongbox from '../../assets/icons/system/strongbox.svg'
 import Trash from '../../assets/icons/system/trash.svg'
 import UserCircle from '../../assets/icons/system/user-cirlce-add.svg'
+import Wallet from '../../assets/icons/system/wallet.svg'
 
 // Define all possible icon names
 export type IconName =
@@ -100,6 +111,17 @@ export type IconName =
   | 'email'
   | 'printer'
   | 'star'
+  | 'doc-csv'
+  | 'doc-pdf'
+  | 'cards'
+  | 'clipboard-close'
+  | 'folder-open'
+  | 'menu-board'
+  | 'moneys'
+  | 'naira'
+  | 'slider'
+  | 'strongbox'
+  | 'wallet'
 
 // Map icon names to their SVG components
 const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
@@ -150,6 +172,17 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   email: EmailIcon,
   printer: PrinterIcon,
   star: Star,
+  'doc-csv': DocCsvIcon,
+  'doc-pdf': DocPdfIcon,
+  cards: Cards,
+  'clipboard-close': ClipboardClose,
+  'folder-open': FolderOpen,
+  'menu-board': MenuBoard,
+  moneys: Moneys,
+  naira: Naira,
+  slider: Slider,
+  strongbox: Strongbox,
+  wallet: Wallet,
 }
 
 export interface IconFactoryProps extends SVGProps<SVGSVGElement> {
