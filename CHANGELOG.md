@@ -14,6 +14,7 @@ Types of changes are:
 
 ## Unreleased
 
+## 2.1.10 - 2026-07-16
 ### Added
 - Added the new `percentage-circle` system icon to `IconFactory`.
 - Added `orange`, `teal`, `pink`, `indigo`, `cyan`, and `brown` color variants to `Tag`.
