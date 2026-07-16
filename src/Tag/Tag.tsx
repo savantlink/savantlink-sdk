@@ -4,7 +4,21 @@ import { clsx } from 'clsx'
 
 import styles from './Tag.module.scss'
 
-type TColor = 'primary' | 'gray' | 'success' | 'danger' | 'info' | 'warning' | 'secondary' | 'dark'
+type TColor =
+  | 'primary'
+  | 'gray'
+  | 'success'
+  | 'danger'
+  | 'info'
+  | 'warning'
+  | 'secondary'
+  | 'dark'
+  | 'orange'
+  | 'teal'
+  | 'pink'
+  | 'indigo'
+  | 'cyan'
+  | 'brown'
 type TSkin = 'solid' | 'outline' | 'translucent'
 type TSize = 'small' | 'medium'
 
@@ -14,6 +28,7 @@ type TagProps = {
   color?: TColor
   size?: TSize
   isRounded?: boolean
+  hasBorder?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
 const Tag = ({
@@ -22,6 +37,7 @@ const Tag = ({
   color = 'primary',
   size = 'medium',
   isRounded = false,
+  hasBorder = false,
   className,
   ...props
 }: TagProps) => {
@@ -30,7 +46,10 @@ const Tag = ({
     styles[skin],
     styles[color],
     styles[size],
-    { [styles.rounded]: isRounded },
+    {
+      [styles.rounded]: isRounded,
+      [styles.hasBorder]: hasBorder && skin === 'translucent',
+    },
     className
   )
 

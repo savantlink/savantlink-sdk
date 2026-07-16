@@ -14,6 +14,17 @@ Types of changes are:
 
 ## Unreleased
 
+### Added
+- Added the new `percentage-circle` system icon to `IconFactory`.
+- Added `orange`, `teal`, `pink`, `indigo`, `cyan`, and `brown` color variants to `Tag`.
+- Added the optional `hasBorder` prop to apply a themed border to translucent `Tag` variants.
+
+### Changed
+- Updated the `doc-pdf` and `info-circle` `IconFactory` entries to use their new mono-color assets.
+
+### Fixed
+- Fixed the missing translucent background for the `info` Tag color variant.
+
 ## 2.1.9 - 2026-07-12
 ### Changed
 - Added accessible row interaction support to `Table` through the optional `onRowClick` prop.

@@ -58,6 +58,7 @@
   --color-orange-lighter-2: rgb(255 156 102);
   --color-orange-lighter: rgb(255 122 51);
   --color-orange: rgb(255 91 0);
+  --color-orange-rgb: 255 91 0;
   --color-orange-darker: rgb(204 71 0);
   --color-orange-darker-2: rgb(153 54 0);
   --color-orange-darkest: rgb(92 39 10);
@@ -136,7 +137,20 @@
   --color-warning-darker-rgb: 219 168 0;
 
   /* colors: info */
+  --color-info-rgb: 64 138 223;
   --color-info: rgb(64 138 223);
+
+  /* colors: extended tag palette */
+  --color-teal-rgb: 15 139 141;
+  --color-teal: rgb(15 139 141);
+  --color-pink-rgb: 214 51 132;
+  --color-pink: rgb(214 51 132);
+  --color-indigo-rgb: 75 76 190;
+  --color-indigo: rgb(75 76 190);
+  --color-cyan-rgb: 0 150 180;
+  --color-cyan: rgb(0 150 180);
+  --color-brown-rgb: 145 96 58;
+  --color-brown: rgb(145 96 58);
   --color-transparent-black: rgb(13 14 13 / 60%);
 
   // shadows

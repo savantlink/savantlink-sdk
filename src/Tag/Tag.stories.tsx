@@ -30,6 +30,12 @@ const GalleryTemplate: ComponentStory<typeof Tag> = (args) => {
       <Tag {...args} label="Info tag" color="info" />
       <Tag {...args} label="Gray tag" color="gray" />
       <Tag {...args} label="Dark tag" color="dark" />
+      <Tag {...args} label="Orange tag" color="orange" />
+      <Tag {...args} label="Teal tag" color="teal" />
+      <Tag {...args} label="Pink tag" color="pink" />
+      <Tag {...args} label="Indigo tag" color="indigo" />
+      <Tag {...args} label="Cyan tag" color="cyan" />
+      <Tag {...args} label="Brown tag" color="brown" />
     </div>
   )
 }
@@ -52,6 +58,15 @@ TranslucentBadges.args = {
   skin: 'translucent',
 }
 TranslucentBadges.parameters = {
+  ...SolidBadges.parameters,
+}
+
+export const BorderedTranslucentBadges = GalleryTemplate.bind({})
+BorderedTranslucentBadges.args = {
+  skin: 'translucent',
+  hasBorder: true,
+}
+BorderedTranslucentBadges.parameters = {
   ...SolidBadges.parameters,
 }
 
