@@ -5,7 +5,9 @@ import AddProductIcon from '../../assets/icons/mono-color/add-product.svg'
 import BulkProductIcon from '../../assets/icons/mono-color/bulk-product.svg'
 import CompositeProductIcon from '../../assets/icons/mono-color/composite-product.svg'
 import DocCsvIcon from '../../assets/icons/mono-color/doc-csv.svg'
+import DocPdfIcon from '../../assets/icons/mono-color/doc-pdf.svg'
 import EmailIcon from '../../assets/icons/mono-color/email.svg'
+import InfoCircle from '../../assets/icons/mono-color/info-circle.svg'
 import SingleProductIcon from '../../assets/icons/mono-color/single-product.svg'
 import TerminalIcon from '../../assets/icons/mono-color/terminal.svg'
 // Multi-color Icons
@@ -26,7 +28,6 @@ import Clock from '../../assets/icons/system/clock.svg'
 import Close from '../../assets/icons/system/close.svg'
 import CloudUpload from '../../assets/icons/system/cloud-upload.svg'
 import Data from '../../assets/icons/system/data.svg'
-import DocPdfIcon from '../../assets/icons/system/doc-pdf.svg'
 import DollarCircle from '../../assets/icons/system/dollar-circle.svg'
 import Download from '../../assets/icons/system/download.svg'
 import Edit from '../../assets/icons/system/edit.svg'
@@ -39,7 +40,6 @@ import Filter from '../../assets/icons/system/filter.svg'
 import FolderOpen from '../../assets/icons/system/folder-open.svg'
 import Home from '../../assets/icons/system/home.svg'
 import Indicator from '../../assets/icons/system/indicator.svg'
-import InfoCircle from '../../assets/icons/system/info-circle.svg'
 import Lock from '../../assets/icons/system/lock.svg'
 import LongArrowRight from '../../assets/icons/system/long-arrow.svg'
 import Medal from '../../assets/icons/system/medal.svg'
@@ -49,6 +49,7 @@ import Naira from '../../assets/icons/system/naira.svg'
 import Note from '../../assets/icons/system/note.svg'
 import Notification from '../../assets/icons/system/notification.svg'
 import People from '../../assets/icons/system/people.svg'
+import PercentageCircle from '../../assets/icons/system/percentage-circle.svg'
 import PercentageSolid from '../../assets/icons/system/percentage-solid.svg'
 import Plus from '../../assets/icons/system/plus.svg'
 import Receipt from '../../assets/icons/system/receipt.svg'
@@ -109,6 +110,7 @@ export type IconName =
   | 'cloud-upload'
   | 'dollar-circle'
   | 'percentage-solid'
+  | 'percentage-circle'
   | 'email'
   | 'printer'
   | 'star'
@@ -171,6 +173,7 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   'cloud-upload': CloudUpload,
   'dollar-circle': DollarCircle,
   'percentage-solid': PercentageSolid,
+  'percentage-circle': PercentageCircle,
   email: EmailIcon,
   printer: PrinterIcon,
   star: Star,

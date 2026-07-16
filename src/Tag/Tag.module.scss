@@ -94,6 +94,48 @@
   --badge-border-color: var(--color-gray);
 }
 
+.orange {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-orange);
+  --badge-bg-color-rgb: var(--color-orange-rgb);
+  --badge-border-color: var(--color-orange);
+}
+
+.teal {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-teal);
+  --badge-bg-color-rgb: var(--color-teal-rgb);
+  --badge-border-color: var(--color-teal);
+}
+
+.pink {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-pink);
+  --badge-bg-color-rgb: var(--color-pink-rgb);
+  --badge-border-color: var(--color-pink);
+}
+
+.indigo {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-indigo);
+  --badge-bg-color-rgb: var(--color-indigo-rgb);
+  --badge-border-color: var(--color-indigo);
+}
+
+.cyan {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-cyan);
+  --badge-bg-color-rgb: var(--color-cyan-rgb);
+  --badge-border-color: var(--color-cyan);
+}
+
+.brown {
+  --badge-color: var(--color-light);
+  --badge-bg-color: var(--color-brown);
+  --badge-bg-color-rgb: var(--color-brown-rgb);
+  --badge-border-color: var(--color-brown);
+}
+
 // outline
 .outline {
   color: var(--badge-bg-color);
@@ -106,4 +148,8 @@
   background-color: rgba(var(--badge-bg-color-rgb) / 20%);
   background-clip: padding-box;
   border: 1.5px solid rgba(var(--badge-bg-color-rgb) / 20%);
+}
+
+.translucent.hasBorder {
+  border-color: var(--badge-border-color);
 }
