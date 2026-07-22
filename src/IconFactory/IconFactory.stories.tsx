@@ -25,6 +25,9 @@ export const Icons = () => {
       <IconFactory name="chevron-left" />
       <IconFactory name="edit" />
       <IconFactory name="eye" />
+      <IconFactory name="global-search" />
+      <IconFactory name="products" />
+      <IconFactory name="wallet-check" />
     </>
   )
 }
