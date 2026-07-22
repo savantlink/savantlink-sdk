@@ -129,7 +129,7 @@ const Select: FC<SelectProps> = ({
       ref={selectRef}
     >
       {label && (
-        <label className={clsx('mb2', styles.inputLabel)}>
+        <label className={styles.label}>
           {label}
           {required && <span className="asterick">*</span>}
         </label>

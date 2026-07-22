@@ -13,6 +13,15 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Added the new `global-search`, `products`, and `wallet-check` system icons to `IconFactory`.
+
+### Changed
+- Updated the `arrow-right` system icon asset.
+
+### Fixed
+- Aligned the default single and multiple `Select` control heights with the `Input` component's `3rem` height.
+- Aligned labeled `Select` controls with labeled `Input` controls by using the Select label style without duplicate bottom spacing.
 
 ## 2.1.10 - 2026-07-16
 ### Added
