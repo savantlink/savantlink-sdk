@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+## 2.1.11 - 2026-07-22
 ### Added
 - Added the new `global-search`, `products`, and `wallet-check` system icons to `IconFactory`.
 
