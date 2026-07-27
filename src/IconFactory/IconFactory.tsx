@@ -38,6 +38,7 @@ import Eye from '../../assets/icons/system/eye.svg'
 import File from '../../assets/icons/system/file.svg'
 import Filter from '../../assets/icons/system/filter.svg'
 import FolderOpen from '../../assets/icons/system/folder-open.svg'
+import GlobalSearch from '../../assets/icons/system/global-search.svg'
 import Home from '../../assets/icons/system/home.svg'
 import Indicator from '../../assets/icons/system/indicator.svg'
 import Lock from '../../assets/icons/system/lock.svg'
@@ -52,6 +53,7 @@ import People from '../../assets/icons/system/people.svg'
 import PercentageCircle from '../../assets/icons/system/percentage-circle.svg'
 import PercentageSolid from '../../assets/icons/system/percentage-solid.svg'
 import Plus from '../../assets/icons/system/plus.svg'
+import Products from '../../assets/icons/system/products.svg'
 import Receipt from '../../assets/icons/system/receipt.svg'
 import Scan from '../../assets/icons/system/scan.svg'
 import Search from '../../assets/icons/system/search.svg'
@@ -62,6 +64,7 @@ import Star from '../../assets/icons/system/star.svg'
 import Strongbox from '../../assets/icons/system/strongbox.svg'
 import Trash from '../../assets/icons/system/trash.svg'
 import UserCircle from '../../assets/icons/system/user-cirlce-add.svg'
+import WalletCheck from '../../assets/icons/system/wallet-check.svg'
 import Wallet from '../../assets/icons/system/wallet.svg'
 
 // Define all possible icon names
@@ -91,6 +94,7 @@ export type IconName =
   | 'notification'
   | 'people'
   | 'plus'
+  | 'products'
   | 'receipt'
   | 'search'
   | 'setting'
@@ -119,12 +123,14 @@ export type IconName =
   | 'cards'
   | 'clipboard-close'
   | 'folder-open'
+  | 'global-search'
   | 'menu-board'
   | 'moneys'
   | 'naira'
   | 'slider'
   | 'strongbox'
   | 'wallet'
+  | 'wallet-check'
   | 'lock'
 
 // Map icon names to their SVG components
@@ -154,6 +160,7 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   notification: Notification,
   people: People,
   plus: Plus,
+  products: Products,
   receipt: Receipt,
   search: Search,
   setting: Setting,
@@ -182,12 +189,14 @@ const iconMap: Record<IconName, FC<SVGProps<SVGSVGElement>>> = {
   cards: Cards,
   'clipboard-close': ClipboardClose,
   'folder-open': FolderOpen,
+  'global-search': GlobalSearch,
   'menu-board': MenuBoard,
   moneys: Moneys,
   naira: Naira,
   slider: Slider,
   strongbox: Strongbox,
   wallet: Wallet,
+  'wallet-check': WalletCheck,
   lock: Lock,
 }
 
