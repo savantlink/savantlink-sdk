@@ -20,8 +20,6 @@ yarn-debug.log*
 yarn-error.log*
 .yarn
 .yarnrc
-.npm
-.npmrc
 .cache
 .config
 

@@ -13,6 +13,8 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- remove npm auth
 
 ## 2.1.10 - 2026-07-16
 ### Added
