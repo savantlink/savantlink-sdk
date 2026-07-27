@@ -15,6 +15,7 @@ Types of changes are:
 ## Unreleased
 ### Changed
 - remove npm auth
+- update react & react-dom to v19.0.0
 
 ## 2.1.11 - 2026-07-22
 ### Added

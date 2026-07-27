@@ -1,6 +1,6 @@
 {
  "name": "@savantlink/sdk",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "description": "A package that contains reusable components and services for the SavantLink design system and architecture.",
   "homepage": "https://github.com/savantlink/savantlink-sdk",
   "repository": {
@@ -36,8 +36,8 @@
     "prepublishOnly": "yarn lint:fix && yarn build"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "dependencies": {
     "clsx": "1.2.1",
