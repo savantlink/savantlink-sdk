@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 
 import Button from './Button'
 
-// import SearchIcon from '../../assets/icons/system/search.svg'
+// import { Search as SearchIcon } from 'lucide-react'
 
 describe('Button', () => {
   test('renders a Button', () => {

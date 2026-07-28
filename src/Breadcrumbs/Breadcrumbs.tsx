@@ -1,7 +1,8 @@
 import { ComponentType, FC, ReactNode } from 'react'
 
+import { ChevronRight } from 'lucide-react'
+
 import styles from './Breadcrumbs.module.scss'
-import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 
 interface BreadcrumbItem {
   label: string

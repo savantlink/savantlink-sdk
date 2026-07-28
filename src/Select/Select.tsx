@@ -2,10 +2,9 @@
 import { FC, KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { ChevronDown, X as Close } from 'lucide-react'
 
 import styles from './Select.module.scss'
-import ChevronDown from '../../assets/icons/system/chevron-down.svg'
-import Close from '../../assets/icons/system/close.svg'
 
 type SelectOptions = string | number | string[] | null
 

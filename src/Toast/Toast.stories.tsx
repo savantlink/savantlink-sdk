@@ -2,9 +2,9 @@
 import { useState } from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Check as CheckMarkIcon } from 'lucide-react'
 
 import Toast from './Toast'
-import CheckMarkIcon from '../../assets/icons/mono-color/check.svg'
 
 export default {
   title: 'Molecules/Toast',
@@ -30,7 +30,7 @@ const Template: ComponentStory<typeof Toast> = () => {
           variant="success"
           position="top-right"
           onClose={() => setShowToast(false)}
-          icon={<CheckMarkIcon/>}
+          icon={<CheckMarkIcon />}
         />
       )}
     </div>
@@ -72,7 +72,7 @@ export const danger = () => {
       variant="danger"
       position="top-left"
       onClose={() => console.log('danger')}
-      icon={<CheckMarkIcon/>}
+      icon={<CheckMarkIcon />}
     />
   )
 }

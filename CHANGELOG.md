@@ -13,9 +13,14 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Removed
+- Removed the public `IconFactory` and `IconName` exports.
+- Removed the bundled SVG icon library and SVG build tooling to reduce the published package size.
+
 ### Changed
 - remove npm auth
 - update react & react-dom to v19.0.0
+- Replaced icons used internally by SDK components and stories with `lucide-react`.
 
 ## 2.1.11 - 2026-07-22
 ### Added

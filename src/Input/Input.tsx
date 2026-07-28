@@ -1,10 +1,9 @@
 import { forwardRef, InputHTMLAttributes, ReactNode, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { Eye, EyeOff as EyeClosed } from 'lucide-react'
 
 import styles from './Input.module.scss'
-import EyeClosed from '../../assets/icons/system/eye-closed.svg'
-import Eye from '../../assets/icons/system/eye.svg'
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   label?: string | ReactNode

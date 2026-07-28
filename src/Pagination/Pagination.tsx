@@ -1,10 +1,9 @@
 import { memo } from 'react'
 
 import { clsx } from 'clsx'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import styles from './Pagination.module.scss'
-import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
-import ChevronRight from '../../assets/icons/system/chevron-right.svg'
 import { ELLIPSIS, usePagination } from '../hooks'
 
 type PaginationProps = {

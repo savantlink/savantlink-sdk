@@ -1,11 +1,10 @@
 import { ChangeEvent, DragEvent, FC, useCallback, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { CloudUpload } from 'lucide-react'
 
 import styles from './FileUpload.module.scss'
 import Typography from '../Typography'
-
-import IconFactory from '@/IconFactory'
 
 interface FileUploadProps {
   onFile: (file: File | null) => void
@@ -133,7 +132,7 @@ const CSVFileUpload: FC<FileUploadProps> = ({
 
         {!selectedFile ? (
           <div className={styles.dropzoneContent}>
-            <IconFactory name="cloud-upload" />
+            <CloudUpload />
             <Typography weight="bolder" className={styles.selectFileText}>
               <span>Click to select file </span>
               or drag and drop .csv file here (Max. 1mb)

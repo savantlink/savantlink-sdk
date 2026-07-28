@@ -1,11 +1,9 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { ChevronLeft, ChevronRight, Database as DataIcon } from 'lucide-react'
 
 import styles from './Table.module.scss'
-import ChevronLeft from '../../assets/icons/system/chevron-left.svg'
-import ChevronRight from '../../assets/icons/system/chevron-right.svg'
-import DataIcon from '../../assets/icons/system/data.svg'
 
 interface ColumnProps<T> {
   key: string

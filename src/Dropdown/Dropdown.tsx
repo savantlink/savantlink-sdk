@@ -1,10 +1,10 @@
 import { FC, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { Search } from 'lucide-react'
 
 import styles from './Dropdown.module.scss'
 
-import IconFactory from '@/IconFactory'
 import Input from '@/Input'
 
 interface Option {
@@ -63,7 +63,7 @@ const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, 
             <li className={styles.dropdown__search}>
               <Input
                 className={styles.searchInput}
-                icon={<IconFactory name="search" />}
+                icon={<Search />}
                 placeholder="Search product"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

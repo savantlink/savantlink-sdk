@@ -1,9 +1,9 @@
 import { ReactNode, useEffect } from 'react'
 
 import { clsx } from 'clsx'
+import { X as CloseIcon } from 'lucide-react'
 
 import styles from './Toast.module.scss'
-import CloseIcon from '../../assets/icons/system/close.svg'
 
 import Typography from '@/Typography'
 

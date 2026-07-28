@@ -9,7 +9,6 @@ module.exports = {
   },
   moduleNameMapper: {
     '\\.(css|less|scss|sss|styl)$': 'jest-css-modules',
-    '\\.svg$': '<rootDir>/__mocks__/svg.tsx',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   collectCoverage: true,

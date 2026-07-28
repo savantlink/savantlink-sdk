@@ -1,9 +1,9 @@
 import { FC, ReactNode, useState } from 'react'
 
 import { clsx } from 'clsx'
+import { Info as InfoIcon } from 'lucide-react'
 
 import styles from './Tooltip.module.scss'
-import InfoIcon from '../../assets/icons/system/info-circle.svg'
 
 interface TooltipProps {
   text: string

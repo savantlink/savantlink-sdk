@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Search as SearchIcon } from 'lucide-react'
 
 import Input from './Input'
-import SearchIcon from '../../assets/icons/system/search.svg'
 
 export default {
   title: 'Atoms/Input',

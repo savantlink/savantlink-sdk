@@ -1,6 +1,5 @@
 import alias from '@rollup/plugin-alias'
 import terser from '@rollup/plugin-terser'
-import svgr from '@svgr/rollup'
 import fs from 'fs'
 import path from 'path'
 import { externals } from 'rollup-plugin-node-externals'
@@ -29,11 +28,8 @@ const plugins = [
     },
   }),
   alias({
-    resolve: ['.tsx', '.ts', '.scss', '.svg'],
-    entries: [
-      { find: '@/icons', replacement: path.join(__dirname, 'icons') },
-      { find: '@', replacement: path.join(__dirname, SRC_DIR) },
-    ],
+    resolve: ['.tsx', '.ts', '.scss'],
+    entries: [{ find: '@', replacement: path.join(__dirname, SRC_DIR) }],
   }),
   postcss({
     modules: true,
@@ -41,7 +37,6 @@ const plugins = [
     sourceMap: false,
     extract: true,
   }),
-  svgr(),
   terser(), // minifies generated bundles
 ]
 
