@@ -1,4 +1,5 @@
 import alias from '@rollup/plugin-alias'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import fs from 'fs'
 import path from 'path'
@@ -15,7 +16,14 @@ const entryPoints = fs.readdirSync(path.join(__dirname, SRC_DIR)).filter((dirNam
   return !/^\./.test(dirName) && fs.existsSync(path.join(__dirname, SRC_DIR, dirName, 'index.ts'))
 })
 const plugins = [
-  externals({ deps: true, peerDeps: true }), // define package.json dependencies to be external ones
+  externals({
+    deps: true,
+    peerDeps: true,
+    // Bundle only the Lucide icons imported by SDK components. Leaving the
+    // CommonJS package external makes consumers retain Lucide's full barrel.
+    exclude: /^lucide-react(?:\/.*)?$/,
+  }),
+  nodeResolve(),
   typescript({
     typescript: require('ttypescript'), // resolve alias (e.g. @/services --> ../../services) in type declaration files
     tsconfigDefaults: {
