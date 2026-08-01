@@ -13,6 +13,10 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+
+### Changed
+- Added complete JavaScript and CSS source maps to published builds and preserved component names in minified stack traces.
+
 ## 2.1.16 - 2026-07-29
 ### Removed
 - Removed the bundled SVG icon library and SVG build tooling to reduce the published package size.
