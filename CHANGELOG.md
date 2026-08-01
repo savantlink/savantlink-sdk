@@ -16,6 +16,10 @@ Types of changes are:
 
 ### Changed
 - Added complete JavaScript and CSS source maps to published builds and preserved component names in minified stack traces.
+- Documented the process for publishing the SDK to the public npm registry.
+
+### Fixed
+- Ensured Pagination always receives a valid page range for small boundary-case page counts.
 
 ## 2.1.16 - 2026-07-29
 ### Removed

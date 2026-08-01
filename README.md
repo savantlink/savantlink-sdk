@@ -45,6 +45,33 @@ yalc link @savantlink/sdk
 
 The SDK is now linked to the consumer application for local development.
 
+## Publishing to the Public npm Registry
+
+Authenticate with npm from the SDK root directory:
+
+```bash
+npm login
+```
+
+Increment the package version before publishing. For a backward-compatible fix, use a patch release:
+
+```bash
+npm version patch
+```
+
+Publish the scoped package to the public npm registry:
+
+```bash
+npm publish --access public
+```
+
+After upgrading the SDK in a Vite application, clear Vite's dependency cache and restart the development server when the old bundle is still being used:
+
+```bash
+rm -rf node_modules/.vite
+yarn dev --force
+```
+
 
 
 *You are welcome 🚀*

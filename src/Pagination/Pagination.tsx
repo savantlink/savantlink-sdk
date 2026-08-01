@@ -28,12 +28,13 @@ const Pagination = ({
   className,
   ...props
 }: PaginationProps) => {
-  const paginationRange = usePagination({
-    totalSize,
-    perPageSize,
-    currentPageSiblings,
-    currentPage,
-  }) as unknown as []
+  const paginationRange =
+    usePagination({
+      totalSize,
+      perPageSize,
+      currentPageSiblings,
+      currentPage,
+    }) ?? []
 
   if (currentPage === 0 || paginationRange.length < 2) {
     return null
@@ -72,6 +73,8 @@ const Pagination = ({
               </li>
             )
           }
+
+          if (typeof pageNumber !== 'number') return null
 
           return (
             <li

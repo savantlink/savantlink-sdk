@@ -54,6 +54,10 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
       const middleRange = range(leftSiblingIndex, rightSiblingIndex)
       return [firstPageIndex, ELLIPSIS, ...middleRange, ELLIPSIS, lastPageIndex]
     }
+
+    // A small page count can fall between the ellipsis cases above. Always
+    // return the complete range rather than leaving consumers with undefined.
+    return range(firstPageIndex, lastPageIndex)
   }, [totalSize, perPageSize, currentPageSiblings, currentPage, isMobileScreen])
   return paginationRange
 }
