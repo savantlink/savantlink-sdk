@@ -15,7 +15,7 @@ Types of changes are:
 ## Unreleased
 ## 2.1.20 - 2026-08-09
 ### Changed
-- Added optional search filtering and an empty-result state to the `Select` component.
+- Added optional local/remote search filtering and an empty-result state to the `Select` component.
 
 ## 2.1.19 - 2026-08-09
 ### Changed

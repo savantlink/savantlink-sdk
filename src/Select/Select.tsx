@@ -24,6 +24,7 @@ interface SelectProps {
   searchable?: boolean
   searchPlaceholder?: string
   noOptionsMessage?: string
+  onSearch?: (query: string) => void
 }
 
 const Select: FC<SelectProps> = ({
@@ -42,6 +43,7 @@ const Select: FC<SelectProps> = ({
   searchable = false,
   searchPlaceholder = 'Search options',
   noOptionsMessage = 'No options found',
+  onSearch,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
@@ -208,7 +210,9 @@ const Select: FC<SelectProps> = ({
               onClick={(event) => event.stopPropagation()}
               onKeyDown={(event) => event.stopPropagation()}
               onChange={(event) => {
-                setSearchQuery(event.target.value)
+                const query = event.target.value
+                setSearchQuery(query)
+                onSearch?.(query)
                 setFocusedIndex(-1)
               }}
             />
