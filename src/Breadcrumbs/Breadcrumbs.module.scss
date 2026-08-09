@@ -1,9 +1,11 @@
 .breadcrumb {
+  min-width: 0;
   padding: 1rem 0;
 
   &__list {
     display: flex;
     align-items: center;
+    min-width: 0;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -11,6 +13,7 @@
 
   &__item {
     display: flex;
+    flex: 0 0 auto;
     align-items: center;
   }
 
@@ -31,7 +34,42 @@
   }
 
   &__separator {
+    flex: 0 0 auto;
     margin: 0 .5rem;
     color: var(--color-primary-dark);
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    max-width: 100%;
+    padding: .75rem 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__list {
+      width: max-content;
+      white-space: nowrap;
+    }
+
+    &__link,
+    &__current {
+      overflow: visible;
+      font-size: .875rem;
+      text-overflow: clip;
+      white-space: nowrap;
+    }
+
+    &__separator {
+      width: 1rem;
+      height: 1rem;
+      margin: 0 .25rem;
+    }
   }
 }

@@ -26,3 +26,15 @@ const Template: ComponentStory<typeof Breadcrumbs> = () => {
 }
 
 export const Default = Template.bind({})
+
+export const LongMobileLabels: ComponentStory<typeof Breadcrumbs> = () => (
+  <div style={{ width: 320 }}>
+    <Breadcrumbs
+      items={[
+        { label: 'Dashboard overview', path: '/' },
+        { label: 'Procurement management', path: '/procurement' },
+        { label: 'Create new purchase receipt' },
+      ]}
+    />
+  </div>
+)

@@ -13,13 +13,16 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+## 2.1.19 - 2026-08-09
 
 ### Changed
 - Added complete JavaScript and CSS source maps to published builds and preserved component names in minified stack traces.
 - Documented the process for publishing the SDK to the public npm registry.
+- Updated mobile breadcrumbs to preserve full labels and support touch-friendly horizontal scrolling instead of truncation.
 
 ### Fixed
 - Ensured Pagination always receives a valid page range for small boundary-case page counts.
+- Fixed Storybook startup with `boxen@5` by pinning the CommonJS-compatible `wrap-ansi@7` development dependency.
 
 ## 2.1.16 - 2026-07-29
 ### Removed
