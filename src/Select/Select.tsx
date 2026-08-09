@@ -21,6 +21,9 @@ interface SelectProps {
   readOnly?: boolean
   isError?: boolean
   errorMessage?: string
+  searchable?: boolean
+  searchPlaceholder?: string
+  noOptionsMessage?: string
 }
 
 const Select: FC<SelectProps> = ({
@@ -36,9 +39,13 @@ const Select: FC<SelectProps> = ({
   readOnly = false,
   isError = false,
   errorMessage = 'This field is required',
+  searchable = false,
+  searchPlaceholder = 'Search options',
+  noOptionsMessage = 'No options found',
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
+  const [searchQuery, setSearchQuery] = useState('')
   const selectRef = useRef<HTMLDivElement>(null)
 
   // Close dropdown when clicking outside
@@ -54,8 +61,15 @@ const Select: FC<SelectProps> = ({
 
   // Reset focus when dropdown closes
   useEffect(() => {
-    if (!isOpen) setFocusedIndex(-1)
+    if (!isOpen) {
+      setFocusedIndex(-1)
+      setSearchQuery('')
+    }
   }, [isOpen])
+
+  const filteredOptions = searchable
+    ? options.filter((option) => String(option.label).toLowerCase().includes(searchQuery.trim().toLowerCase()))
+    : options
 
   const handleSelect = (selectedValue: string) => {
     if (disabled || readOnly) return
@@ -106,12 +120,12 @@ const Select: FC<SelectProps> = ({
       case 'ArrowDown':
         e.preventDefault()
         if (!isOpen) setIsOpen(true)
-        setFocusedIndex((prev) => (prev < options.length - 1 ? prev + 1 : 0))
+        setFocusedIndex((prev) => (prev < filteredOptions.length - 1 ? prev + 1 : 0))
         break
       case 'ArrowUp':
         e.preventDefault()
         if (!isOpen) setIsOpen(true)
-        setFocusedIndex((prev) => (prev > 0 ? prev - 1 : options.length - 1))
+        setFocusedIndex((prev) => (prev > 0 ? prev - 1 : filteredOptions.length - 1))
         break
       default:
         break
@@ -183,7 +197,23 @@ const Select: FC<SelectProps> = ({
       </div>
       {isOpen && !disabled && !readOnly && (
         <div className={styles.selectDropdown} role="listbox">
-          {options.map((option, index) => (
+          {searchable && (
+            <input
+              className={styles.selectSearch}
+              type="search"
+              value={searchQuery}
+              placeholder={searchPlaceholder}
+              aria-label={searchPlaceholder}
+              autoFocus
+              onClick={(event) => event.stopPropagation()}
+              onKeyDown={(event) => event.stopPropagation()}
+              onChange={(event) => {
+                setSearchQuery(event.target.value)
+                setFocusedIndex(-1)
+              }}
+            />
+          )}
+          {filteredOptions.map((option, index) => (
             <div
               key={option.value}
               className={clsx(styles.selectOption, {
@@ -198,6 +228,7 @@ const Select: FC<SelectProps> = ({
               {option.label}
             </div>
           ))}
+          {filteredOptions.length === 0 && <div className={styles.selectEmpty}>{noOptionsMessage}</div>}
         </div>
       )}
       {isError && !isOpen && (

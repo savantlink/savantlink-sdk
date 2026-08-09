@@ -13,12 +13,16 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
-## 2.1.19 - 2026-08-09
+## 2.1.20 - 2026-08-09
+### Changed
+- Added optional search filtering and an empty-result state to the `Select` component.
 
+## 2.1.19 - 2026-08-09
 ### Changed
 - Added complete JavaScript and CSS source maps to published builds and preserved component names in minified stack traces.
 - Documented the process for publishing the SDK to the public npm registry.
 - Updated mobile breadcrumbs to preserve full labels and support touch-friendly horizontal scrolling instead of truncation.
+- Added optional search filtering and an empty-result state to the `Select` component.
 
 ### Fixed
 - Ensured Pagination always receives a valid page range for small boundary-case page counts.
