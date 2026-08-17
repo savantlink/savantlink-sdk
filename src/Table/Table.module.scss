@@ -1,3 +1,17 @@
+.tableWrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
 .pagerButton {
   display: inline-flex;
   align-items: center;
@@ -120,4 +134,37 @@
 
 .emptyStateCta {
   margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .table {
+    margin-bottom: .5rem;
+
+    th,
+    td {
+      padding: 10px;
+      white-space: nowrap;
+    }
+
+    th:first-child,
+    td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+
+    th:first-child {
+      z-index: 2;
+      background: var(--color-primary-lightest-1);
+    }
+
+    td:first-child {
+      background: var(--color-light);
+    }
+  }
+
+  .emptyState {
+    padding: 3rem 1rem 1.5rem;
+    margin: 1rem 0;
+  }
 }

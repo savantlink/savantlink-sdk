@@ -75,8 +75,16 @@ const Table = <T,>({
   }
 
   return (
-    <div className={clsx(styles.tableWrapper, className)}>
-      <table className={styles.table}>
+    <div
+      className={clsx(styles.tableWrapper, className)}
+      role="region"
+      aria-label="Scrollable table"
+      tabIndex={0}
+    >
+      <table
+        className={styles.table}
+        style={{ minWidth: Math.max(600, visible.length * 140) }}
+      >
         <thead>
           <tr>
             {pages > 1 && canPrev && (
