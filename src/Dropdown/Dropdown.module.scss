@@ -15,18 +15,14 @@
     right: 0;
     left: auto;
     z-index: 1000;
-
     width: max-content;
     min-width: 220px;
     max-width: min(320px, calc(100vw - 24px));
     max-height: 400px;
-
     padding: 8px;
     margin: 0;
-
     overflow-y: auto;
     list-style: none;
-
     background: white;
     border: 1px solid var(--color-gray);
     border-radius: 6px;
@@ -43,12 +39,12 @@
     width: 100%;
     min-width: 0;
     padding: 10px 12px;
-    cursor: pointer;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   &__item:hover {
-    opacity: 0.6;
+    opacity: .6;
   }
 
   &__empty {
