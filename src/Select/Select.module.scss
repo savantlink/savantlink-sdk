@@ -1,15 +1,15 @@
-@import "scss/breakpoints";
+@import 'scss/breakpoints';
 
 .select {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: .4rem; /* Ensures spacing between label & input */
+  gap: 0.4rem; /* Ensures spacing between label & input */
   width: 100%;
   font-family: var(--font-family-main);
 
   @include media-breakpoint-up(md) {
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   &Trigger {
@@ -94,8 +94,8 @@
     z-index: 1;
     width: 100%;
     height: 2.5rem;
-    padding: 0 .75rem;
-    margin-bottom: .5rem;
+    padding: 0 0.75rem;
+    margin-bottom: 0.5rem;
     font: inherit;
     color: var(--color-gray-darkest);
     background: var(--color-light);
@@ -109,7 +109,7 @@
   }
 
   &Empty {
-    padding: .75rem;
+    padding: 0.75rem;
     color: var(--color-gray);
     text-align: center;
   }
@@ -129,7 +129,7 @@
 
     &Disabled {
       cursor: not-allowed;
-      opacity: .6;
+      opacity: 0.6;
     }
   }
 
@@ -143,10 +143,9 @@
     width: max-content;
     padding-left: 8px;
     margin-left: 8px;
-    border-left: 2px solid var(--color-gray-light);
 
     &__open {
-      transition: .5s all ease-in-out;
+      transition: 0.5s all ease-in-out;
       transform: rotate(180deg);
     }
   }
@@ -157,6 +156,19 @@
     font-weight: var(--font-weight-normal);
     color: var(--color-gray-dark);
   }
+
+  .leadingIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 8px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 .selectError {
@@ -165,10 +177,10 @@
 
 .selectDisabled {
   pointer-events: none; // Disable interactions
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .selectReadOnly {
   pointer-events: none; // Disable interactions
-  opacity: .8;
+  opacity: 0.8;
 }

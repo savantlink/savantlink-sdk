@@ -25,6 +25,7 @@ interface SelectProps {
   searchPlaceholder?: string
   noOptionsMessage?: string
   onSearch?: (query: string) => void
+  leadingIcon?: ReactNode
 }
 
 const Select: FC<SelectProps> = ({
@@ -44,6 +45,7 @@ const Select: FC<SelectProps> = ({
   searchPlaceholder = 'Search options',
   noOptionsMessage = 'No options found',
   onSearch,
+  leadingIcon,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState<number>(-1)
@@ -162,6 +164,7 @@ const Select: FC<SelectProps> = ({
         aria-describedby={isError ? 'error-message' : undefined}
         onKeyDown={handleKeyDown}
       >
+        {!multiple && leadingIcon && <span className={styles.leadingIcon}>{leadingIcon}</span>}
         {multiple && Array.isArray(value) && value.length > 0 ? (
           <div className={styles.multipleWrapper}>
             <div className={styles.selectTags}>

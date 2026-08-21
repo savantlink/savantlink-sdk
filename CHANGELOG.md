@@ -13,6 +13,9 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Changed
+- Updated `Dropdown` and `Select` component.
+
 ## 2.1.20 - 2026-08-09
 ### Changed
 - Added optional local/remote search filtering and an empty-result state to the `Select` component.
