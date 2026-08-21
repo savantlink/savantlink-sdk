@@ -38,15 +38,27 @@ const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, 
 
     const rect = dropdownRef.current.getBoundingClientRect()
 
-    const minWidth = isFullWidth ? rect.width : 220
     const viewportPadding = 12
+    const gap = 8
+    const minWidth = isFullWidth ? rect.width : 220
 
     const width = Math.min(Math.max(minWidth, rect.width), window.innerWidth - viewportPadding * 2)
 
-    const left = Math.min(Math.max(rect.right - width, viewportPadding), window.innerWidth - width - viewportPadding)
+    // Keep menu horizontally inside viewport
+    const left = Math.max(viewportPadding, Math.min(rect.right - width, window.innerWidth - width - viewportPadding))
+
+    const menuHeight = menuRef.current?.offsetHeight ?? 0
+
+    const spaceBelow = window.innerHeight - rect.bottom - viewportPadding
+
+    const spaceAbove = rect.top - viewportPadding
+
+    const shouldOpenAbove = menuHeight > 0 && spaceBelow < menuHeight + gap && spaceAbove > spaceBelow
+
+    const top = shouldOpenAbove ? Math.max(viewportPadding, rect.top - menuHeight - gap) : rect.bottom + gap
 
     setMenuPosition({
-      top: rect.bottom + 8,
+      top,
       left,
       width,
     })
@@ -85,12 +97,15 @@ const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, 
   useEffect(() => {
     if (!isOpen) return
 
-    updateMenuPosition()
+    const frame = requestAnimationFrame(() => {
+      updateMenuPosition()
+    })
 
     window.addEventListener('resize', updateMenuPosition)
     window.addEventListener('scroll', updateMenuPosition, true)
 
     return () => {
+      cancelAnimationFrame(frame)
       window.removeEventListener('resize', updateMenuPosition)
       window.removeEventListener('scroll', updateMenuPosition, true)
     }
