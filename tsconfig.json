@@ -3,7 +3,6 @@
     "outDir": "./dist/out-tsc",
     "jsx": "react-jsx",
     "module": "esnext",
-    "moduleResolution": "node",
     "skipLibCheck": true,
     "allowJs": true,
     "esModuleInterop": true,
@@ -14,9 +13,8 @@
     "declaration": true,
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "lib": ["ES2015", "DOM"],
     "target": "ES2015",
