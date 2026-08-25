@@ -1,6 +1,6 @@
 {
   "name": "@savantlink/sdk",
-  "version": "2.1.28",
+  "version": "2.1.29",
   "description": "A package that contains reusable components and services for the SavantLink design system and architecture.",
   "homepage": "https://github.com/savantlink/savantlink-sdk",
   "repository": {
