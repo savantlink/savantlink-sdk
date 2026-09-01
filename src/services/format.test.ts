@@ -6,7 +6,7 @@ describe('format helpers', () => {
   })
 
   it('formats currency with configurable currency and locale', () => {
-    expect(formatCurrency(1250, 'NGN', 'en-NG')).toContain('1,250')
+    expect(formatCurrency(1250, 'NGN', 'en-NG')).toContain('1,250.00')
   })
 
   it('formats short and long dates', () => {

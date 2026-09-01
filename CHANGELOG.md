@@ -25,6 +25,7 @@ Types of changes are:
 
 ### Changed
 - Updated `Dropdown` and `Select` component.
+- Updated `formatCurrency` to always display two decimal places.
 - Refactored `useScreenSize` to return the mutually exclusive `isMobile`, `isTablet`, and `isDesktop` flags, using `768px` and `1024px` breakpoints.
 - Updated `usePagination` to consume the new `useScreenSize` return shape.
 

@@ -26,7 +26,7 @@ const formatCurrency = (
   options: Omit<Intl.NumberFormatOptions, 'style' | 'currency'> = {}
 ): string =>
   new Intl.NumberFormat(locale, {
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
     ...options,
     style: 'currency',
