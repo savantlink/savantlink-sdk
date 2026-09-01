@@ -25,6 +25,7 @@ interface TableProps<T> {
   className?: string
   visibleColumns?: number
   onRowClick?: (row: T) => void
+  stickyFirstColumn?: boolean
 }
 
 const Table = <T,>({
@@ -36,6 +37,7 @@ const Table = <T,>({
   className,
   visibleColumns,
   onRowClick,
+  stickyFirstColumn = false,
 }: TableProps<T>) => {
   const [pageIndex, setPageIndex] = useState(0)
 
@@ -98,7 +100,10 @@ const Table = <T,>({
               <th
                 key={column.key}
                 onClick={() => column.sortable && onSort?.(column.key)}
-                className={clsx({ [styles.sortable]: column.sortable })}
+                className={clsx({
+                  [styles.sortable]: column.sortable,
+                  [styles.stickyFirstColumnHeader]: stickyFirstColumn && column.key === columns[0]?.key,
+                })}
               >
                 {column.header}
                 {sortConfig?.key === column.key && (
@@ -132,7 +137,12 @@ const Table = <T,>({
             >
               {pages > 1 && canPrev && <td className={styles.pagerCell} key={`pager-left-${rowIndex}`} />}
               {visible.map((column) => (
-                <td key={column.key}>
+                <td
+                  key={column.key}
+                  className={clsx({
+                    [styles.stickyFirstColumnCell]: stickyFirstColumn && column.key === columns[0]?.key,
+                  })}
+                >
                   {column.render ? column.render(row) : (row as unknown as Record<string, ReactNode>)[column.key]}
                 </td>
               ))}

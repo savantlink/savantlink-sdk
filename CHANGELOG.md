@@ -16,6 +16,7 @@ Types of changes are:
 ## 2.2.0 - 2026-09-01
 ### Added
 - Added reusable `AppIcon`, `ImageLoader`, `Tabs`, and `VersionUpdateNotice` components.
+- Added the opt-in `stickyFirstColumn` prop to `Table`; it defaults to `false`.
 - Added the `useDebounce`, `useIdleTimeout`, and `useOnlineStatus` hooks, with `useInactivityLogout` available as a compatibility alias for `useIdleTimeout`.
 - Added shared formatting utilities: `titleCase`, `formatCurrency`, `currencyFormatter`, `currencyFormmater`, `formatDate`, `formatTime`, `formatDateTime`, and `getRelativeTime`.
 - Added shared collection, query, error, and validation utilities: `sortData`, `formatArrayToOptions`, `createQueryParams`, `extractErrorMessage`, `getApiErrorMessage`, and `isValidNuban`.

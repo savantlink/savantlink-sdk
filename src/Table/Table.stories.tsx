@@ -33,7 +33,7 @@ const emptyState = {
   cTA: <Button onClick={() => console.log('Add Data clicked')}>Add Data</Button>,
 }
 
-const Template: ComponentStory<typeof Table> = () => {
+const Template: ComponentStory<typeof Table> = (args) => {
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' } | null>(null)
 
   const columns: ColumnProps<User>[] = [
@@ -131,11 +131,17 @@ const Template: ComponentStory<typeof Table> = () => {
       sortConfig={sortConfig || undefined}
       onSort={handleSort}
       emptyState={emptyState}
+      {...args}
     />
   )
 }
 
 export const Default = Template.bind({})
+
+export const StickyFirstColumn = Template.bind({})
+StickyFirstColumn.args = {
+  stickyFirstColumn: true,
+}
 
 // New story for empty state
 export const EmptyState = () => {
