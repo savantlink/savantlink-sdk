@@ -1,6 +1,6 @@
 {
   "name": "@savantlink/sdk",
-  "version": "2.1.30",
+  "version": "2.2.0",
   "description": "A package that contains reusable components and services for the SavantLink design system and architecture.",
   "homepage": "https://github.com/savantlink/savantlink-sdk",
   "repository": {
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "clsx": "1.2.1",
-    "web-vitals": "2.1.0"
+    "lucide-react": "1.27.0"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "4.0.3",
@@ -87,7 +87,6 @@
     "jest": "29.4.1",
     "jest-css-modules": "2.1.0",
     "keep-a-changelog": "^2.6.1",
-    "lucide-react": "^1.27.0",
     "postcss": "8.4.21",
     "prop-types": "15.8.1",
     "react": "19.0.0",

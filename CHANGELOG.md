@@ -13,6 +13,7 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+## 2.2.0 - 2026-09-01
 ### Added
 - Added reusable `AppIcon`, `ImageLoader`, `Tabs`, and `VersionUpdateNotice` components.
 - Added the `useDebounce`, `useIdleTimeout`, and `useOnlineStatus` hooks, with `useInactivityLogout` available as a compatibility alias for `useIdleTimeout`.
