@@ -1,0 +1,11 @@
+.image {
+  transition: opacity .3s ease-in-out;
+}
+
+.loading {
+  opacity: .5;
+}
+
+.loaded {
+  opacity: 1;
+}

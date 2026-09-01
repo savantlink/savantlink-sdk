@@ -1,33 +1,39 @@
 import { useEffect, useState } from 'react'
 
-import { BREAKPOINTS, isClient } from '@/services/dom'
+const SCREEN_SIZE_BREAKPOINTS = {
+  tablet: 768,
+  desktop: 1024,
+} as const
 
-const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState({
-    width: isClient() ? window.innerWidth : 0,
-    height: isClient() ? window.innerHeight : 0,
-  })
+interface ScreenSize {
+  isMobile: boolean
+  isTablet: boolean
+  isDesktop: boolean
+}
+
+const getScreenSize = (width?: number): ScreenSize => {
+  if (width === undefined) return { isMobile: false, isTablet: false, isDesktop: true }
+  return {
+    isMobile: width < SCREEN_SIZE_BREAKPOINTS.tablet,
+    isTablet: width >= SCREEN_SIZE_BREAKPOINTS.tablet && width < SCREEN_SIZE_BREAKPOINTS.desktop,
+    isDesktop: width >= SCREEN_SIZE_BREAKPOINTS.desktop,
+  }
+}
+
+const useScreenSize = (): ScreenSize => {
+  const [screenSize, setScreenSize] = useState<ScreenSize>(() => getScreenSize())
 
   useEffect(() => {
-    if (!isClient()) return
+    const handleResize = () => setScreenSize(getScreenSize(window.innerWidth))
 
-    const handleResize = () => {
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }
-
+    handleResize()
     window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
-  const isSmallScreen = screenSize.width < BREAKPOINTS.lg
-  const isMobileScreen = screenSize.width < BREAKPOINTS.md
 
-  return { screenSize, isSmallScreen, isMobileScreen }
+  return screenSize
 }
 
 export default useScreenSize
+export { SCREEN_SIZE_BREAKPOINTS }
+export type { ScreenSize }

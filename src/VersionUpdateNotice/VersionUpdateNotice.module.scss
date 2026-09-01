@@ -1,0 +1,29 @@
+.toast {
+  max-width: min(26rem, calc(100vw - 2rem));
+  background-color: var(--color-primary) !important;
+}
+
+.content {
+  display: grid;
+  gap: .75rem;
+  min-width: 18rem;
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: .2rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.updateButton {
+  font-weight: 500;
+  color: var(--color-primary) !important;
+  background-color: var(--color-light) !important;
+}

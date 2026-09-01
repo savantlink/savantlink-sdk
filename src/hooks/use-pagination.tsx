@@ -13,10 +13,10 @@ type usePaginationProps = {
 }
 
 const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPage }: usePaginationProps) => {
-  const { isMobileScreen } = useScreenSize()
+  const { isMobile } = useScreenSize()
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalSize / perPageSize)
-    const totalPageNumbers = isMobileScreen ? 6 : currentPageSiblings + 5
+    const totalPageNumbers = isMobile ? 6 : currentPageSiblings + 5
 
     // Case 1: If the number of pages is less than the page numbers
     if (totalPageNumbers >= totalPageCount) {
@@ -36,7 +36,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 2: Only right ellipsis to be shown
     if (!showLeftEllipsis && showRightEllipsis) {
-      const leftItemCount = isMobileScreen ? 3 : 2 + 2 * currentPageSiblings
+      const leftItemCount = isMobile ? 3 : 2 + 2 * currentPageSiblings
       const leftRange = range(1, leftItemCount)
 
       return [...leftRange, ELLIPSIS, totalPageCount]
@@ -44,7 +44,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
 
     // Case 3: Only left ellipsis to be shown
     if (showLeftEllipsis && !showRightEllipsis) {
-      const rightItemCount = isMobileScreen ? 3 : 2 + 2 * currentPageSiblings
+      const rightItemCount = isMobile ? 3 : 2 + 2 * currentPageSiblings
       const rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount)
       return [firstPageIndex, ELLIPSIS, ...rightRange]
     }
@@ -58,7 +58,7 @@ const usePagination = ({ totalSize, perPageSize, currentPageSiblings, currentPag
     // A small page count can fall between the ellipsis cases above. Always
     // return the complete range rather than leaving consumers with undefined.
     return range(firstPageIndex, lastPageIndex)
-  }, [totalSize, perPageSize, currentPageSiblings, currentPage, isMobileScreen])
+  }, [totalSize, perPageSize, currentPageSiblings, currentPage, isMobile])
   return paginationRange
 }
 

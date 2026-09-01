@@ -13,8 +13,20 @@ Types of changes are:
 6. Security - For security features
 
 ## Unreleased
+### Added
+- Added reusable `AppIcon`, `ImageLoader`, `Tabs`, and `VersionUpdateNotice` components.
+- Added the `useDebounce`, `useIdleTimeout`, and `useOnlineStatus` hooks, with `useInactivityLogout` available as a compatibility alias for `useIdleTimeout`.
+- Added shared formatting utilities: `titleCase`, `formatCurrency`, `currencyFormatter`, `currencyFormmater`, `formatDate`, `formatTime`, `formatDateTime`, and `getRelativeTime`.
+- Added shared collection, query, error, and validation utilities: `sortData`, `formatArrayToOptions`, `createQueryParams`, `extractErrorMessage`, `getApiErrorMessage`, and `isValidNuban`.
+- Exposed the existing `NumberKeypad`, `useScreenSize`, and `useScrollLock` APIs from the package root.
+
 ### Changed
 - Updated `Dropdown` and `Select` component.
+- Refactored `useScreenSize` to return the mutually exclusive `isMobile`, `isTablet`, and `isDesktop` flags, using `768px` and `1024px` breakpoints.
+- Updated `usePagination` to consume the new `useScreenSize` return shape.
+
+### Fixed
+- Ensured `ValidationError` messages consistently use the standard danger color, including inside parent components with overriding text styles.
 
 ## 2.1.20 - 2026-08-09
 ### Changed
