@@ -19,6 +19,7 @@ Types of changes are:
 - Added the opt-in `stickyFirstColumn` prop to `Table`; it defaults to `false`.
 - Added the `useDebounce`, `useIdleTimeout`, and `useOnlineStatus` hooks, with `useInactivityLogout` available as a compatibility alias for `useIdleTimeout`.
 - Added shared formatting utilities: `titleCase`, `formatCurrency`, `currencyFormatter`, `currencyFormmater`, `formatDate`, `formatTime`, `formatDateTime`, and `getRelativeTime`.
+- Added shared string and validation helpers: `formatSlugToString`, `replacePlaceholder`, `isValidEmail`, `isValidLength`, and `isValidPin`.
 - Added shared collection, query, error, and validation utilities: `sortData`, `formatArrayToOptions`, `createQueryParams`, `extractErrorMessage`, `getApiErrorMessage`, and `isValidNuban`.
 - Exposed the existing `NumberKeypad`, `useScreenSize`, and `useScrollLock` APIs from the package root.
 

@@ -1,6 +1,11 @@
 export type DateFormat = 'short' | 'long'
 export type DateInput = Date | string | number
 
+const getTagColor = {
+  active: 'success',
+  inactive: 'danger',
+} as const
+
 const titleCase = (value: string): string =>
   value
     .trim()
@@ -8,6 +13,11 @@ const titleCase = (value: string): string =>
     .replace(/\s+/g, ' ')
     .toLocaleLowerCase()
     .replace(/(^|\s)\S/g, (letter) => letter.toLocaleUpperCase())
+
+const formatSlugToString = (value: string): string => titleCase(value.replace(/[-_]+/g, ' '))
+
+const replacePlaceholder = (template: string, ...replacements: string[]): string =>
+  template.replace(/{(\d+)}/g, (match, index: string) => replacements[Number(index)] ?? match)
 
 const formatCurrency = (
   amount: number,
@@ -88,7 +98,10 @@ export {
   formatCurrency,
   formatDate,
   formatDateTime,
+  formatSlugToString,
   formatTime,
   getRelativeTime,
+  getTagColor,
+  replacePlaceholder,
   titleCase,
 }

@@ -1,4 +1,5 @@
 import {
+  AlertTriangleIcon,
   ArrowRight,
   BadgeCheck,
   BaggageClaim,
@@ -55,6 +56,7 @@ import {
   RefreshCw,
   Search,
   Settings,
+  ShieldCheck,
   ShoppingBag,
   ShoppingCart,
   Split,
@@ -151,6 +153,8 @@ const icons = {
   'user-circle': CircleUserRound,
   wallet: Wallet,
   warning: TriangleAlert,
+  'alert-triangle-icon': AlertTriangleIcon,
+  'shield-check': ShieldCheck,
 }
 
 type AppIconName = keyof typeof icons
