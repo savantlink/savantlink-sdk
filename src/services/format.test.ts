@@ -5,8 +5,12 @@ describe('format helpers', () => {
     expect(titleCase('PAST_DUE-status')).toBe('Past Due Status')
   })
 
+  it('formats NGN with the naira symbol and two decimal places', () => {
+    expect(formatCurrency(1250)).toBe('₦1,250.00')
+  })
+
   it('formats currency with configurable currency and locale', () => {
-    expect(formatCurrency(1250, 'NGN', 'en-NG')).toContain('1,250.00')
+    expect(formatCurrency(1250, 'USD', 'en-US')).toBe('$1,250.00')
   })
 
   it('formats short and long dates', () => {

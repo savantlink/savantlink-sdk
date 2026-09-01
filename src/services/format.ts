@@ -28,6 +28,7 @@ const formatCurrency = (
   new Intl.NumberFormat(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
+    currencyDisplay: 'narrowSymbol',
     ...options,
     style: 'currency',
     currency: currency.toUpperCase(),

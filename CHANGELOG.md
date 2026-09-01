@@ -26,6 +26,7 @@ Types of changes are:
 ### Changed
 - Updated `Dropdown` and `Select` component.
 - Updated `formatCurrency` to always display two decimal places.
+- Updated `formatCurrency` to display the narrow currency symbol, including `₦` for NGN, instead of the currency code.
 - Refactored `useScreenSize` to return the mutually exclusive `isMobile`, `isTablet`, and `isDesktop` flags, using `768px` and `1024px` breakpoints.
 - Updated `usePagination` to consume the new `useScreenSize` return shape.
 
