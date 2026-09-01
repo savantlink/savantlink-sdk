@@ -9,6 +9,8 @@ interface ApiError {
   response?: {
     data?: {
       errors?: Array<{ msg?: string; message?: string; error?: string }>
+      message?: string
+      error?: string
     }
   }
 }
@@ -16,6 +18,7 @@ interface ApiError {
 const ValidationError = ({ error }: { error?: ApiError | null }) => {
   if (!error) return null // Return nothing if there's no error
   const apiErrors = error.response?.data?.errors || []
+  const apiError = error.response?.data?.error || error.response?.data?.message
 
   return (
     <>
@@ -27,7 +30,7 @@ const ValidationError = ({ error }: { error?: ApiError | null }) => {
         ))
       ) : (
         <Typography variant="label" className={styles.validationError}>
-          {error.message || error.msg}
+          {apiError || error.msg || error.message || 'An unknown error occurred.'}
         </Typography>
       )}
     </>
