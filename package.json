@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "clsx": "1.2.1",
+    "decimal.js-light": "2.5.1",
     "lucide-react": "1.27.0"
   },
   "devDependencies": {

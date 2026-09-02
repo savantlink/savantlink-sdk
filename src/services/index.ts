@@ -1,4 +1,4 @@
-export { range } from './number'
+export { range, calculateAmount } from './number'
 export {
   currencyFormmater,
   currencyFormatter,
