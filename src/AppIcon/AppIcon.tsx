@@ -154,7 +154,7 @@ const icons = {
   wallet: Wallet,
   warning: TriangleAlert,
   'alert-triangle-icon': AlertTriangleIcon,
-  'shield-check': ShieldCheck,
+  'shield-check': ShieldCheck
 }
 
 type AppIconName = keyof typeof icons

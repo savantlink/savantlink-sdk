@@ -19,6 +19,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'children'> & {
   errorClassName?: string
   required?: boolean
   icon?: ReactNode
+  trailingIcon?: ReactNode
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -38,6 +39,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       errorClassName,
       type,
       icon,
+      trailingIcon,
       required = false,
       ...props
     },
@@ -71,10 +73,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               [styles.inputError]: isError,
               [styles.inputSuccess]: isSuccess && !isError,
               [styles.hasIcon]: icon,
+              [styles.hasTrailingIcon]: trailingIcon,
+              [styles.hasTrailingIconAndPassword]: trailingIcon && type === 'password',
             })}
             aria-invalid={isError}
             {...props}
           />
+          {trailingIcon && <span className={styles.trailingIcon}>{trailingIcon}</span>}
           {/* Show/hide password icon for password inputs */}
           {type === 'password' && (
             <button

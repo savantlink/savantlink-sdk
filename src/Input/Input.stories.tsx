@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Search as SearchIcon } from 'lucide-react'
+import { Check as CheckIcon, Search as SearchIcon } from 'lucide-react'
 
 import Input from './Input'
 
@@ -55,3 +55,8 @@ const Template: ComponentStory<typeof Input> = (args) => {
 }
 
 export const Default = Template.bind({})
+
+export const WithTrailingIcon = Template.bind({})
+WithTrailingIcon.args = {
+  trailingIcon: <CheckIcon aria-label="Valid input" />,
+}

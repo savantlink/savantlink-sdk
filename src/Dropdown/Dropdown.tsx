@@ -19,9 +19,10 @@ interface DropdownProps {
   onChange?: (value: string | number) => void
   isFullWidth?: boolean
   hasSearch?: boolean
+  menuClassName?: string
 }
 
-const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, hasSearch }) => {
+const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, hasSearch, menuClassName }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -126,7 +127,7 @@ const Dropdown: FC<DropdownProps> = ({ options, control, onChange, isFullWidth, 
         createPortal(
           <ul
             ref={menuRef}
-            className={styles.dropdown__menu}
+            className={clsx(styles.dropdown__menu, menuClassName)}
             style={{
               top: menuPosition.top,
               left: menuPosition.left,
