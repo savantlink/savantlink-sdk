@@ -49,6 +49,7 @@ import {
   Package,
   PackageOpen,
   PackagePlus,
+  PackageSearch,
   Pencil,
   Plus,
   Printer,
@@ -154,7 +155,8 @@ const icons = {
   wallet: Wallet,
   warning: TriangleAlert,
   'alert-triangle-icon': AlertTriangleIcon,
-  'shield-check': ShieldCheck
+  'shield-check': ShieldCheck,
+  'package-search': PackageSearch,
 }
 
 type AppIconName = keyof typeof icons
