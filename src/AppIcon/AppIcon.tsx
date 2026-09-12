@@ -86,7 +86,7 @@ const icons = {
   bank: Landmark,
   'banknote-arrow-up': BanknoteArrowUp,
   barcode: Barcode,
-  'bulk-product': Boxes,
+  'boxes': Boxes,
   card: CreditCard,
   'card-solid': CreditCard,
   cards: CreditCard,
