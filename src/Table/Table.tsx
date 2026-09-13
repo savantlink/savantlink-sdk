@@ -12,6 +12,19 @@ interface ColumnProps<T> {
   sortable?: boolean
 }
 
+type TableRowKey = string | number
+
+interface TableRowSelection<T> {
+  /** Stable, unique identity; selection survives sorting and pagination. */
+  getRowKey: (row: T) => TableRowKey
+  selectedRowKeys: TableRowKey[]
+  onChange: (selectedRowKeys: TableRowKey[]) => void
+  isRowSelectable?: (row: T) => boolean
+  getRowLabel?: (row: T) => string
+  /** Receives all selected keys, including keys outside the current data. */
+  renderActions?: (selectedRowKeys: TableRowKey[]) => ReactNode
+}
+
 interface TableProps<T> {
   columns: ColumnProps<T>[]
   data: T[]
@@ -26,6 +39,7 @@ interface TableProps<T> {
   visibleColumns?: number
   onRowClick?: (row: T) => void
   stickyFirstColumn?: boolean
+  rowSelection?: TableRowSelection<T>
 }
 
 const Table = <T,>({
@@ -38,8 +52,32 @@ const Table = <T,>({
   visibleColumns,
   onRowClick,
   stickyFirstColumn = false,
+  rowSelection,
 }: TableProps<T>) => {
   const [pageIndex, setPageIndex] = useState(0)
+  const selectedKeys = new Set(rowSelection?.selectedRowKeys ?? [])
+  const selectableKeys = rowSelection
+    ? data.filter((row) => rowSelection.isRowSelectable?.(row) !== false).map(rowSelection.getRowKey)
+    : []
+  const allSelected = selectableKeys.length > 0 && selectableKeys.every((key) => selectedKeys.has(key))
+  const someSelected = selectableKeys.some((key) => selectedKeys.has(key))
+  const toggleAll = () => {
+    if (!rowSelection) return
+    const next = new Set(selectedKeys)
+    selectableKeys.forEach((key) => allSelected ? next.delete(key) : next.add(key))
+    rowSelection.onChange([...next])
+  }
+  const selectAllCheckbox = () => (
+    <input
+      type="checkbox"
+      className={styles.selectionCheckbox}
+      aria-label="Select all rows on this page"
+      checked={allSelected}
+      disabled={selectableKeys.length === 0}
+      ref={(input) => { if (input) input.indeterminate = someSelected && !allSelected }}
+      onChange={toggleAll}
+    />
+  )
 
   const dataColumnCount = columns.length
 
@@ -78,7 +116,7 @@ const Table = <T,>({
 
   return (
     <div
-      className={clsx(styles.tableWrapper, className)}
+      className={clsx(styles.tableWrapper, { [styles.withSelection]: rowSelection }, className)}
       role="region"
       aria-label="Scrollable table"
       tabIndex={0}
@@ -89,6 +127,7 @@ const Table = <T,>({
       >
         <thead>
           <tr>
+            {rowSelection && <th className={styles.selectionCell}>{selectAllCheckbox()}</th>}
             {pages > 1 && canPrev && (
               <th key="pager-left" className={styles.pagerHeader}>
                 <button className={styles.pagerButton} onClick={goPrev} aria-label="Previous columns">
@@ -123,18 +162,36 @@ const Table = <T,>({
         <tbody>
           {data.map((row, rowIndex) => (
             <tr
-              key={rowIndex}
+              key={rowSelection ? rowSelection.getRowKey(row) : rowIndex}
               className={clsx({ [styles.clickableRow]: onRowClick })}
               tabIndex={onRowClick ? 0 : undefined}
               role={onRowClick ? 'button' : undefined}
               onClick={() => onRowClick?.(row)}
               onKeyDown={(event) => {
-                if (onRowClick && (event.key === 'Enter' || event.key === ' ')) {
+                if (event.target === event.currentTarget && onRowClick && (event.key === 'Enter' || event.key === ' ')) {
                   event.preventDefault()
                   onRowClick(row)
                 }
               }}
             >
+              {rowSelection && (
+                <td className={styles.selectionCell} onClick={(event) => event.stopPropagation()}>
+                  <input
+                    type="checkbox"
+                    className={styles.selectionCheckbox}
+                    aria-label={`Select ${rowSelection.getRowLabel?.(row) ?? `row ${rowIndex + 1}`}`}
+                    checked={selectedKeys.has(rowSelection.getRowKey(row))}
+                    disabled={rowSelection.isRowSelectable?.(row) === false}
+                    onChange={(event) => {
+                      const next = new Set(selectedKeys)
+                      const key = rowSelection.getRowKey(row)
+                      if (event.target.checked) next.add(key)
+                      else next.delete(key)
+                      rowSelection.onChange([...next])
+                    }}
+                  />
+                </td>
+              )}
               {pages > 1 && canPrev && <td className={styles.pagerCell} key={`pager-left-${rowIndex}`} />}
               {visible.map((column) => (
                 <td
@@ -151,6 +208,13 @@ const Table = <T,>({
           ))}
         </tbody>
       </table>
+      {rowSelection && (
+        <div className={styles.selectionToolbar}>
+          {selectAllCheckbox()}
+          <span aria-live="polite">{selectedKeys.size} selected</span>
+          {rowSelection.renderActions?.([...selectedKeys])}
+        </div>
+      )}
     </div>
   )
 }
@@ -158,4 +222,4 @@ const Table = <T,>({
 Table.displayName = 'Table'
 
 export default Table
-export type { TableProps, ColumnProps }
+export type { TableProps, ColumnProps, TableRowSelection, TableRowKey }

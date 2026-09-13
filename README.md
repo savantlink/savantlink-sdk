@@ -75,3 +75,31 @@ yarn dev --force
 
 
 *You are welcome 🚀*
+
+### Table bulk selection
+
+Pass `rowSelection` to show row checkboxes and a selected-count footer. Selection is controlled: store `selectedRowKeys` in your app and update it through `onChange`. Keys must be unique and stable across sorting and pagination.
+
+```tsx
+const [selectedRowKeys, setSelectedRowKeys] = useState<Array<string | number>>([])
+
+<Table
+  columns={columns}
+  data={products}
+  emptyState={{}}
+  rowSelection={{
+    getRowKey: (product) => product.id,
+    getRowLabel: (product) => product.name,
+    selectedRowKeys,
+    onChange: setSelectedRowKeys,
+    isRowSelectable: (product) => !product.locked,
+    renderActions: (keys) => (
+      <Button disabled={!keys.length} onClick={() => publishProducts(keys)}>
+        Publish
+      </Button>
+    ),
+  }}
+/>
+```
+
+Select-all toggles eligible rows in the supplied `data` only, preserving keys from other pages. The header and footer checkboxes show a mixed state when some eligible rows are selected. `renderActions` receives all selected keys; the app handles bulk operations and clears selection after deletion or a dataset change when appropriate. Omitting `rowSelection` preserves the existing table behavior.

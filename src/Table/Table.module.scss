@@ -152,6 +152,53 @@
   margin-top: 1rem;
 }
 
+.table .selectionCell {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  width: 48px;
+  min-width: 48px;
+  text-align: center;
+  background-color: var(--color-light);
+}
+
+.table th.selectionCell {
+  background-color: var(--color-gray-light);
+}
+
+.withSelection {
+  .stickyFirstColumnHeader,
+  .stickyFirstColumnCell {
+    left: 48px;
+  }
+}
+
+.selectionCheckbox {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.selectionToolbar {
+  position: sticky;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--color-light);
+  border-top: 1px solid var(--color-gray-light);
+}
+
 @media (max-width: 640px) {
   .table {
     margin-bottom: .5rem;

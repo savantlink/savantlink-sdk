@@ -239,3 +239,34 @@ export const HorizontalPaging = () => {
     />
   )
 }
+
+export const BulkSelection = () => {
+  const [selectedRowKeys, setSelectedRowKeys] = useState<Array<string | number>>([])
+  const products = [
+    { id: 1, name: 'Classic T-Shirt', status: 'Published' },
+    { id: 2, name: 'Running Shoes', status: 'Published' },
+    { id: 3, name: 'Travel Backpack', status: 'Unpublished' },
+  ]
+
+  return (
+    <Table
+      columns={[{ key: 'name', header: 'Product' }, { key: 'status', header: 'Status' }]}
+      data={products}
+      emptyState={{}}
+      stickyFirstColumn
+      rowSelection={{
+        getRowKey: (product) => product.id,
+        getRowLabel: (product) => product.name,
+        selectedRowKeys,
+        onChange: setSelectedRowKeys,
+        renderActions: (keys) => (
+          <>
+            <Button disabled={!keys.length} onClick={() => alert(`Publish: ${keys.join(', ')}`)}>Publish</Button>
+            <Button disabled={!keys.length} onClick={() => alert(`Unpublish: ${keys.join(', ')}`)}>Unpublish</Button>
+            <Button disabled={!keys.length} onClick={() => alert(`Delete: ${keys.join(', ')}`)}>Delete</Button>
+          </>
+        ),
+      }}
+    />
+  )
+}
