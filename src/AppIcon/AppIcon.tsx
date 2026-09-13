@@ -25,6 +25,7 @@ import {
   CreditCard,
   Download,
   Ellipsis,
+  ExternalLink,
   File,
   FileSpreadsheet,
   FileText,
@@ -37,6 +38,7 @@ import {
   Info,
   Landmark,
   LayoutDashboard,
+  Link,
   ListFilter,
   LockKeyhole,
   LogOut,
@@ -86,7 +88,7 @@ const icons = {
   bank: Landmark,
   'banknote-arrow-up': BanknoteArrowUp,
   barcode: Barcode,
-  'boxes': Boxes,
+  boxes: Boxes,
   card: CreditCard,
   'card-solid': CreditCard,
   cards: CreditCard,
@@ -157,6 +159,8 @@ const icons = {
   'alert-triangle-icon': AlertTriangleIcon,
   'shield-check': ShieldCheck,
   'package-search': PackageSearch,
+  link: Link,
+  'external-link': ExternalLink,
 }
 
 type AppIconName = keyof typeof icons
