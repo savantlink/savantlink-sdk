@@ -19,7 +19,7 @@
   height: 22px;
   background: var(--color-gray-light);
   border-radius: 999px;
-  transition: background 0.2s ease;
+  transition: background .2s ease;
 }
 
 .toggle::after {
@@ -28,10 +28,10 @@
   left: 3px;
   width: 16px;
   height: 16px;
-  content: '';
+  content: "";
   background: var(--color-light);
   border-radius: 50%;
-  transition: transform 0.2s ease;
+  transition: transform .2s ease;
 }
 
 .toggleField input:checked + .toggle {
