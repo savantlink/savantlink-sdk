@@ -1,0 +1,43 @@
+.toggleField {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.toggleField input {
+  position: absolute;
+  opacity: 0;
+}
+
+.toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  background: var(--color-gray-light);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.toggle::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  content: '';
+  background: var(--color-light);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggleField input:checked + .toggle {
+  background: var(--color-primary);
+}
+
+.toggleField input:checked + .toggle::after {
+  transform: translateX(18px);
+}
