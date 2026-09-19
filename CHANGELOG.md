@@ -15,6 +15,8 @@ Types of changes are:
 ## Unreleased
 ### Added
 - Added opt-in controlled `Table.rowSelection` with stable row keys, current-page select-all, mixed selection, disabled rows, and a bulk-action footer.
+- New Component `Toggle`
+
 ## 2.2.0 - 2026-09-01
 ### Added
 - Added reusable `AppIcon`, `ImageLoader`, `Tabs`, and `VersionUpdateNotice` components.
